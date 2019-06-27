@@ -1,62 +1,57 @@
 # Introduction
+Welcome to the Brønnøysund Register Center's cap table Developer Portal (beta).
+Norwegian limited companies must have a share capital of at least NOK 30,000 distributed among one or more shares, all of which have the same nominal value in NOK. The size of the share capital, the number of shares and the nominal value are determined in the company's articles of association when the company is formed.
+All limited companies shall have a cap table, unless the company's shares are registered in the public security register. The cap table shall contain an overview of who is shareholders at all times, and it will normally be decisive for who can exercise shareholder rights such as voting rights at the general meeting and the right to dividend. The cap table is public - so everyone has the right to see it.
 
-Velkommen til Brønnøysundregistrenes Aksjeeierbok Utviklerportal (beta). Alle aksjeselskaper skal ha en aksjeeierbok. Denne skal inneholde en oversikt over hvem som til enhver tid er aksjeeiere, og den vil normalt være avgjørende for hvem som kan utøve aksjonærrettigheter. Aksjeeierboken er offentlig - slik at alle har rett til å se den.
+## What is a cap table
+When a shareholder is entered in the shareholder's register the company shall notify the shareholder thereof. The share register shall be updated by change of ownership or pledging of shares in accordance with established rules in the Companies Act (§ 4-7).
+Shares can be freely sold or given away without payment, unless otherwise stated by law, articles of association or agreement between the shareholders. For sale, the price is normally calculated on the basis of market value. Sales below market value can also occur, called a gift sale. In the same way as when shares are given away, this could trigger a tax liability.
+When shareholders sell or otherwise realize shares, gains will be taxable and losses deductible.
+The Companies Act contains rules on the consent of acquiring shares, and rules on pre-emption rights for the other shareholders. An agreement on the transfer of shares shall be reported to the board of the limited company by the person taking over the shares. The agreement should at a minimum contain who the agreement applies to, how many shares are transferred, and at what price.
+Transfers made in the Brønnøysund Register's shareholder book have been reported immediately. The new shareholder must be notified by the company that he / she has been included in the shareholder's register and what is listed.
 
-<aside class="notice">
-Lovhjemmel: <a href="https://lovdata.no/dokument/NL/lov/1997-06-13-44/KAPITTEL_4-1">Lov om aksjeselskaper – kapittel 4 § 4-5.</a>
+<aside class = "success"> The company does not need to carry its own cap table. The solution automatically complies with the mtp stock law. dating, accessibility requirements and requirements for storage. </aside>
+
+<aside class = "success">
+The actual transfer of shares is not necessary to report to the cap table when using the Brønnøysund Register's Shareholder Book, as it is automatically reported.
 </aside>
 
-## Hva er en aksjeeierbok
-Når en aksjeeier er innført i aksjeeierboken, skal selskapet gi aksjeeieren melding om dette. Aksjeeierboken skal oppdateres ved eierskifte eller pantsettelse av aksjer etter fastsatte regler i aksjeloven (§ 4-7).
+### Agreements between the company and the company's management, shareholders or related parties
+The company and the shareholders of the company can enter into agreements with each other, but there are then stricter requirements for the procedure. The starting point is that any agreement that has a value more than one tenth of the share capital, must be approved in the general assembly. From this point of view, some exceptions are listed in the Companies Act. The rules also apply to shareholders' close associates, such as close relatives.
 
-Aksjer kan fritt selges eller gis bort uten betaling, med mindre noe annet fremkommer av lov, vedtekter eller avtale mellom aksjeeierne. Ved salg skal prisen normalt beregnes ut fra markedsverdi. Salg under markedsverdi kan også skje. Da foreligger det et gavesalg. På samme måte som når aksjer gis bort, vil dette kunne utløse en skatteplikt.
+### Shareholder agreements
+Shareholder agreements are normally entered into between shareholders of a company, and regulates the relationship between them. The shareholders are not obliged to enter into such an agreement, but it may be useful. The shareholder agreement obliges the shareholders who sign the agreement. There are no requirements as to how the agreement should look or what it should contain. Examples of conditions that can be regulated in a shareholder agreement are special rules relating to ownership, demands for dividends, non-compete clauses, impartiality and requirements for work effort.
 
-Når aksjonærer selger eller på annen måte realiserer aksjer, vil gevinsten være skattepliktig.
+### Conflict between shareholders
+It is not uncommon for conflicts between shareholders to arise regarding the organization and running of a company. What the basis of the conflicts is difficult to say beforehand, but it may make sense to have a conscious relationship with this. It may make sense to
+* Avoid being two owners who own 50% each of the shares, because this makes majority decisions difficult
+* Enter into shareholder agreements that clarifies how the relationship between shareholders should be in the event of disagreement.
+In cases where the shareholders no longer manage to cooperate with each other, the district court may, by lawsuit from a shareholder or from the company, decide on the redemption or release of a shareholder's shares. Such lawsuits must be regarded as last resort, and there must be weighty reasons.
 
-Aksjeloven har regler om samtykke ved erverv av aksjer, og regler om forkjøpsrett for de andre aksjonærene. Avtale om overføring av aksjer skal meldes til styret i aksjeselskapet av den som overtar aksjene. Avtalen bør som et minimum inneholde hvem avtalen gjelder for, hvor mange aksjer som overføres, og til hvilken pris.
+## Functions in the Brønnøysund Register's Shareholders' Registry
+As a service provider, one can either use the share register SDK (Javascript) to make read / writes against cap tables, or one can extend the register of data and functionality by writing smart contracts in Solidity and uploading to the service block.
 
-Overføringer gjort i Brønnøysundregistrenes Aksjeeierbok er innrapportert umiddelbart. Den nye aksjeeieren skal ha melding fra selskapet om at han/hun er innført i aksjeeierboken, og hva som er notert.
-
-<aside class="success">Selskapet trenger ikke ytterligere føre egen aksjeeierbok. Løsningen overholder automatisk aksjeloven mtp. datering, krav til tilgjengelighet og krav til oppbevaring.</aside>
-
-Hvis overdragelsen fører til at det skjer endringer i selskapets vedtekter, eller for eksempel at styrets sammensetning endres, skal endringen <a href="https://www.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/">meldes til Brønnøysundregistrene på skjemaet "samordnet registermelding"</a>.
-
-<aside class="success">
-Selve aksjeoverføringen er ikke nødvendig å melde inn til Aksjonærregisteret når man bruker Brønnøysundregistrenes Aksjeeierbok, da det er automatisk rapportert. 
-</aside>
-
-### Avtaler mellom selskapet og selskapets ledelse, aksjonærer eller nærstående
-Selskapet og aksjonærene i selskapet kan inngå avtaler med hverandre, men det foreligger da skjerpede krav til fremgangsmåten. Utgangspunktet er at enhver avtale som har en verdi som utgjør mer enn en tidel av aksjekapitalen, skal godkjennes av generalforsamlingen. Fra dette utgangspunktet er det listet opp en del unntak i aksjeloven. Reglene gjelder også for aksjeeiers nærstående, som for eksempel nær familie.
-
-### Aksjonæravtaler
-Aksjonæravtale inngås normalt mellom aksjeeierne i et selskap, og regulerer forholdet mellom dem. Aksjonærene er ikke pliktig til å inngå en slik avtale, men det kan være nyttig. Aksjonæravtalen forplikter de aksjeeierne som underskriver avtalen. Det finnes ikke noen krav til hvordan avtalen skal se ut eller hva den skal inneholde. Eksempler på forhold som kan reguleres i en aksjonæravtale er særlige regler knyttet til eierskapet, krav på utbytte, konkurranseklausul, habilitet og krav om arbeidsinnsats.
-
-### Konflikt mellom aksjeeiere
-Det er ikke uvanlig at det kan oppstå konflikter mellom aksjonærer om organiseringen av selskapet. Hva som ligger til grunn for konfliktene er i forkant vanskelig å si noe om, men det kan være fornuftig å ha et bevisst forhold til dette. Erfaringsmessig kan det være fornuftig å
-
-* unngå å være to eiere som eier 50 % hver av aksjene, fordi dette vanskeliggjør flertallsbeslutninger
-* inngå aksjonæravtale som avklarer hvordan forholdet mellom aksjonærene skal være i tilfelle uenighet
-I tilfeller hvor aksjonærene ikke lenger klarer å samarbeide med hverandre, kan tingretten, etter søksmål fra en aksjeeier eller fra selskapet, beslutte innløsning eller utløsning av en aksjeeiers aksjer. Slike søksmål må anses som siste utvei, og det må foreligge tungtveiende grunner.
-
-## Funksjoner i Brønnøysundregistrenes Aksjeeierbok
-
-Som tjenesteleverandør kan man enten bruke Aksjeeierbok SDK (Javascript) til å gjøre read/writes mot aksjeeierbøker, eller man kan utvide registeret med data og funksjonalitet ved å skrive smartkontrakter i Solidity og laste opp til tjenestens blokkjede.
-
-Kom veldig gjerne med tilbakemelding ved å opprette et Issue på Github. Siden dette er en åpen beta står oppfordringen til å bidra tilbake med dine opplevelser spesielt høyt. 
+Feel free to give feedback by creating an Issue on Github.
 
 ## Users
 
-En bruker er en aksjonær og/eller daglig leder og/eller styreleder. En bruker er enten aktiv eller passiv.
+A user is a shareholder and/or CEO and/or chairman of the board. A user is either active or passive.
 
-En aktiv bruker er autentisert og kan skrive endringer direkte i aksjeeierboken, som å overføre aksjer eller endre adressen sin. 
+An active user is authenticated and can write changed directly into the shareholder register, like transferring shares or changing their address.
 
-En passiv bruker er en aksjonær som ikke er registrert på plattformen. Brukeren kan ikke gjøre endringer i aksjeeierboken, og eventuelle overføringer må legges inn av styreleder på vegne av aksjonæren.
+A passive user is a shareholder who is not registered on the platform. The user cannot make changes in the shareholder register, and any transfers has to be input by the chairman of the board, on behalf of the shareholder.
 
-<aside class="notice">
-Alle endringer i aksjeeierboken må godkjennes av styreleder. I fremtidige versjoner vil godkjennelsen kunne gis automatisk ved at vedtekter og aksjonæravtaler kontrolleres automatisk.
+<aside class=“notice”>
+All changes in the shareholder register has to be approved by the chairman of the board. In future versions, this approval can be granted automatically if the articles of association and shareholder agreements are automated (i.e. programmed as code).
 </aside>
 
 # Installation
 
-TODO How to install the SDK
+To install the SDK to your project just use NPM:
+
+`npm i @brreg-sdk`
  
+
+## Example application
+It can be hard getting started. We recommend you take a look at our example application to get a feel of the SDK.
+<a href="https://github.com/blockchangers/brreg/tree/master/packages/forvalter" target="_blank">https://github.com/blockchangers/brreg/tree/master/packages/forvalter</a>
