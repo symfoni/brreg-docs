@@ -1,5 +1,5 @@
 ---
-title: Brønnøysundregistrenes Aksjeeierbok (beta) developer portal
+title: Brreg Cap Table Developer Documentation
 
 language_tabs:
   - javascript
