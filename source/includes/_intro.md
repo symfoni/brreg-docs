@@ -6,7 +6,7 @@ Welcome to the "Brønnøysund Business Cap Table" (beta) developer documentation
 Norwegian limited companies must have a share capital of at least NOK 30,000 distributed among one or more shares, all of which have the same nominal value in NOK. The size of the share capital, the number of shares and the nominal value are determined in the company's articles of association when the company is formed.
 All limited companies shall have a cap table unless the company's shares are registered in the public security register. The cap table shall contain an overview of who is shareholders at all times, and it will normally be decisive for who can exercise shareholder rights such as voting rights at the general meeting and the right to dividend. The cap table is public - so everyone has the right to see it.
 
-### What is a cap table
+### What is a cap taible
 When a shareholder is entered in the shareholder's register the company shall notify the shareholder thereof. The share register shall be updated when a change of ownership or pledging of shares happens, in accordance with established rules in the Companies Act (§ 4-7).
 Shares can be freely sold or given away without payment unless otherwise stated by law, articles of association or agreement between the shareholders. For sale, the price is normally calculated on the basis of market value. Sales below market value can also occur, called a gift sale. In the same way as when shares are given away, this could trigger a tax liability.
 When shareholders sell or otherwise realize shares, gains will be taxable and losses deductible.
