@@ -1,3 +1,65 @@
+## Stock API
+Used fo cap table management 
+
+### Include SDK
+
+```javascript
+const StockFactory = require("@brreg/sdk").StockFactory;
+const Stock = require("@brreg/sdk").Stock;
+const RegistryOfCapTablesQue = require("@brreg/sdk").RegistryOfCapTablesQue;
+```
+
+First you need the address of the company in question. 
+
+
+### createNew
+
+```javascript
+const stockFactory = await StockFactory.init(ethereum);
+stockFactory.createNew(name, uuid);
+```
+
+TODO
+
+
+### capTable
+
+```javascript
+let companyCapTable = await Stock.init(ethereum, id);
+console.log(companyCapTable);
+```
+
+Input the Norwegian organization number for the `id` and get the full cap table in return.
+
+
+### getInfo
+
+```javascript
+const capTable = await Stock.init(ethereum, id);
+let info = capTable.info();
+console.log(info);
+```
+
+Input the Norwegian organization number for the `id` and get the full cap table in return.
+
+
+### getShareholders
+
+```javascript
+const capTable = await Stock.init(ethereum, id);
+const shareholders = await capTable.transactionsByShareHolder();
+console.log(shareholders);
+```
+
+Input the Norwegian organization number for the `id` and get the full cap table in return.
+
+
+
+
+
+
+
+
 
 ## Get information about company
 > To get metadata of a company, use this code:
