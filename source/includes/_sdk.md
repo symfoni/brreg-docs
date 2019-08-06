@@ -1,6 +1,6 @@
 # SDK
 
-You can either the platform with the SDK, or you can extend the platform itself by developing and deploying smart contracts. This section is details how to use the SDK.
+You can connect to the platform with the SDK, or you can extend the platform itself by developing and deploying smart contracts. This section is details how to use the SDK.
 
 ## Getting started
 
@@ -10,7 +10,7 @@ You can either the platform with the SDK, or you can extend the platform itself 
 npm install @brreg-sdk
 ```
 
-To develop on BrregCP, you’re first going to want to get the SDK installed on your development machine. 
+To develop on BrregCapTable, you’re first going to want to get the SDK installed on your development machine. 
 
 You should also install MetaMask in Chrome as the middleware between your application the blockchain. [Download here](https://metamask.io/).
 
@@ -19,7 +19,7 @@ It can be hard getting started. We recommend you <a href="https://gitlab.com/blo
 
 ## Basic Considerations
 
-As BrregCP is a service facilitated by leveraging blockchain technology, the flow of how end users interact with your service changes from the regular client-server way of interacting.
+As BrregCapTable is a service facilitated by leveraging blockchain technology, the flow of how end users interact with your service changes from the regular client-server way of interacting.
 
 Instead of credentials authenticating the user and giving the user the correct access, end users are expected to use a browser with blockchain wallet functionality. This functionality is available in
 
@@ -30,7 +30,7 @@ Instead of credentials authenticating the user and giving the user the correct a
 
 The first thing your app will want to do is verify whether the user is using MetaMask or not, which is simple using a check like `if (typeof window.ethereum !== 'undefined') { /* deal with it */ }`.
 
-### Connecting to the BrregCP Network
+### Connecting to the BrregCapTable Network
 
 In the top right menu of MetaMask, you can select the network that you are currently connected to. Among several popular defaults, you'll find `Custom RPC`. Use it and set
 
@@ -41,7 +41,7 @@ In the top right menu of MetaMask, you can select the network that you are curre
 
 Since your seed phrase is the power to control all your accounts, it is probably worth keeping at least one seed phrase for development, separate from any that you use for storing real value. One easy way to manage multiple seed phrases with MetaMask is with multiple browser profiles, each of which can have its own clean extension installations.
 
-<aside class="note">Note that users of you application will also have to manually connect Metamask to the Toyen network as long as BrregCP is in active development and in beta.</aside>
+<aside class="note">Note that users of you application will also have to manually connect Metamask to the Toyen network as long as BrregCapTable is in active development and in beta.</aside>
 
 ### User State
 
@@ -52,12 +52,12 @@ ethereum.networkVersion
 ethereum.selectedAddress
 ```
 
-> Both of these are available synchronously. The networkVersion for BrregCP is `53387025`.
+> Both of these are available synchronously. The networkVersion for BrregCapTable is `53387025`.
 
 - What is the current network?
 - What is the current account?
 
-<aside class="note">If the networkVersion is not 53387025, the user is not connected to the BrregCP. Guide the user to correcting this. See the "Connecting to the BrregCP Network" chapter above.</aside>
+<aside class="note">If the networkVersion is not 53387025, the user is not connected to the BrregCapTable. Guide the user to correcting this. See the "Connecting to the BrregCapTable Network" chapter above.</aside>
 
 ### Logging In
 
@@ -151,11 +151,12 @@ proxyAddress|optional|If you want to point the SDK at another blockchain than th
 ### createNew(name: string, uuid: string, options: { partitions: string[], symbol: string })
 
 ```javascript
-let tx = companyFactory.createNew("Blockchangers AS", "915772137");
-await tx.wait();
+const Company = await companyFactory.createNew("Blockchangers AS", "915772137");
 ```
 
-> Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds
+> Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds. 
+
+This actions will que the company for verification.
 
 Parameter | Default | Description
 --------- | ------- | -----------
@@ -163,26 +164,26 @@ name|undefined|Business name
 uuid|undefined|Organization number, note that it's a string
 options|optional|Object with the following possible options
 partitions|DEFAULT_PARTITION|Array of addresses of share classes, see XX for more on share classes TODO Robin
-symbol|""|Shorthand for the company
+symbol|""|Shorthand for the company, 4 characters length.
+RETURN|Promise<Company>|[Company API](#company-api)
+
 
 ### addStockQue(address: string)
 
 Add the given company ethereum address the queue for verification by the Business Registry. The company will not show up for users and for other developers before the company's information is verified.
+Parameter | Default | Description
+--------- | ------- | -----------
+address|undefined| Address to que
+RETURN|Promise<Boolean>| True if successfully qued.
 
 ```javascript
 // Create company
-let companyAddress = companyFactory.createNew("Blockchangers AS", "915772137");
-await companyAddress.wait();
+let Company = await companyFactory.createNew("Blockchangers AS", "915772137");
 
 // Here you should fill the entity/company with data using addEntity
-let tx = companyFactory.addStockQue(companyAddress);
-await tx.wait();
+let Company = await companyFactory.addStockQue(companyAddress);
+
 ```
-
-
-### qued
-
-TODO ROBIN
 
 ## Entity Registry API
 
@@ -199,13 +200,11 @@ externalSignerProvider|undefined|Should be set to the user's wallet i.e. `ethere
 proxyAddress|optional|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
 
 
-
 ### generateAddress()
 ```javascript
-let arbitraryAddress = entityRegistry.generateAddress();
+const arbitraryAddress = await entityRegistry.generateAddress();
 ```
-
-Many companies will have stockholders who are not on the BrregCP platform. Hence the shares can not be sent to the user. Technically these shares still needs to be generated on the blockchain, and put in it's own enclave. This method generates an arbitrary address to achieve this. Generate one one address for every user who does not have one herself, i.e. is not a registerted user on BrregCP.
+Many companies will have stockholders who are not on the BrregCapTable platform. Hence the shares can not be sent to the user. Technically these shares still needs to be generated on the blockchain, and put in it's own enclave. This method generates an arbitrary address to achieve this. Generate one one address for every user who does not have one herself, i.e. is not a registerted user on BrregCapTable.
 
 ### allTransactionsAllCapTables(uuid: string)
 ```javascript
@@ -240,14 +239,15 @@ console.log(entityData);
 
 ```javascript
      let companyFactory = await StockFactory.init(ethereum);
-     let blockchangersAddress = await companyFactory.createNew("Blockchangers AS", "915772137")
+     let Company = await companyFactory.createNew("Blockchangers AS", "915772137")
+     let companyAddress = await Company.getAddress()
 
 const entityRegistry = await EntityRegistry.init(ethereum)
 let tx = await entityRegistry.addEntity({
-    address: blockchangersAddress,
+    address: companyAddress,
     uuid: "915772137",
-    type: , //TODO Robin
-    name: , // TODO Robin. Hva er forskjellen på Name her og companyFactory name?
+    type: 'person' , // or 'organization
+    name: "Blockchangers AS" , 
     country: "Norway",
     city: "Oslo",
     postalcode: "0179",
@@ -265,7 +265,12 @@ Parameter | Default | Description
 EntityData|undefined|The EntityData object is described with the following parameters
 address|undefined|The blockchain address for the given company og person
 uuid|undefined|String. The organizational number of a company or the identification number of a person
-type etc TODO Robin
+type|undefined|String. 'person' or 'organization.
+name|undefined|String. Name of the entity.
+country|undefined|String. Country of the entity.
+city|undefined|String. City of the entity.
+postalcode|undefined|String. Postalcode of the entity.
+streetAddress|undefined|String. StreetAddress of the entity.
 
 ### updateEntity(data: EntityData)
 
@@ -279,7 +284,7 @@ TODO jon
 
 ```javascript
 const CompanyClass = require("@brreg/sdk").Stock;
-const company = await CompanyClass.init(ethereum, "0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E");
+const Company = await CompanyClass.init(ethereum, "0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E");
 ```
 
 Parameter | Default | Description
@@ -287,139 +292,97 @@ Parameter | Default | Description
 externalSignerProvider|undefined|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
 address|undefined|The ethereum address of the company.
 proxyAddress|optional|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
-
+RETURN|Promise<Company>|[Company API](#company-api)
 ### address()
 
-Returns the address of the company
+Returns a new Company Class for this address.
 
-### balanceOf(address: string)
+### balanceOf(address: string) : Promise<number> 
 
 ```javascript
 const CompanyClass = require("@brreg/sdk").Stock;
-const company = await CompanyClass.init(ethereum, "0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E");
+const Company = await CompanyClass.init(ethereum, "0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E");
 
-let usersAmountOfShares = company.balanceOf("0xab5801a7d398351b8be11c439e05c5b3259aec9b");
+let usersAmountOfShares = Company.balanceOf("0xab5801a7d398351b8be11c439e05c5b3259aec9b");
 console.log(usersAmountOfShares);
 ```
 
-Returns the number of shares for the given ethereum address, be it a person, company or smart contract.
+Returns the number of shares for the given ethereum address for any partition, be it a person, company or smart contract.
 
-### balanceOfByPartition(partition: string, address: string)
+### balanceOfByPartition(partition: string, address: string) : Promise<number>
 
 Returns the number of shares of the given share class for the given ethereum address.
 
-### denominationPerShare()
+### denominationPerShare() : Promise<number> 
 
 Returns the denomination of a share i.e., "Pålydende" in Norwegian.
 
-### director()
+### director() : Promise<string> 
 
 Returns the board director of the company.
 
-### functions()
+### getDefaultPartitions(asBytes = false) : Promise<string[]> 
 
-TODO Robin
+Returns an array of default partitions. By default they will be returned as Strings. 
 
-### getDefaultPartitions(asBytes = false)
 
-TODO Robin
-
-### getLogs(types: string[] = ['transfer', 'issue', 'redeem'])
-
-Returns all actions, including transactions, relating to the company. The query can be narrowed in with the parameter.
-
-### totalSupply()
+### totalSupply() : Promise<number> 
 
 ```javascript
 const CompanyClass = require("@brreg/sdk").Stock;
-const company = await CompanyClass.init(ethereum, "0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E");
+const Company = await CompanyClass.init(ethereum, "0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E");
 
-let totalAmountOfSharesInTheCompany = company.totalSupply();
+let totalAmountOfSharesInTheCompany = await Company.totalSupply();
 console.log(totalAmountOfSharesInTheCompany);
 ```
 
 Returns the total number of shares.
 
-### getTotalSupplyByPartition(partition: string)
+### getTotalSupplyByPartition(partition: string) : Promise<number> 
 
 Returns the number of shares in the given share class.
 
-### getTransactionsFromLogs(logs: LogAndMeta[], filter?: { address?: string })
+### info() : Promise<CapTableInfo>
 
-Returns all transacions relating to the company.
+Returns a collectionof information about the company. 
+name, totalSupply, denomination, denominationPerShare, director, address, isController
 
-### granularity()
-
-TODO Robin. Skal denne alltid være 0 for aksjeselskaper? I så fall kan den fjernes
-
-### info()
-
-TODO Robin
-
-### isController(address: string)
+### isController(address: string) : Promise<boolean>
 
 Returns true if the given address is a controller of the company. An address can be a person or or a smart contract.
 
-// TODO Robin: hva er en controller?
+A controller is an address that can make certain changes to the company — by example transferring board director role. Controllers can in a transparent and with documentation requirement do certain transactions like transferring stocks. This could, by example, be used in the case where a person has died, and the shares need to be transferred to the heir. 
 
-### issue(toUuid: string, numberOfSharesToTransfer: number, options?: { data?: string, partition?: string })
-
-```javascript
-const CompanyClass = require("@brreg/sdk").Stock;
-const company = await CompanyClass.init(ethereum, "0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E");
-
-let tx = company.issue("24078612345", 1000);
-await tx.wait();
-```
-
-Issue new shares to the given entity.
-
-Parameter | Default | Description
---------- | ------- | -----------
-toUuid|undefined|The personal identification number of a person, or a organization number of a company. 
-numberOfSharesToTransfer|undefined|Amount
-options|optional|A object detailed with the following parameters.
-data|optional| TODO Robin
-partition|optional|The class of the shares to issue.
-
-### name()
-
-Returns the name of the company.
-
-### operatorRedeem(fromUuid: string, numberOfSharesToRedeem: number, options?: { partition?: string, data?: string, operatorData?: string })
-
-// TODO Robin. Er operator Brreg, og dette skal kun gjøres av dem? I så fall kan fjernes fra dokumentasjonen
-
-### operatorTransfer(fromUuid: string, toUuid: string, numberOfSharesToTransfer: number, options?: { partition?: string, data?: string, operatorData?: string })
-
-// TODO Robin. Er operator Brreg, og dette skal kun gjøres av dem? I så fall kan fjernes fra dokumentasjonen
-
-### partitionsOf(address: string, asBytes = false)
-
-// TODO Robin
-
-### redeem(numberOfSharesToRedeem: number, options?: { partition?: string, data?: string })
-
-// TODO Robin
-
-### setDenomination(newDenomination: number)
+### setDenomination(newDenomination: number) :Promise<TransactionResponse>
 
 Updates the denomination. This supplied number should not be the denomination per share, but the total denomination: denomination * number of shares e.g. NOK 2 * 30000 shares = denomination 60000.
 
-### getShareholdersFromLogs(logs: LogDescription[])
-
-Return the shareholders of the company.
-
-### shareholders()
+### shareholders() : Promise<Shareholder[]>
 
 Returns all shareholders. 
-// TODO Robin Hva er forskjellen på denne og getShareholdersFromLogs?
 
-### transactions(filter?: { address?: string })
+### transactions(filter?: { address?: string }) : Promise<Transaction[]>
 
 Returns all transactions
 
-### transfer(toUuid: string, numberOfSharesToTransfer: number, options?: { partition?: string, data?: string })
+### name() : Promise<string>
+
+Returns the name of the company.
+
+
+### partitionsOf(address: string, asBytes = false) : Promise<string[]>
+
+Returns all partitions of shares an address is in ownership of.
+
+### transferDirector(address: string) : Promise<TransactionResponse> 
+
+Change the board director of the company.
+
+### uuid() : Promise<string>
+
+Returns the organizational number of the company.
+
+### transfer(toUuid: string, numberOfSharesToTransfer: number, options?: { partition?: string, data?: string }) : Promise<TransactionResponse>
 
 ```javascript
 const CompanyClass = require("@brreg/sdk").Stock;
@@ -436,20 +399,72 @@ Parameter | Default | Description
 toUuid|undefined|The personal identification number of a person, or a organization number of a company. 
 numberOfSharesToTransfer|undefined|Amount
 options|optional|A object detailed with the following parameters.
-data|optional| TODO Robin
+data|optional| This can be an arbitrary blob of data that Companies can utelize in different ways.
 partition|optional|The class of the shares to issue.
 
 Function for moving shares from one person or company, another. Note that you as a developer do not input who the shares comes from. When the user initiates the transfer from your service, the transaction is signed and sent from them. Hence the shares are sent from her. 
 
 <aside class="notice">Shares are transfered from the user initiating this function.</aside>
 
-### transferDirector(address: string)
+### operatorTransfer(fromUuid: string, toUuid: string, numberOfSharesToTransfer: number, options?: { partition?: string, data?: string, operatorData?: string }) :: Promise<TransactionResponse>
 
-Change the board director of the company.
+If a controller wants to force a transaction the controller has the use this function to make the transactions. The controller can attach data about the forced transaction in operatorData. 
 
-### uuid()
+> Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds
 
-Returns the organizational number of the company.
 
-### TODO Robin, er det ingen transferFrom og Approve som smartkontrakter kan bruke til å flytte aksjer?
+Parameter | Default | Description
+--------- | ------- | -----------
+toUuid|undefined|The personal identification number of a person, or a organization number of a company. 
+numberOfSharesToTransfer|undefined|Amount
+options|optional|A object detailed with the following parameters.
+data|optional| This can be an arbitrary blob of data that companies can utelize in different ways.
+partition|optional|The class of the shares to issue.
+operatorData|optional|This can be an arbitrary blob of data that companies can utelize in different ways.
+
+### issue(toUuid: string, numberOfSharesToTransfer: number, options?: { data?: string, partition?: string })  : Promise<TransactionResponse>
+
+```javascript
+const CompanyClass = require("@brreg/sdk").Stock;
+const Company = await CompanyClass.init(ethereum, "0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E");
+
+let tx = Company.issue("24078612345", 1000);
+await tx.wait();
+```
+
+Issue new shares to the given entity.
+
+Parameter | Default | Description
+--------- | ------- | -----------
+toUuid|undefined|The personal identification number of a person, or a organization number of a company. 
+numberOfSharesToTransfer|undefined|Amount
+options|optional|A object detailed with the following parameters.
+data|optional| This can be an arbitrary blob of data that companies can utelize in different ways.
+partition|optional|The class of the shares to issue.
+
+
+
+### redeem(numberOfSharesToRedeem: number, options?: { partition?: string, data?: string })
+
+Remove shares from the sending address.
+
+Parameter | Default | Description
+--------- | ------- | -----------
+numberOfSharesToRedeem|number| AMount of shares to remove.
+options|optional|A object detailed with the following parameters.
+data|optional| This can be an arbitrary blob of data that companies can utelize in different ways.
+partition|optional|The class of the shares to redeem.
+
+### operatorRedeem(fromUuid: string, numberOfSharesToRedeem: number, options?: { partition?: string, data?: string, operatorData?: string }) : Promise<TransactionResponse>
+
+Remove shares from the sending address.
+
+Parameter | Default | Description
+--------- | ------- | -----------
+fromUuid|string| From which UUID shall the opretaor remove shares.
+numberOfSharesToRedeem|number| Amount of shares to remove.
+options|optional|A object detailed with the following parameters.
+data|optional| This can be an arbitrary blob of data that companies can utelize in different ways.
+partition|optional|The class of the shares to redeem.
+operatorData|optional|This can be an arbitrary blob of data that companies can utelize in different ways.
 

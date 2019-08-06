@@ -1,7 +1,7 @@
-# Brreg Cap Table (BrregCP) Developer Documentation
+# Brreg Cap Table (BrregCapTable) Developer Documentation
 
 ## Introduction
-Welcome to the "Brønnøysund Business Cap Table" (beta) developer documentation, BrregCP in short. 
+Welcome to the "Brønnøysund Business Cap Table" (beta) developer documentation, BrregCapTable in short. 
 
 Norwegian limited companies must have a share capital of at least NOK 30,000 distributed among one or more shares, all of which have the same nominal value in NOK. The size of the share capital, the number of shares and the nominal value are determined in the company's articles of association when the company is formed.
 All limited companies shall have a cap table unless the company's shares are registered in the public security register. The cap table shall contain an overview of who is shareholders at all times, and it will normally be decisive for who can exercise shareholder rights such as voting rights at the general meeting and the right to dividend. The cap table is public - so everyone has the right to see it.
@@ -30,10 +30,10 @@ It is not uncommon for conflicts between shareholders to arise regarding the org
 In cases where the shareholders no longer manage to cooperate with each other, the district court may, by a lawsuit from a shareholder or from the company, decide on the redemption or release of a shareholder's shares. Such lawsuits must be regarded as last resort, and there must be weighty reasons.
 
 # Integrate your application
-A project that is looking to integrate with BrregCP has 5 different avenues to interact with the protocol implementation. The integration types are as follows:
+A project that is looking to integrate with BrregCapTable has 5 different avenues to interact with the protocol implementation. The integration types are as follows:
 
-* [SDK](#sdk)
-* Smart Contracts
+* [SDK](https://www.npmjs.com/package/@brreg/sdk)
+* [Smart Contracts](https://gitlab.com/blockchangers/brreg/tree/master/packages/contracts/src/contracts)
 * [Web3](https://docs.ethers.io/ethers.js/html/)
 * [GraphQL](http://52.158.44.155:4000/graphiql)
 * [REST](http://52.158.44.155:4000/api_docs)
@@ -43,7 +43,7 @@ The SDK makes it easy to make read and makes changes to company cap tables. A sm
 # Main Concepts
 
 ## Common Terms
-This is a list of terms you might encounter when developing on BrregCP.
+This is a list of terms you might encounter when developing on BrregCapTable.
 
 ### Cap table
 
@@ -53,12 +53,12 @@ This is a list of terms you might encounter when developing on BrregCP.
 ### Registry of cap tables
 
 * Registry of all cap tables on the platform
+* This is where you can get a list of all cap tables for companies.
 
 ### Entity registry
 
 * Information about people and companies
 * "Enhetsregisteret", in Norwegian
-
 
 ### (Board) Director
 
@@ -76,7 +76,7 @@ This is a list of terms you might encounter when developing on BrregCP.
 ### Blockchain
 
 * A peer to peer ledger, like a database. Writes to the blockchain is done by the user in question directly instead of a server authenticating the user and storing the data for her. 
-* BrregCP is built on Ethereum which means that the underlying technology is blockchain. 
+* BrregCapTable is built on Ethereum which means that the underlying technology is blockchain. 
 * Any reference to blockchain, Ethereum or smart contract is a reference to this underlying technology.
 
 ### Smart Contracts
@@ -92,7 +92,7 @@ This is a list of terms you might encounter when developing on BrregCP.
 
 *   A public & private keypair that represents an entity on the platform.
 *   The user's stock and operations are actually stored on the blockchain, not in the wallet or account.
-*   Just like your Reddit account has a `username (public)` and `password (private)`, so does your Ethereum account.
+*   Just like your Facebook account has a `Name (public)` and `password (private)`, so does your Ethereum account.
 
 ### Address _("Public Key")_
 
