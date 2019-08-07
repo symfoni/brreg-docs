@@ -163,7 +163,7 @@ Parameter | Default | Description
 name|undefined|Business name
 uuid|undefined|Organization number, note that it's a string
 options|optional|Object with the following possible options
-partitions|DEFAULT_PARTITION|Array of addresses of share classes, see XX for more on share classes TODO Robin
+partitions|DEFAULT_PARTITION|List of share classes as strings. Example ['a-share', 'b-share']
 symbol|""|Shorthand for the company, 4 characters length.
 RETURN|Promise<Company>|[Company API](#company-api)
 
@@ -235,7 +235,7 @@ console.log(entityData);
 ```
 
 
-### addEntity(data: EntityData)
+### addEntity(data: EntityData) : Promise<ContractReceipt>
 
 ```javascript
      let companyFactory = await StockFactory.init(ethereum);
@@ -256,9 +256,9 @@ let tx = await entityRegistry.addEntity({
 await tx.wait();
 ```
 
-> Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds
+Adds an entity to the entityRegistry.
 
-Note that only you can see and operate on the object. For security reasons the data supplied by you, needs to be validated by the Business Registry before it is displayed to users and other developers. You get the company validated by adding it to the validation queue. 
+> Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds
 
 Parameter | Default | Description
 --------- | ------- | -----------
@@ -272,9 +272,21 @@ city|undefined|String. City of the entity.
 postalcode|undefined|String. Postalcode of the entity.
 streetAddress|undefined|String. StreetAddress of the entity.
 
-### updateEntity(data: EntityData)
+### updateEntity(data: EntityData) : Promise<ContractReceipt>
 
-TODO jon
+Updates an entity in the entityRegistry.
+
+Parameter | Default | Description
+--------- | ------- | -----------
+EntityData|undefined|The EntityData object is described with the following parameters
+address|undefined|The blockchain address for the given company og person
+uuid|undefined|String. The organizational number of a company or the identification number of a person
+type|undefined|String. 'person' or 'organization.
+name|undefined|String. Name of the entity.
+country|undefined|String. Country of the entity.
+city|undefined|String. City of the entity.
+postalcode|undefined|String. Postalcode of the entity.
+streetAddress|undefined|String. StreetAddress of the entity.
 
 ## Company API
 
@@ -467,4 +479,3 @@ options|optional|A object detailed with the following parameters.
 data|optional| This can be an arbitrary blob of data that companies can utelize in different ways.
 partition|optional|The class of the shares to redeem.
 operatorData|optional|This can be an arbitrary blob of data that companies can utelize in different ways.
-
