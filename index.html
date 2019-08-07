@@ -219,7 +219,7 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#brreg-cap-table-brregcp-developer-documentation" class="toc-h1 toc-link" data-title="Brreg Cap Table (BrregCP) Developer Documentation">Brreg Cap Table (BrregCP) Developer Documentation</a>
+            <a href="#brreg-cap-table-brregcaptable-developer-documentation" class="toc-h1 toc-link" data-title="Brreg Cap Table (BrregCapTable) Developer Documentation">Brreg Cap Table (BrregCapTable) Developer Documentation</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#introduction" class="toc-h2 toc-link" data-title="Introduction">Introduction</a>
@@ -279,12 +279,12 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='brreg-cap-table-brregcp-developer-documentation'>Brreg Cap Table (BrregCP) Developer Documentation</h1><h2 id='introduction'>Introduction</h2>
-<p>Welcome to the &quot;Brønnøysund Business Cap Table&quot; (beta) developer documentation, BrregCP in short. </p>
+        <h1 id='brreg-cap-table-brregcaptable-developer-documentation'>Brreg Cap Table (BrregCapTable) Developer Documentation</h1><h2 id='introduction'>Introduction</h2>
+<p>Welcome to the &quot;Brønnøysund Business Cap Table&quot; (beta) developer documentation, BrregCapTable in short. </p>
 
 <p>Norwegian limited companies must have a share capital of at least NOK 30,000 distributed among one or more shares, all of which have the same nominal value in NOK. The size of the share capital, the number of shares and the nominal value are determined in the company&#39;s articles of association when the company is formed.
 All limited companies shall have a cap table unless the company&#39;s shares are registered in the public security register. The cap table shall contain an overview of who is shareholders at all times, and it will normally be decisive for who can exercise shareholder rights such as voting rights at the general meeting and the right to dividend. The cap table is public - so everyone has the right to see it.</p>
-<h3 id='what-is-a-cap-table'>What is a cap table</h3>
+<h3 id='what-is-a-cap-taible'>What is a cap taible</h3>
 <p>When a shareholder is entered in the shareholder&#39;s register the company shall notify the shareholder thereof. The share register shall be updated when a change of ownership or pledging of shares happens, in accordance with established rules in the Companies Act (§ 4-7).
 Shares can be freely sold or given away without payment unless otherwise stated by law, articles of association or agreement between the shareholders. For sale, the price is normally calculated on the basis of market value. Sales below market value can also occur, called a gift sale. In the same way as when shares are given away, this could trigger a tax liability.
 When shareholders sell or otherwise realize shares, gains will be taxable and losses deductible.
@@ -306,11 +306,11 @@ Transfers made in the Brønnøysund Register&#39;s shareholder book have been re
 
 <p>In cases where the shareholders no longer manage to cooperate with each other, the district court may, by a lawsuit from a shareholder or from the company, decide on the redemption or release of a shareholder&#39;s shares. Such lawsuits must be regarded as last resort, and there must be weighty reasons.</p>
 <h1 id='integrate-your-application'>Integrate your application</h1>
-<p>A project that is looking to integrate with BrregCP has 5 different avenues to interact with the protocol implementation. The integration types are as follows:</p>
+<p>A project that is looking to integrate with BrregCapTable has 5 different avenues to interact with the protocol implementation. The integration types are as follows:</p>
 
 <ul>
-<li><a href="#sdk">SDK</a></li>
-<li>Smart Contracts</li>
+<li><a href="https://www.npmjs.com/package/@brreg/sdk">SDK</a></li>
+<li><a href="https://gitlab.com/blockchangers/brreg/tree/master/packages/contracts/src/contracts">Smart Contracts</a></li>
 <li><a href="https://docs.ethers.io/ethers.js/html/">Web3</a></li>
 <li><a href="http://52.158.44.155:4000/graphiql">GraphQL</a></li>
 <li><a href="http://52.158.44.155:4000/api_docs">REST</a></li>
@@ -318,7 +318,7 @@ Transfers made in the Brønnøysund Register&#39;s shareholder book have been re
 
 <p>The SDK makes it easy to make read and makes changes to company cap tables. A smart contract integration allows you to extend the register itself. For new smart contract developers we recommend this <a href="https://karl.tech/learning-solidity-part-1-deploy-a-contract/" target="_blank">Learning Solidity tutorial series by Karl Floersch</a>. The common methods existing applications use to integrate with our protocol implementation are through our SDK. Explore the SDK guides to learn more!</p>
 <h1 id='main-concepts'>Main Concepts</h1><h2 id='common-terms'>Common Terms</h2>
-<p>This is a list of terms you might encounter when developing on BrregCP.</p>
+<p>This is a list of terms you might encounter when developing on BrregCapTable.</p>
 <h3 id='cap-table'>Cap table</h3>
 <ul>
 <li>The shareholder book for a company</li>
@@ -327,6 +327,7 @@ Transfers made in the Brønnøysund Register&#39;s shareholder book have been re
 <h3 id='registry-of-cap-tables'>Registry of cap tables</h3>
 <ul>
 <li>Registry of all cap tables on the platform</li>
+<li>This is where you can get a list of all cap tables for companies.</li>
 </ul>
 <h3 id='entity-registry'>Entity registry</h3>
 <ul>
@@ -349,7 +350,7 @@ Transfers made in the Brønnøysund Register&#39;s shareholder book have been re
 <h3 id='blockchain'>Blockchain</h3>
 <ul>
 <li>A peer to peer ledger, like a database. Writes to the blockchain is done by the user in question directly instead of a server authenticating the user and storing the data for her. </li>
-<li>BrregCP is built on Ethereum which means that the underlying technology is blockchain. </li>
+<li>BrregCapTable is built on Ethereum which means that the underlying technology is blockchain. </li>
 <li>Any reference to blockchain, Ethereum or smart contract is a reference to this underlying technology.</li>
 </ul>
 <h3 id='smart-contracts'>Smart Contracts</h3>
@@ -365,7 +366,7 @@ Transfers made in the Brønnøysund Register&#39;s shareholder book have been re
 <ul>
 <li>  A public &amp; private keypair that represents an entity on the platform.</li>
 <li>  The user&#39;s stock and operations are actually stored on the blockchain, not in the wallet or account.</li>
-<li>  Just like your Reddit account has a <code>username (public)</code> and <code>password (private)</code>, so does your Ethereum account.</li>
+<li>  Just like your Facebook account has a <code>Name (public)</code> and <code>password (private)</code>, so does your Ethereum account.</li>
 </ul>
 <h3 id='address-quot-public-key-quot'>Address <em>(&quot;Public Key&quot;)</em></h3>
 <ul>
@@ -464,20 +465,20 @@ All changes in the shareholder register have to be approved by the chairman of t
 <h3 id='production'>Production</h3>
 <p>The production version of the platform is not live yet. </p>
 <h1 id='sdk'>SDK</h1>
-<p>You can either the platform with the SDK, or you can extend the platform itself by developing and deploying smart contracts. This section is details how to use the SDK.</p>
+<p>You can connect to the platform with the SDK, or you can extend the platform itself by developing and deploying smart contracts. This section is details how to use the SDK.</p>
 <h2 id='getting-started'>Getting started</h2>
 <blockquote>
 <p>To install the SDK to your project just use NPM in your project.</p>
 </blockquote>
 <pre class="highlight plaintext"><code>npm install @brreg-sdk
 </code></pre>
-<p>To develop on BrregCP, you’re first going to want to get the SDK installed on your development machine. </p>
+<p>To develop on BrregCapTable, you’re first going to want to get the SDK installed on your development machine. </p>
 
 <p>You should also install MetaMask in Chrome as the middleware between your application the blockchain. <a href="https://metamask.io/">Download here</a>.</p>
 <h3 id='example-application'>Example application</h3>
 <p>It can be hard getting started. We recommend you <a href="https://gitlab.com/blockchangers/brreg/tree/master/packages/forvalter" target="_blank">take a look at the source code of our example application</a> to get a feel of the SDK. The application is written in Vue.js. A <a href="https://blockchangers.gitlab.io/brreg/" target="_blanK">live version of the example application is available on Github</a>.</p>
 <h2 id='basic-considerations'>Basic Considerations</h2>
-<p>As BrregCP is a service facilitated by leveraging blockchain technology, the flow of how end users interact with your service changes from the regular client-server way of interacting.</p>
+<p>As BrregCapTable is a service facilitated by leveraging blockchain technology, the flow of how end users interact with your service changes from the regular client-server way of interacting.</p>
 
 <p>Instead of credentials authenticating the user and giving the user the correct access, end users are expected to use a browser with blockchain wallet functionality. This functionality is available in</p>
 
@@ -487,7 +488,7 @@ All changes in the shareholder register have to be approved by the chairman of t
 </ul>
 <h3 id='web3-browser-detection'>Web3 Browser Detection</h3>
 <p>The first thing your app will want to do is verify whether the user is using MetaMask or not, which is simple using a check like <code>if (typeof window.ethereum !== &#39;undefined&#39;) { /* deal with it */ }</code>.</p>
-<h3 id='connecting-to-the-brregcp-network'>Connecting to the BrregCP Network</h3>
+<h3 id='connecting-to-the-brregcaptable-network'>Connecting to the BrregCapTable Network</h3>
 <p>In the top right menu of MetaMask, you can select the network that you are currently connected to. Among several popular defaults, you&#39;ll find <code>Custom RPC</code>. Use it and set</p>
 
 <ul>
@@ -499,14 +500,14 @@ All changes in the shareholder register have to be approved by the chairman of t
 
 <p>Since your seed phrase is the power to control all your accounts, it is probably worth keeping at least one seed phrase for development, separate from any that you use for storing real value. One easy way to manage multiple seed phrases with MetaMask is with multiple browser profiles, each of which can have its own clean extension installations.</p>
 
-<aside class="note">Note that users of you application will also have to manually connect Metamask to the Toyen network as long as BrregCP is in active development and in beta.</aside>
+<aside class="note">Note that users of you application will also have to manually connect Metamask to the Toyen network as long as BrregCapTable is in active development and in beta.</aside>
 <h3 id='user-state'>User State</h3>
 <p>Currently there are a few stateful things you want to consider when interacting with Metamask:</p>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">ethereum</span><span class="p">.</span><span class="nx">networkVersion</span>
 <span class="nx">ethereum</span><span class="p">.</span><span class="nx">selectedAddress</span>
 </code></pre>
 <blockquote>
-<p>Both of these are available synchronously. The networkVersion for BrregCP is <code>53387025</code>.</p>
+<p>Both of these are available synchronously. The networkVersion for BrregCapTable is <code>53387025</code>.</p>
 </blockquote>
 
 <ul>
@@ -514,7 +515,7 @@ All changes in the shareholder register have to be approved by the chairman of t
 <li>What is the current account?</li>
 </ul>
 
-<aside class="note">If the networkVersion is not 53387025, the user is not connected to the BrregCP. Guide the user to correcting this. See the "Connecting to the BrregCP Network" chapter above.</aside>
+<aside class="note">If the networkVersion is not 53387025, the user is not connected to the BrregCapTable. Guide the user to correcting this. See the "Connecting to the BrregCapTable Network" chapter above.</aside>
 <h3 id='logging-in'>Logging In</h3>
 <blockquote>
 <p>When you&#39;re ready to request the user logs in, you can call this simple method.</p>
@@ -611,12 +612,13 @@ This code snippet is essential for using any of the following methods from the S
 <td>If you want to point the SDK at another blockchain than the <a href="#networks-and-endpoints">Stagning server</a></td>
 </tr>
 </tbody></table>
-<h3 id='createnew-name-string-uuid-string-options-partitions-string-symbol-string'>createNew(name: string, uuid: string, options: { partitions: string[], symbol: string })</h3><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">tx</span> <span class="o">=</span> <span class="nx">companyFactory</span><span class="p">.</span><span class="nx">createNew</span><span class="p">(</span><span class="s2">"Blockchangers AS"</span><span class="p">,</span> <span class="s2">"915772137"</span><span class="p">);</span>
-<span class="nx">await</span> <span class="nx">tx</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+<h3 id='createnew-name-string-uuid-string-options-partitions-string-symbol-string'>createNew(name: string, uuid: string, options: { partitions: string[], symbol: string })</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">companyFactory</span><span class="p">.</span><span class="nx">createNew</span><span class="p">(</span><span class="s2">"Blockchangers AS"</span><span class="p">,</span> <span class="s2">"915772137"</span><span class="p">);</span>
 </code></pre>
 <blockquote>
-<p>Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds</p>
+<p>Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds. </p>
 </blockquote>
+
+<p>This actions will que the company for verification.</p>
 
 <table><thead>
 <tr>
@@ -648,21 +650,27 @@ This code snippet is essential for using any of the following methods from the S
 <tr>
 <td>symbol</td>
 <td>&quot;&quot;</td>
-<td>Shorthand for the company</td>
+<td>Shorthand for the company, 4 characters length.</td>
+</tr>
+<tr>
+<td>RETURN</td>
+<td>Promise<Company></td>
+<td><a href="#company-api">Company API</a></td>
 </tr>
 </tbody></table>
 <h3 id='addstockque-address-string'>addStockQue(address: string)</h3>
-<p>Add the given company ethereum address the queue for verification by the Business Registry. The company will not show up for users and for other developers before the company&#39;s information is verified.</p>
+<p>Add the given company ethereum address the queue for verification by the Business Registry. The company will not show up for users and for other developers before the company&#39;s information is verified.
+Parameter | Default | Description
+--------- | ------- | -----------
+address|undefined| Address to que
+RETURN|Promise<Boolean>| True if successfully qued.</p>
 <pre class="highlight javascript tab-javascript"><code><span class="c1">// Create company</span>
-<span class="kd">let</span> <span class="nx">companyAddress</span> <span class="o">=</span> <span class="nx">companyFactory</span><span class="p">.</span><span class="nx">createNew</span><span class="p">(</span><span class="s2">"Blockchangers AS"</span><span class="p">,</span> <span class="s2">"915772137"</span><span class="p">);</span>
-<span class="nx">await</span> <span class="nx">companyAddress</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+<span class="kd">let</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">companyFactory</span><span class="p">.</span><span class="nx">createNew</span><span class="p">(</span><span class="s2">"Blockchangers AS"</span><span class="p">,</span> <span class="s2">"915772137"</span><span class="p">);</span>
 
 <span class="c1">// Here you should fill the entity/company with data using addEntity</span>
-<span class="kd">let</span> <span class="nx">tx</span> <span class="o">=</span> <span class="nx">companyFactory</span><span class="p">.</span><span class="nx">addStockQue</span><span class="p">(</span><span class="nx">companyAddress</span><span class="p">);</span>
-<span class="nx">await</span> <span class="nx">tx</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
-</code></pre><h3 id='qued'>qued</h3>
-<p>TODO ROBIN</p>
-<h2 id='entity-registry-api'>Entity Registry API</h2><h3 id='init-externalsignerprovider-signer-any-proxyaddress-string-3'>init(externalSignerProvider: Signer | any, proxyAddress?: string)</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">EntityRegistryClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">EntityRegistry</span>
+<span class="kd">let</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">companyFactory</span><span class="p">.</span><span class="nx">addStockQue</span><span class="p">(</span><span class="nx">companyAddress</span><span class="p">);</span>
+
+</code></pre><h2 id='entity-registry-api'>Entity Registry API</h2><h3 id='init-externalsignerprovider-signer-any-proxyaddress-string-3'>init(externalSignerProvider: Signer | any, proxyAddress?: string)</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">EntityRegistryClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">EntityRegistry</span>
 <span class="kr">const</span> <span class="nx">entityRegistry</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">EntityRegistryClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">);</span>
 </code></pre>
 <table><thead>
@@ -683,9 +691,9 @@ This code snippet is essential for using any of the following methods from the S
 <td>If you want to point the SDK at another blockchain than the <a href="#networks-and-endpoints">Stagning server</a></td>
 </tr>
 </tbody></table>
-<h3 id='generateaddress'>generateAddress()</h3><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">arbitraryAddress</span> <span class="o">=</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">generateAddress</span><span class="p">();</span>
+<h3 id='generateaddress'>generateAddress()</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">arbitraryAddress</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">generateAddress</span><span class="p">();</span>
 </code></pre>
-<p>Many companies will have stockholders who are not on the BrregCP platform. Hence the shares can not be sent to the user. Technically these shares still needs to be generated on the blockchain, and put in it&#39;s own enclave. This method generates an arbitrary address to achieve this. Generate one one address for every user who does not have one herself, i.e. is not a registerted user on BrregCP.</p>
+<p>Many companies will have stockholders who are not on the BrregCapTable platform. Hence the shares can not be sent to the user. Technically these shares still needs to be generated on the blockchain, and put in it&#39;s own enclave. This method generates an arbitrary address to achieve this. Generate one one address for every user who does not have one herself, i.e. is not a registerted user on BrregCapTable.</p>
 <h3 id='alltransactionsallcaptables-uuid-string'>allTransactionsAllCapTables(uuid: string)</h3><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">captable</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">allTransactionsAllCapTables</span><span class="p">(</span><span class="s2">"24078612345"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">captable</span><span class="p">);</span>
 </code></pre>
@@ -711,14 +719,15 @@ This code snippet is essential for using any of the following methods from the S
 <h3 id='getentitybyaddress-address-string'>getEntityByAddress(address: string)</h3><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">entityData</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">getEntityByAddress</span><span class="p">(</span><span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">entityData</span><span class="p">);</span>
 </code></pre><h3 id='addentity-data-entitydata'>addEntity(data: EntityData)</h3><pre class="highlight javascript tab-javascript"><code>     <span class="kd">let</span> <span class="nx">companyFactory</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">StockFactory</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">);</span>
-     <span class="kd">let</span> <span class="nx">blockchangersAddress</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">companyFactory</span><span class="p">.</span><span class="nx">createNew</span><span class="p">(</span><span class="s2">"Blockchangers AS"</span><span class="p">,</span> <span class="s2">"915772137"</span><span class="p">)</span>
+     <span class="kd">let</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">companyFactory</span><span class="p">.</span><span class="nx">createNew</span><span class="p">(</span><span class="s2">"Blockchangers AS"</span><span class="p">,</span> <span class="s2">"915772137"</span><span class="p">)</span>
+     <span class="kd">let</span> <span class="nx">companyAddress</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Company</span><span class="p">.</span><span class="nx">getAddress</span><span class="p">()</span>
 
 <span class="kr">const</span> <span class="nx">entityRegistry</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">EntityRegistry</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">)</span>
 <span class="kd">let</span> <span class="nx">tx</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">addEntity</span><span class="p">({</span>
-    <span class="na">address</span><span class="p">:</span> <span class="nx">blockchangersAddress</span><span class="p">,</span>
+    <span class="na">address</span><span class="p">:</span> <span class="nx">companyAddress</span><span class="p">,</span>
     <span class="na">uuid</span><span class="p">:</span> <span class="s2">"915772137"</span><span class="p">,</span>
-    <span class="na">type</span><span class="p">:</span> <span class="p">,</span> <span class="c1">//TODO Robin</span>
-    <span class="na">name</span><span class="p">:</span> <span class="p">,</span> <span class="c1">// TODO Robin. Hva er forskjellen på Name her og companyFactory name?</span>
+    <span class="na">type</span><span class="p">:</span> <span class="s1">'person'</span> <span class="p">,</span> <span class="c1">// or 'organization</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s2">"Blockchangers AS"</span> <span class="p">,</span> 
     <span class="na">country</span><span class="p">:</span> <span class="s2">"Norway"</span><span class="p">,</span>
     <span class="na">city</span><span class="p">:</span> <span class="s2">"Oslo"</span><span class="p">,</span>
     <span class="na">postalcode</span><span class="p">:</span> <span class="s2">"0179"</span><span class="p">,</span>
@@ -754,9 +763,37 @@ This code snippet is essential for using any of the following methods from the S
 <td>undefined</td>
 <td>String. The organizational number of a company or the identification number of a person</td>
 </tr>
+<tr>
+<td>type</td>
+<td>undefined</td>
+<td>String. &#39;person&#39; or &#39;organization.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>undefined</td>
+<td>String. Name of the entity.</td>
+</tr>
+<tr>
+<td>country</td>
+<td>undefined</td>
+<td>String. Country of the entity.</td>
+</tr>
+<tr>
+<td>city</td>
+<td>undefined</td>
+<td>String. City of the entity.</td>
+</tr>
+<tr>
+<td>postalcode</td>
+<td>undefined</td>
+<td>String. Postalcode of the entity.</td>
+</tr>
+<tr>
+<td>streetAddress</td>
+<td>undefined</td>
+<td>String. StreetAddress of the entity.</td>
+</tr>
 </tbody></table>
-
-<p>type etc TODO Robin</p>
 <h3 id='updateentity-data-entitydata'>updateEntity(data: EntityData)</h3>
 <p>TODO jon</p>
 <h2 id='company-api'>Company API</h2><h3 id='init-externalsignerprovider-signer-any-address-string-proxyaddress-string'>init(externalSignerProvider: Signer | any, address: string, proxyAddress?: string)</h3>
@@ -764,7 +801,7 @@ This code snippet is essential for using any of the following methods from the S
 <p>The Class always has to be initalized before using</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">Stock</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">CompanyClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">,</span> <span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">CompanyClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">,</span> <span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
 </code></pre>
 <table><thead>
 <tr>
@@ -788,108 +825,60 @@ This code snippet is essential for using any of the following methods from the S
 <td>optional</td>
 <td>If you want to point the SDK at another blockchain than the <a href="#networks-and-endpoints">Stagning server</a></td>
 </tr>
+<tr>
+<td>RETURN</td>
+<td>Promise<Company></td>
+<td><a href="#company-api">Company API</a></td>
+</tr>
 </tbody></table>
 <h3 id='address'>address()</h3>
-<p>Returns the address of the company</p>
-<h3 id='balanceof-address-string'>balanceOf(address: string)</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">Stock</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">CompanyClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">,</span> <span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
+<p>Returns a new Company Class for this address.</p>
+<h3 id='balanceof-address-string-promise'>balanceOf(address: string) : Promise<number></h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">Stock</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">CompanyClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">,</span> <span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">usersAmountOfShares</span> <span class="o">=</span> <span class="nx">company</span><span class="p">.</span><span class="nx">balanceOf</span><span class="p">(</span><span class="s2">"0xab5801a7d398351b8be11c439e05c5b3259aec9b"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">usersAmountOfShares</span> <span class="o">=</span> <span class="nx">Company</span><span class="p">.</span><span class="nx">balanceOf</span><span class="p">(</span><span class="s2">"0xab5801a7d398351b8be11c439e05c5b3259aec9b"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">usersAmountOfShares</span><span class="p">);</span>
 </code></pre>
-<p>Returns the number of shares for the given ethereum address, be it a person, company or smart contract.</p>
-<h3 id='balanceofbypartition-partition-string-address-string'>balanceOfByPartition(partition: string, address: string)</h3>
+<p>Returns the number of shares for the given ethereum address for any partition, be it a person, company or smart contract.</p>
+<h3 id='balanceofbypartition-partition-string-address-string-promise'>balanceOfByPartition(partition: string, address: string) : Promise<number></h3>
 <p>Returns the number of shares of the given share class for the given ethereum address.</p>
-<h3 id='denominationpershare'>denominationPerShare()</h3>
+<h3 id='denominationpershare-promise'>denominationPerShare() : Promise<number></h3>
 <p>Returns the denomination of a share i.e., &quot;Pålydende&quot; in Norwegian.</p>
-<h3 id='director'>director()</h3>
+<h3 id='director-promise'>director() : Promise<string></h3>
 <p>Returns the board director of the company.</p>
-<h3 id='functions'>functions()</h3>
-<p>TODO Robin</p>
-<h3 id='getdefaultpartitions-asbytes-false'>getDefaultPartitions(asBytes = false)</h3>
-<p>TODO Robin</p>
-<h3 id='getlogs-types-string-39-transfer-39-39-issue-39-39-redeem-39'>getLogs(types: string[] = [&#39;transfer&#39;, &#39;issue&#39;, &#39;redeem&#39;])</h3>
-<p>Returns all actions, including transactions, relating to the company. The query can be narrowed in with the parameter.</p>
-<h3 id='totalsupply'>totalSupply()</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">Stock</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">CompanyClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">,</span> <span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
+<h3 id='getdefaultpartitions-asbytes-false-promise'>getDefaultPartitions(asBytes = false) : Promise<string[]></h3>
+<p>Returns an array of default partitions. By default they will be returned as Strings. </p>
+<h3 id='totalsupply-promise'>totalSupply() : Promise<number></h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">Stock</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">CompanyClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">,</span> <span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">totalAmountOfSharesInTheCompany</span> <span class="o">=</span> <span class="nx">company</span><span class="p">.</span><span class="nx">totalSupply</span><span class="p">();</span>
+<span class="kd">let</span> <span class="nx">totalAmountOfSharesInTheCompany</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Company</span><span class="p">.</span><span class="nx">totalSupply</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">totalAmountOfSharesInTheCompany</span><span class="p">);</span>
 </code></pre>
 <p>Returns the total number of shares.</p>
-<h3 id='gettotalsupplybypartition-partition-string'>getTotalSupplyByPartition(partition: string)</h3>
+<h3 id='gettotalsupplybypartition-partition-string-promise'>getTotalSupplyByPartition(partition: string) : Promise<number></h3>
 <p>Returns the number of shares in the given share class.</p>
-<h3 id='gettransactionsfromlogs-logs-logandmeta-filter-address-string'>getTransactionsFromLogs(logs: LogAndMeta[], filter?: { address?: string })</h3>
-<p>Returns all transacions relating to the company.</p>
-<h3 id='granularity'>granularity()</h3>
-<p>TODO Robin. Skal denne alltid være 0 for aksjeselskaper? I så fall kan den fjernes</p>
-<h3 id='info'>info()</h3>
-<p>TODO Robin</p>
-<h3 id='iscontroller-address-string'>isController(address: string)</h3>
+<h3 id='info-promise'>info() : Promise<CapTableInfo></h3>
+<p>Returns a collectionof information about the company. 
+name, totalSupply, denomination, denominationPerShare, director, address, isController</p>
+<h3 id='iscontroller-address-string-promise'>isController(address: string) : Promise<boolean></h3>
 <p>Returns true if the given address is a controller of the company. An address can be a person or or a smart contract.</p>
 
-<p>// TODO Robin: hva er en controller?</p>
-<h3 id='issue-touuid-string-numberofsharestotransfer-number-options-data-string-partition-string'>issue(toUuid: string, numberOfSharesToTransfer: number, options?: { data?: string, partition?: string })</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">Stock</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">CompanyClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">,</span> <span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">tx</span> <span class="o">=</span> <span class="nx">company</span><span class="p">.</span><span class="nx">issue</span><span class="p">(</span><span class="s2">"24078612345"</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
-<span class="nx">await</span> <span class="nx">tx</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
-</code></pre>
-<p>Issue new shares to the given entity.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>toUuid</td>
-<td>undefined</td>
-<td>The personal identification number of a person, or a organization number of a company.</td>
-</tr>
-<tr>
-<td>numberOfSharesToTransfer</td>
-<td>undefined</td>
-<td>Amount</td>
-</tr>
-<tr>
-<td>options</td>
-<td>optional</td>
-<td>A object detailed with the following parameters.</td>
-</tr>
-<tr>
-<td>data</td>
-<td>optional</td>
-<td>TODO Robin</td>
-</tr>
-<tr>
-<td>partition</td>
-<td>optional</td>
-<td>The class of the shares to issue.</td>
-</tr>
-</tbody></table>
-<h3 id='name'>name()</h3>
-<p>Returns the name of the company.</p>
-<h3 id='operatorredeem-fromuuid-string-numberofsharestoredeem-number-options-partition-string-data-string-operatordata-string'>operatorRedeem(fromUuid: string, numberOfSharesToRedeem: number, options?: { partition?: string, data?: string, operatorData?: string })</h3>
-<p>// TODO Robin. Er operator Brreg, og dette skal kun gjøres av dem? I så fall kan fjernes fra dokumentasjonen</p>
-<h3 id='operatortransfer-fromuuid-string-touuid-string-numberofsharestotransfer-number-options-partition-string-data-string-operatordata-string'>operatorTransfer(fromUuid: string, toUuid: string, numberOfSharesToTransfer: number, options?: { partition?: string, data?: string, operatorData?: string })</h3>
-<p>// TODO Robin. Er operator Brreg, og dette skal kun gjøres av dem? I så fall kan fjernes fra dokumentasjonen</p>
-<h3 id='partitionsof-address-string-asbytes-false'>partitionsOf(address: string, asBytes = false)</h3>
-<p>// TODO Robin</p>
-<h3 id='redeem-numberofsharestoredeem-number-options-partition-string-data-string'>redeem(numberOfSharesToRedeem: number, options?: { partition?: string, data?: string })</h3>
-<p>// TODO Robin</p>
-<h3 id='setdenomination-newdenomination-number'>setDenomination(newDenomination: number)</h3>
+<p>A controller is an address that can make certain changes to the company — by example transferring board director role. Controllers can in a transparent and with documentation requirement do certain transactions like transferring stocks. This could, by example, be used in the case where a person has died, and the shares need to be transferred to the heir. </p>
+<h3 id='setdenomination-newdenomination-number-promise'>setDenomination(newDenomination: number) :Promise<TransactionResponse></h3>
 <p>Updates the denomination. This supplied number should not be the denomination per share, but the total denomination: denomination * number of shares e.g. NOK 2 * 30000 shares = denomination 60000.</p>
-<h3 id='getshareholdersfromlogs-logs-logdescription'>getShareholdersFromLogs(logs: LogDescription[])</h3>
-<p>Return the shareholders of the company.</p>
-<h3 id='shareholders'>shareholders()</h3>
-<p>Returns all shareholders. 
-// TODO Robin Hva er forskjellen på denne og getShareholdersFromLogs?</p>
-<h3 id='transactions-filter-address-string'>transactions(filter?: { address?: string })</h3>
+<h3 id='shareholders-promise'>shareholders() : Promise<Shareholder[]></h3>
+<p>Returns all shareholders. </p>
+<h3 id='transactions-filter-address-string-promise'>transactions(filter?: { address?: string }) : Promise<Transaction[]></h3>
 <p>Returns all transactions</p>
-<h3 id='transfer-touuid-string-numberofsharestotransfer-number-options-partition-string-data-string'>transfer(toUuid: string, numberOfSharesToTransfer: number, options?: { partition?: string, data?: string })</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">Stock</span><span class="p">;</span>
+<h3 id='name-promise'>name() : Promise<string></h3>
+<p>Returns the name of the company.</p>
+<h3 id='partitionsof-address-string-asbytes-false-promise'>partitionsOf(address: string, asBytes = false) : Promise<string[]></h3>
+<p>Returns all partitions of shares an address is in ownership of.</p>
+<h3 id='transferdirector-address-string-promise'>transferDirector(address: string) : Promise<TransactionResponse></h3>
+<p>Change the board director of the company.</p>
+<h3 id='uuid-promise'>uuid() : Promise<string></h3>
+<p>Returns the organizational number of the company.</p>
+<h3 id='transfer-touuid-string-numberofsharestotransfer-number-options-partition-string-data-string-promise'>transfer(toUuid: string, numberOfSharesToTransfer: number, options?: { partition?: string, data?: string }) : Promise<TransactionResponse></h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">Stock</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">CompanyClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">,</span> <span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
 <span class="nx">company</span><span class="p">.</span><span class="nx">transfer</span><span class="p">(</span><span class="s2">"24078612345"</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
 <span class="nx">await</span> <span class="nx">tx</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
@@ -923,7 +912,7 @@ This code snippet is essential for using any of the following methods from the S
 <tr>
 <td>data</td>
 <td>optional</td>
-<td>TODO Robin</td>
+<td>This can be an arbitrary blob of data that Companies can utelize in different ways.</td>
 </tr>
 <tr>
 <td>partition</td>
@@ -935,11 +924,165 @@ This code snippet is essential for using any of the following methods from the S
 <p>Function for moving shares from one person or company, another. Note that you as a developer do not input who the shares comes from. When the user initiates the transfer from your service, the transaction is signed and sent from them. Hence the shares are sent from her. </p>
 
 <aside class="notice">Shares are transfered from the user initiating this function.</aside>
-<h3 id='transferdirector-address-string'>transferDirector(address: string)</h3>
-<p>Change the board director of the company.</p>
-<h3 id='uuid'>uuid()</h3>
-<p>Returns the organizational number of the company.</p>
-<h3 id='todo-robin-er-det-ingen-transferfrom-og-approve-som-smartkontrakter-kan-bruke-til-a-flytte-aksjer'>TODO Robin, er det ingen transferFrom og Approve som smartkontrakter kan bruke til å flytte aksjer?</h3>
+<h3 id='operatortransfer-fromuuid-string-touuid-string-numberofsharestotransfer-number-options-partition-string-data-string-operatordata-string-promise'>operatorTransfer(fromUuid: string, toUuid: string, numberOfSharesToTransfer: number, options?: { partition?: string, data?: string, operatorData?: string }) :: Promise<TransactionResponse></h3>
+<p>If a controller wants to force a transaction the controller has the use this function to make the transactions. The controller can attach data about the forced transaction in operatorData. </p>
+
+<blockquote>
+<p>Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds</p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>toUuid</td>
+<td>undefined</td>
+<td>The personal identification number of a person, or a organization number of a company.</td>
+</tr>
+<tr>
+<td>numberOfSharesToTransfer</td>
+<td>undefined</td>
+<td>Amount</td>
+</tr>
+<tr>
+<td>options</td>
+<td>optional</td>
+<td>A object detailed with the following parameters.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>optional</td>
+<td>This can be an arbitrary blob of data that companies can utelize in different ways.</td>
+</tr>
+<tr>
+<td>partition</td>
+<td>optional</td>
+<td>The class of the shares to issue.</td>
+</tr>
+<tr>
+<td>operatorData</td>
+<td>optional</td>
+<td>This can be an arbitrary blob of data that companies can utelize in different ways.</td>
+</tr>
+</tbody></table>
+<h3 id='issue-touuid-string-numberofsharestotransfer-number-options-data-string-partition-string-promise'>issue(toUuid: string, numberOfSharesToTransfer: number, options?: { data?: string, partition?: string })  : Promise<TransactionResponse></h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">Stock</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">CompanyClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">,</span> <span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">tx</span> <span class="o">=</span> <span class="nx">Company</span><span class="p">.</span><span class="nx">issue</span><span class="p">(</span><span class="s2">"24078612345"</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="nx">await</span> <span class="nx">tx</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+</code></pre>
+<p>Issue new shares to the given entity.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>toUuid</td>
+<td>undefined</td>
+<td>The personal identification number of a person, or a organization number of a company.</td>
+</tr>
+<tr>
+<td>numberOfSharesToTransfer</td>
+<td>undefined</td>
+<td>Amount</td>
+</tr>
+<tr>
+<td>options</td>
+<td>optional</td>
+<td>A object detailed with the following parameters.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>optional</td>
+<td>This can be an arbitrary blob of data that companies can utelize in different ways.</td>
+</tr>
+<tr>
+<td>partition</td>
+<td>optional</td>
+<td>The class of the shares to issue.</td>
+</tr>
+</tbody></table>
+<h3 id='redeem-numberofsharestoredeem-number-options-partition-string-data-string'>redeem(numberOfSharesToRedeem: number, options?: { partition?: string, data?: string })</h3>
+<p>Remove shares from the sending address.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>numberOfSharesToRedeem</td>
+<td>number</td>
+<td>AMount of shares to remove.</td>
+</tr>
+<tr>
+<td>options</td>
+<td>optional</td>
+<td>A object detailed with the following parameters.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>optional</td>
+<td>This can be an arbitrary blob of data that companies can utelize in different ways.</td>
+</tr>
+<tr>
+<td>partition</td>
+<td>optional</td>
+<td>The class of the shares to redeem.</td>
+</tr>
+</tbody></table>
+<h3 id='operatorredeem-fromuuid-string-numberofsharestoredeem-number-options-partition-string-data-string-operatordata-string-promise'>operatorRedeem(fromUuid: string, numberOfSharesToRedeem: number, options?: { partition?: string, data?: string, operatorData?: string }) : Promise<TransactionResponse></h3>
+<p>Remove shares from the sending address.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fromUuid</td>
+<td>string</td>
+<td>From which UUID shall the opretaor remove shares.</td>
+</tr>
+<tr>
+<td>numberOfSharesToRedeem</td>
+<td>number</td>
+<td>Amount of shares to remove.</td>
+</tr>
+<tr>
+<td>options</td>
+<td>optional</td>
+<td>A object detailed with the following parameters.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>optional</td>
+<td>This can be an arbitrary blob of data that companies can utelize in different ways.</td>
+</tr>
+<tr>
+<td>partition</td>
+<td>optional</td>
+<td>The class of the shares to redeem.</td>
+</tr>
+<tr>
+<td>operatorData</td>
+<td>optional</td>
+<td>This can be an arbitrary blob of data that companies can utelize in different ways.</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
