@@ -1,3 +1,50 @@
+## Registry Of Cap Tables Que API
+
+Note that while anyone can add any company with the Stock Factory API, only validated companies are displayed to users and other developers. You get the company validated by adding it to this validation queue. 
+
+### init(externalSignerProvider: Signer | any, proxyAddress?: string)
+
+> The Class always has to be initalized before using
+
+```javascript
+const RegistryOfCapTablesQue = require("@brreg/sdk").RegistryOfCapTablesQue
+const RegistryOfCapTablesQueContract = await RegistryOfCapTablesQue.init(ethereum);
+```
+
+Parameter | Default | Description
+--------- | ------- | -----------
+externalSignerProvider|undefined|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
+proxyAddress|optional|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
+
+### addQue(address: string)
+
+Add company to the queue.
+
+### isQued(address: string)
+
+Returns true of the given company is in the queue.
+
+### queNumber(address: string)
+
+Returns the number in the queue for the given company.
+
+### que()
+
+Returns the complete queue.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Stock API
 Used fo cap table management 
 
