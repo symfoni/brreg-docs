@@ -645,7 +645,7 @@ This code snippet is essential for using any of the following methods from the S
 <tr>
 <td>partitions</td>
 <td>DEFAULT_PARTITION</td>
-<td>Array of addresses of share classes, see XX for more on share classes TODO Robin</td>
+<td>List of share classes as strings. Example [&#39;a-share&#39;, &#39;b-share&#39;]</td>
 </tr>
 <tr>
 <td>symbol</td>
@@ -718,7 +718,7 @@ RETURN|Promise<Boolean>| True if successfully qued.</p>
 </tbody></table>
 <h3 id='getentitybyaddress-address-string'>getEntityByAddress(address: string)</h3><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">entityData</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">getEntityByAddress</span><span class="p">(</span><span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">entityData</span><span class="p">);</span>
-</code></pre><h3 id='addentity-data-entitydata'>addEntity(data: EntityData)</h3><pre class="highlight javascript tab-javascript"><code>     <span class="kd">let</span> <span class="nx">companyFactory</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">StockFactory</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">);</span>
+</code></pre><h3 id='addentity-data-entitydata-promise'>addEntity(data: EntityData) : Promise<ContractReceipt></h3><pre class="highlight javascript tab-javascript"><code>     <span class="kd">let</span> <span class="nx">companyFactory</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">StockFactory</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">);</span>
      <span class="kd">let</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">companyFactory</span><span class="p">.</span><span class="nx">createNew</span><span class="p">(</span><span class="s2">"Blockchangers AS"</span><span class="p">,</span> <span class="s2">"915772137"</span><span class="p">)</span>
      <span class="kd">let</span> <span class="nx">companyAddress</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Company</span><span class="p">.</span><span class="nx">getAddress</span><span class="p">()</span>
 
@@ -735,11 +735,11 @@ RETURN|Promise<Boolean>| True if successfully qued.</p>
 <span class="p">});</span>
 <span class="nx">await</span> <span class="nx">tx</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
 </code></pre>
+<p>Adds an entity to the entityRegistry.</p>
+
 <blockquote>
 <p>Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds</p>
 </blockquote>
-
-<p>Note that only you can see and operate on the object. For security reasons the data supplied by you, needs to be validated by the Business Registry before it is displayed to users and other developers. You get the company validated by adding it to the validation queue. </p>
 
 <table><thead>
 <tr>
@@ -794,8 +794,62 @@ RETURN|Promise<Boolean>| True if successfully qued.</p>
 <td>String. StreetAddress of the entity.</td>
 </tr>
 </tbody></table>
-<h3 id='updateentity-data-entitydata'>updateEntity(data: EntityData)</h3>
-<p>TODO jon</p>
+<h3 id='updateentity-data-entitydata-promise'>updateEntity(data: EntityData) : Promise<ContractReceipt></h3>
+<p>Updates an entity in the entityRegistry.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>EntityData</td>
+<td>undefined</td>
+<td>The EntityData object is described with the following parameters</td>
+</tr>
+<tr>
+<td>address</td>
+<td>undefined</td>
+<td>The blockchain address for the given company og person</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>undefined</td>
+<td>String. The organizational number of a company or the identification number of a person</td>
+</tr>
+<tr>
+<td>type</td>
+<td>undefined</td>
+<td>String. &#39;person&#39; or &#39;organization.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>undefined</td>
+<td>String. Name of the entity.</td>
+</tr>
+<tr>
+<td>country</td>
+<td>undefined</td>
+<td>String. Country of the entity.</td>
+</tr>
+<tr>
+<td>city</td>
+<td>undefined</td>
+<td>String. City of the entity.</td>
+</tr>
+<tr>
+<td>postalcode</td>
+<td>undefined</td>
+<td>String. Postalcode of the entity.</td>
+</tr>
+<tr>
+<td>streetAddress</td>
+<td>undefined</td>
+<td>String. StreetAddress of the entity.</td>
+</tr>
+</tbody></table>
 <h2 id='company-api'>Company API</h2><h3 id='init-externalsignerprovider-signer-any-address-string-proxyaddress-string'>init(externalSignerProvider: Signer | any, address: string, proxyAddress?: string)</h3>
 <blockquote>
 <p>The Class always has to be initalized before using</p>
