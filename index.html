@@ -282,29 +282,27 @@
         <h1 id='brreg-cap-table-brregcaptable-developer-documentation'>Brreg Cap Table (BrregCapTable) Developer Documentation</h1><h2 id='introduction'>Introduction</h2>
 <p>Welcome to the &quot;Brønnøysund Business Cap Table&quot; (beta) developer documentation, BrregCapTable in short. </p>
 
-<p>Norwegian limited companies must have a share capital of at least NOK 30,000 distributed among one or more shares, all of which have the same nominal value in NOK. The size of the share capital, the number of shares and the nominal value are determined in the company&#39;s articles of association when the company is formed.
-All limited companies shall have a cap table unless the company&#39;s shares are registered in the public security register. The cap table shall contain an overview of who is shareholders at all times, and it will normally be decisive for who can exercise shareholder rights such as voting rights at the general meeting and the right to dividend. The cap table is public - so everyone has the right to see it.</p>
-<h3 id='what-is-a-cap-taible'>What is a cap taible</h3>
-<p>When a shareholder is entered in the shareholder&#39;s register the company shall notify the shareholder thereof. The share register shall be updated when a change of ownership or pledging of shares happens, in accordance with established rules in the Companies Act (§ 4-7).
-Shares can be freely sold or given away without payment unless otherwise stated by law, articles of association or agreement between the shareholders. For sale, the price is normally calculated on the basis of market value. Sales below market value can also occur, called a gift sale. In the same way as when shares are given away, this could trigger a tax liability.
+<p>Norwegian limited liability companies must have a share capital of at least NOK 30,000 assigned to one or more shares, each of identical nominal value. The total share capital, the number of shares and their nominal value are stated in the company&#39;s articles of association.
+All limited liability companies shall have a cap table unless the company&#39;s shares are registered in the public securities register - a precondition for being listed. The cap table shall at all times contain an overview of the company’s shareholders, and it will normally determine who may exercise shareholder rights including the right to vote at the general meeting and the right to receive dividends. The cap table is in principle public - insight may not be denied.</p>
+<h3 id='what-is-a-cap-table'>What is a cap table?</h3>
+<p>Upon listing a shareholder in the shareholders&#39; register the company shall notify the shareholder thereof. The shareholders’ register shall be updated in accordance with established rules in the Companies Act (§ 4-7) to reflect changes of ownership or pledging of shares .
+Shares can be sold or given away without payment unless otherwise stated by law, articles of association or agreement between the shareholders. In the case of a sale, the price is normally calculated based on market value. Transfer of ownership below market value  are referred to as “gift sale” and may trigger a tax liability.
 When shareholders sell or otherwise realize shares, gains will be taxable and losses deductible.
-The Companies Act contains rules on the consent of acquiring shares, and rules on pre-emption rights for the other shareholders. An agreement on the transfer of shares shall be reported to the board of the limited company by the person taking over the shares. The agreement should at a minimum contain who the agreement applies to, how many shares are transferred, and at what price.
-Transfers made in the Brønnøysund Register&#39;s shareholder book have been reported immediately. The new shareholder must be notified by the company that she has been included in the shareholder&#39;s register and what is listed.</p>
+The Companies Act contains rules on the consent of acquiring shares, and rules on pre-emption rights for the other shareholders. An agreement to transfer shares shall be reported to the board of the limited company by the person acquiring the shares. The agreement should as a minimum list the parties, the number of shares to be transferred, and at what price.
+Transfers in BrregCapTable will be reported automatically. The new shareholder must be notified by the company that she has been included in the shareholder&#39;s register and what is listed.</p>
 
-<aside class = "success">When this platform is out of beta, the company does not need to keep its own cap table nor report its details to the government, as everything is automated.</aside>
-<h4 id='agreements-between-the-company-and-the-company-39-s-management-shareholders-or-related-parties'>Agreements between the company and the company&#39;s management, shareholders or related parties</h4>
-<p>The company and the shareholders of the company can enter into agreements with each other, but there are then stricter requirements for the procedure. The starting point is that any agreement that has a value more than one-tenth of the share capital, must be approved in the general assembly. From this point of view, some exceptions are listed in the Companies Act. The rules also apply to shareholders&#39; close associates, such as close relatives.</p>
+<aside class = "success">Companies and shareholders that rely on BrregCapTable may need not keep a separate cap table nor report its details to the government as everything is automated.</aside>
 <h4 id='shareholder-agreements'>Shareholder agreements</h4>
-<p>Shareholder agreements are normally entered into between shareholders of a company and regulates the relationship between them. The shareholders are not obliged to enter into such an agreement, but it may be useful. The shareholder agreement obliges the shareholders who sign the agreement. There are no requirements as to how the agreement should look or what it should contain. Examples of conditions that can be regulated in a shareholder agreement are special rules relating to ownership, demands for dividends, non-compete clauses, impartiality and requirements for work effort.</p>
+<p>Shareholder agreements are normally entered into between shareholders of a company and regulate the relationship between them. shareholders are not obliged to enter into such an agreement, but it may be useful. a shareholder agreement obliges only the shareholders who have signed the agreement. There are no requirements as to how the agreement should look or what it should contain. Examples of conditions that can be regulated in a shareholder agreement are rules relating to ownership, demands for dividends, non-compete clauses, impartiality and work/employment requirements.</p>
 <h4 id='conflict-between-shareholders'>Conflict between shareholders</h4>
-<p>It is not uncommon for conflicts between shareholders to arise regarding the organization and running of a company. What the basis of the conflicts is difficult to say beforehand, but it may make sense to have a conscious relationship with this. It may make sense to</p>
+<p>It is not uncommon for conflicts between shareholders to arise regarding the organization and running of a company. Since the causes of conflict may be difficult to spot in advance, may make sense to</p>
 
 <ul>
-<li>Avoid being two owners who own 50% each of the shares, because this makes majority decisions difficult</li>
-<li>Enter into shareholder agreements that clarify how the relationship between shareholders should be in the event of disagreement.</li>
+<li>Avoid a setup where two owners holds 50% of the shares each and hence become incapable of making majority decisions in cases of conflict</li>
+<li>Enter into shareholder agreements that clarify how the relationship between shareholders in the event of disagreement.</li>
 </ul>
 
-<p>In cases where the shareholders no longer manage to cooperate with each other, the district court may, by a lawsuit from a shareholder or from the company, decide on the redemption or release of a shareholder&#39;s shares. Such lawsuits must be regarded as last resort, and there must be weighty reasons.</p>
+<p>In cases where the shareholders no longer manage to cooperate with each other, the district court may, in response to a lawsuit from a shareholder or from the company, decide on the redemption or release of a shareholder&#39;s shares. Such lawsuits must be regarded as last resort, and there must be weighty reasons.</p>
 <h1 id='integrate-your-application'>Integrate your application</h1>
 <p>A project that is looking to integrate with BrregCapTable has 5 different avenues to interact with the protocol implementation. The integration types are as follows:</p>
 
@@ -321,12 +319,12 @@ Transfers made in the Brønnøysund Register&#39;s shareholder book have been re
 <p>This is a list of terms you might encounter when developing on BrregCapTable.</p>
 <h3 id='cap-table'>Cap table</h3>
 <ul>
-<li>The shareholder book for a company</li>
-<li>This is what&#39;s called the “aksjeeierbok” in Norwegian</li>
+<li>A ledger showing the shareholders of a company and their shareholding</li>
+<li>The Norwegian term is “aksjeeierbok”, literally a “book” of shareholders </li>
 </ul>
 <h3 id='registry-of-cap-tables'>Registry of cap tables</h3>
 <ul>
-<li>Registry of all cap tables on the platform</li>
+<li>Registry of all cap tables on BrregCapTable</li>
 <li>This is where you can get a list of all cap tables for companies.</li>
 </ul>
 <h3 id='entity-registry'>Entity registry</h3>
@@ -334,9 +332,9 @@ Transfers made in the Brønnøysund Register&#39;s shareholder book have been re
 <li>Information about people and companies</li>
 <li>&quot;Enhetsregisteret&quot;, in Norwegian</li>
 </ul>
-<h3 id='board-director'>(Board) Director</h3>
+<h3 id='chairman-of-the-board'>Chairman of the board</h3>
 <ul>
-<li>The Chairman. The legal entity responsible for the cap table</li>
+<li>The legal entity responsible for the cap table</li>
 </ul>
 <h3 id='share-class'>Share class</h3>
 <ul>
@@ -344,41 +342,41 @@ Transfers made in the Brønnøysund Register&#39;s shareholder book have been re
 </ul>
 <h3 id='block-explorer'>Block explorer</h3>
 <ul>
-<li>Service for a view into what’s happening on the blockchain</li>
+<li>Service that allows a view into what is happening on the blockchain</li>
 <li>Link in menu to the left</li>
 </ul>
 <h3 id='blockchain'>Blockchain</h3>
 <ul>
-<li>A peer to peer ledger, like a database. Writes to the blockchain is done by the user in question directly instead of a server authenticating the user and storing the data for her. </li>
-<li>BrregCapTable is built on Ethereum which means that the underlying technology is blockchain. </li>
+<li>A peer to peer ledger, like a database. “Writes” to the blockchain is done by the user in question directly instead of a server authenticating the user and storing the data for her. </li>
+<li>BrregCapTable is built on Ethereum whose underlying technology is blockchain. </li>
 <li>Any reference to blockchain, Ethereum or smart contract is a reference to this underlying technology.</li>
 </ul>
 <h3 id='smart-contracts'>Smart Contracts</h3>
 <ul>
-<li>  A piece of code (or program) that is stored on the blockchain network. Conditions of the contract are predefined by the users, if all conditions are met, certain actions are executed by the contract (program).</li>
+<li>  A piece of code (or program) that is stored on the blockchain. Conditions of the contract are predefined by the users; if all conditions are met, certain actions are executed by the contract (program).</li>
 </ul>
 <h3 id='wallet'>Wallet</h3>
 <ul>
-<li>  The interface / client / wrapper / holder that your users use to manage their account(s) and interactions with the blockchain.</li>
-<li>  Example: MetaMask.io, your Ledger Hardware Wallet, a Multisig Wallet Contract.</li>
+<li>  The interface/client / wrapper / holder that allow users to manage their account(s) and interactions with the blockchain.</li>
+<li>  Examples: MetaMask.io, your Ledger Hardware Wallet, a Multisig Wallet Contract.</li>
 </ul>
 <h3 id='account'>Account</h3>
 <ul>
-<li>  A public &amp; private keypair that represents an entity on the platform.</li>
+<li>  A pair consisting of a public &amp; private key that identifies an entity on the platform.</li>
 <li>  The user&#39;s stock and operations are actually stored on the blockchain, not in the wallet or account.</li>
 <li>  Just like your Facebook account has a <code>Name (public)</code> and <code>password (private)</code>, so does your Ethereum account.</li>
 </ul>
 <h3 id='address-quot-public-key-quot'>Address <em>(&quot;Public Key&quot;)</em></h3>
 <ul>
-<li>  You use this to reference another user or smart contract.</li>
+<li>  You use this as a reference to another user or smart contract.</li>
 <li>  Sometimes referred to as the &quot;public key&quot;</li>
 <li>  A string made up of <code>0x</code> + <code>40 hexadecimal characters</code>.</li>
-<li>  In Ethereum, the address begins with <code>0x</code>.</li>
+<li>  In Ethereum, the addresses begin with <code>0x</code>.</li>
 <li>  Example: <code>0x06A85356DCb5b307096726FB86A78c59D38e08ee</code></li>
 </ul>
 <h3 id='public-key'>Public Key</h3>
 <ul>
-<li>  In cryptography, you have a keypair: the public and private key.</li>
+<li>  A central concept of cryptography is the pairing of a public and a private key.</li>
 <li>  You can derive a public key from a private key, but cannot derive a private key from a public key.</li>
 <li>  (Advanced) In Ethereum, the address &quot;acts&quot; like the public key, but it&#39;s not actually the public key.</li>
 <li>  (Advanced) In Ethereum, the public key is derived from the private key and is 128 hex characters. You then take the <code>&quot;SHA3&quot; (Keccak-256)</code> hash of this (64 characters), take the last 40 characters, and prefix with <code>0x</code>, give you your 42-character address.</li>
@@ -390,13 +388,13 @@ Transfers made in the Brønnøysund Register&#39;s shareholder book have been re
 <li>  A string of 64 hexadecimal characters.</li>
 <li>  Every string of 64 hexadecimal characters is a private key.</li>
 <li>  If you hand-type a private key differently today than yesterday, you will access a different wallet. Never hand type your private key.</li>
-<li>  This is the string you need to send from your account. Without it you cannot access your account. Although, you don&#39;t need to save this raw, unencrypted private key in this format. You can saving the fancy versions of it (e.g. the Keystore File / Mnemonic Phrase).</li>
+<li>  This is the string you need to send from your account. Without the privatw key you cannot access your account. Although, you don&#39;t need to save this raw, unencrypted private key in this format. You can save the fancy versions of it (e.g. the Keystore File / Mnemonic Phrase).</li>
 <li>  Example: <code>afdfd9c3d2095ef696594f6cedcae59e72dcd697e2a7521b1578140422a4f890</code></li>
 </ul>
 <h3 id='mnemonic-phrase-seed-phrase-seed-words'>Mnemonic Phrase / Seed Phrase / Seed Words</h3>
 <ul>
 <li>  Another fancy version of your private key, that is actually used to derive multiple private keys.</li>
-<li>  A (typically) 12 or 24 word phrase that allows you to access infinite number of accounts.</li>
+<li>  A (typically) phrase consisting of 12 or 24 words that allows you to access an infinite number of accounts.</li>
 <li>  Used by Ledger, TREZOR, MetaMask, Jaxx, and others.</li>
 <li>  Originates from <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP 39 Spec</a>.</li>
 <li>  The accounts you can access with this phrase are determined by the &quot;path&quot;.</li>
@@ -416,25 +414,25 @@ Transfers made in the Brønnøysund Register&#39;s shareholder book have been re
 </ul>
 <h3 id='seed'>Seed</h3>
 <ul>
-<li>  The input given to derive a private key. This should always be generated in a truly random way, not something you make up with your measly human brain.</li>
+<li>  The input that is used to derive a private key from a public key. This should always be generated in a truly random way.</li>
 </ul>
 <h3 id='encryption'>Encryption</h3>
 <ul>
-<li>  Encryption is the act of taking a string of letters/numbers, like your private key, and turning them into another string of letters/numbers through a method of private translation.</li>
-<li>  There are various different encryption methods.</li>
-<li>  Encryption offers protection against those trying to steal your information!</li>
+<li>  Encryption is the act of taking a string of letters/numbers such as your private key and turning them into another string of letters/numbers through a method of private translation.</li>
+<li>  There are various encryption methods.</li>
+<li>  Encryption offers protection against information theft!</li>
 </ul>
 <h3 id='encrypted-vs-unencrypted-keys'>Encrypted vs Unencrypted Keys</h3>
 <ul>
 <li>  An unencrypted private key is 64 characters long, and it is used to unlock or restore wallets.</li>
 <li>  An encrypted key is also 64 letters long and is a regular private key that has gone through the process of encryption, as defined above.</li>
-<li>  For example, if the world ‘Apple’ was your shortened private key, then it was encrypted three letters down the alphabet, your new shortened encrypted key would be ‘Dssoh’. Since you know the way to encrypt this key, you could derive the original private key from it by reversing the method of encryption.</li>
-<li>  Usually encrypted private keys are kept within the extension or device they are encrypted by, and they remain out of sight from the user. This is meant to add another layer of security to keep a user’s wallet information safe.</li>
+<li>  For example, if the word ‘Apple’ was your shortened private key, then it was encrypted three letters down the alphabet, your new shortened encrypted key would be ‘Dssoh’. Since you know the way to encrypt this key, you could derive the original private key from it by reversing the method of encryption.</li>
+<li>  Encrypted private keys are usually kept within the extension or device they are encrypted by, and they remain out of sight from the user. This is meant to add another layer of security to keep a user’s wallet information safe.</li>
 </ul>
 
 <p>All feedback, rewrites, clarification, typo-fixing, and requests for additions are more than welcome.</p>
 
-<p>Thanks to <a href="https://metamask.github.io/metamask-docs/Main_Concepts/Common_Terms">MetaMask</a> for this Glossary&#39;s starting point.</p>
+<p>Thanks to <a href="https://metamask.github.io/metamask-docs/Main_Concepts/Common_Terms">MetaMask</a> for this Glossary starting point.</p>
 <h2 id='users'>Users</h2>
 <p>A user is a shareholder and/or CEO and/or chairman of the board. A user is either active or passive.</p>
 
@@ -461,24 +459,24 @@ All changes in the shareholder register have to be approved by the chairman of t
 <li>Network ID: <code>53387025</code></li>
 </ul>
 
-<aside note="warning">Please be advised that there currently is not implemented any throttling or DDOS prevention. Please use the blockchain accordengly. </aside>
+<aside note="warning">Please be advised that there currently is not implemented any throttling or DDOS prevention. Please use the blockchain accordingly. </aside>
 <h3 id='production'>Production</h3>
 <p>The production version of the platform is not live yet. </p>
 <h1 id='sdk'>SDK</h1>
-<p>You can connect to the platform with the SDK, or you can extend the platform itself by developing and deploying smart contracts. This section is details how to use the SDK.</p>
+<p>You can connect to the platform with the SDK, or you can extend the platform itself by developing and deploying smart contracts. This section outlineshow to use the SDK.</p>
 <h2 id='getting-started'>Getting started</h2>
 <blockquote>
-<p>To install the SDK to your project just use NPM in your project.</p>
+<p>To install the SDK to your project, just use NPM in your project.</p>
 </blockquote>
 <pre class="highlight plaintext"><code>npm install @brreg-sdk
 </code></pre>
-<p>To develop on BrregCapTable, you’re first going to want to get the SDK installed on your development machine. </p>
+<p>To develop on BrregCapTable, you start out by installingthe SDK on your development machine. </p>
 
-<p>You should also install MetaMask in Chrome as the middleware between your application the blockchain. <a href="https://metamask.io/">Download here</a>.</p>
+<p>You should also install MetaMask in Chrome as the middleware between your application and the blockchain. <a href="https://metamask.io/">Download here</a>.</p>
 <h3 id='example-application'>Example application</h3>
 <p>It can be hard getting started. We recommend you <a href="https://gitlab.com/blockchangers/brreg/tree/master/packages/forvalter" target="_blank">take a look at the source code of our example application</a> to get a feel of the SDK. The application is written in Vue.js. A <a href="https://blockchangers.gitlab.io/brreg/" target="_blanK">live version of the example application is available on Github</a>.</p>
 <h2 id='basic-considerations'>Basic Considerations</h2>
-<p>As BrregCapTable is a service facilitated by leveraging blockchain technology, the flow of how end users interact with your service changes from the regular client-server way of interacting.</p>
+<p>As BrregCapTable is a service facilitated by blockchain technology, end-users will interact with your service in ways that differs from a regular client-server approach.</p>
 
 <p>Instead of credentials authenticating the user and giving the user the correct access, end users are expected to use a browser with blockchain wallet functionality. This functionality is available in</p>
 
@@ -489,7 +487,7 @@ All changes in the shareholder register have to be approved by the chairman of t
 <h3 id='web3-browser-detection'>Web3 Browser Detection</h3>
 <p>The first thing your app will want to do is verify whether the user is using MetaMask or not, which is simple using a check like <code>if (typeof window.ethereum !== &#39;undefined&#39;) { /* deal with it */ }</code>.</p>
 <h3 id='connecting-to-the-brregcaptable-network'>Connecting to the BrregCapTable Network</h3>
-<p>In the top right menu of MetaMask, you can select the network that you are currently connected to. Among several popular defaults, you&#39;ll find <code>Custom RPC</code>. Use it and set</p>
+<p>In the top-right menu of MetaMask, you can select the network that you are currently connected to. Among several popular defaults, you&#39;ll find <code>Custom RPC</code>. Use it and set</p>
 
 <ul>
 <li>Network Name to <code>Toyen</code> and</li>
@@ -500,9 +498,9 @@ All changes in the shareholder register have to be approved by the chairman of t
 
 <p>Since your seed phrase is the power to control all your accounts, it is probably worth keeping at least one seed phrase for development, separate from any that you use for storing real value. One easy way to manage multiple seed phrases with MetaMask is with multiple browser profiles, each of which can have its own clean extension installations.</p>
 
-<aside class="note">Note that users of you application will also have to manually connect Metamask to the Toyen network as long as BrregCapTable is in active development and in beta.</aside>
+<aside class="note">Note that users of your application will have to connect Metamask to the Toyen network too while BrregCapTable remain in development as a beta.</aside>
 <h3 id='user-state'>User State</h3>
-<p>Currently there are a few stateful things you want to consider when interacting with Metamask:</p>
+<p>There are a settings you should keep in mind when interacting with Metamask:</p>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">ethereum</span><span class="p">.</span><span class="nx">networkVersion</span>
 <span class="nx">ethereum</span><span class="p">.</span><span class="nx">selectedAddress</span>
 </code></pre>
@@ -518,7 +516,7 @@ All changes in the shareholder register have to be approved by the chairman of t
 <aside class="note">If the networkVersion is not 53387025, the user is not connected to the BrregCapTable. Guide the user to correcting this. See the "Connecting to the BrregCapTable Network" chapter above.</aside>
 <h3 id='logging-in'>Logging In</h3>
 <blockquote>
-<p>When you&#39;re ready to request the user logs in, you can call this simple method.</p>
+<p>When you&#39;re ready to request the user log in, you can call this simple function.</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">ethereum</span><span class="p">.</span><span class="nx">enable</span><span class="p">();</span>
 </code></pre>
@@ -549,14 +547,14 @@ All changes in the shareholder register have to be approved by the chairman of t
 This code snippet is essential for using any of the following methods from the SDK.
 </aside>
 
-<p>MetaMask injects a global API into websites visited by its users at <code>window.ethereum</code> (Also available at <code>window.web3.currentProvider</code> for legacy reasons). This API allows websites to request user login, load data from blockchains the user has a connection to, and suggest the user sign messages and transactions. You can use this API to detect the user of a web3 browser.</p>
+<p>MetaMask injects a global API into websites visited by its users at <code>window.ethereum</code> (Also available at <code>window.web3.currentProvider</code> for legacy reasons). This API allows websites to request user login, load data from blockchains the user has a connection to, and suggest the user sign messages and transactions. You can use this API to detect a user of a web3 browser.</p>
 
-<p>If you want to deep dive into the Metmask API and their best practieces, check our the <a href="https://metamask.github.io/metamask-docs/API_Reference/Ethereum_Provider">Metamask documentation</a>.</p>
+<p>If you want to deep dive into the Metmask API and their best practices, check the <a href="https://metamask.github.io/metamask-docs/API_Reference/Ethereum_Provider">Metamask documentation</a>.</p>
 <h2 id='registry-of-cap-tables-api'>Registry Of Cap Tables API</h2>
-<p>While most functions are spesific to a given company, the functions in this chapter are platform wide.</p>
+<p>While most functions are specific to a given company, the functions in this chapter are platform-wide (they relate to all of BrregCapTable).</p>
 <h3 id='init-externalsignerprovider-signer-any-proxyaddress-string'>init(externalSignerProvider: Signer | any, proxyAddress?: string)</h3>
 <blockquote>
-<p>The Class always has to be initalized before using</p>
+<p>The Class always has to be initialized before using</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">RegistryOfCapTables</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">RegistryOfCapTables</span>
 <span class="kr">const</span> <span class="nx">RegistryOfCapTablesContract</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">RegistryOfCapTables</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">);</span>
@@ -564,32 +562,53 @@ This code snippet is essential for using any of the following methods from the S
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>externalSignerProvider</td>
-<td>undefined</td>
+<td>Provider</td>
 <td>Should be set to the user&#39;s wallet i.e. <code>ethereum</code> from the section <a href="#accessing-the-user-39-s-wallet">Accessing the user&#39;s wallet</a> from above.</td>
 </tr>
 <tr>
 <td>proxyAddress</td>
-<td>optional</td>
+<td>String (Ethereum address)</td>
 <td>If you want to point the SDK at another blockchain than the <a href="#networks-and-endpoints">Stagning server</a></td>
 </tr>
 </tbody></table>
 <h3 id='list'>list()</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">list</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">RegistryOfCapTablesContract</span><span class="p">.</span><span class="nx">list</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">);</span>
 </code></pre>
+<blockquote>
+<p>Example of return data:</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">[</span> 
+    <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s1">'Empty inc.'</span><span class="p">,</span>
+    <span class="na">totalSupply</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="na">denomination</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="na">denominationPerShare</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="na">director</span><span class="p">:</span>
+     <span class="p">{</span> <span class="na">uuid</span><span class="p">:</span> <span class="s1">'195199646563'</span><span class="p">,</span>
+       <span class="na">name</span><span class="p">:</span> <span class="s1">'Ethel Rice'</span><span class="p">,</span>
+       <span class="na">country</span><span class="p">:</span> <span class="s1">'Norway'</span><span class="p">,</span>
+       <span class="na">city</span><span class="p">:</span> <span class="s1">'Oslo'</span><span class="p">,</span>
+       <span class="na">postalcode</span><span class="p">:</span> <span class="s1">'3014'</span><span class="p">,</span>
+       <span class="na">streetAddress</span><span class="p">:</span> <span class="s1">'843 Fewus Center'</span><span class="p">,</span>
+       <span class="na">type</span><span class="p">:</span> <span class="s1">'person'</span><span class="p">,</span>
+       <span class="na">address</span><span class="p">:</span> <span class="s1">'0xe88C9fE335185b62a530d2B67A2438e55E5bf39A'</span> <span class="p">},</span>
+    <span class="na">address</span><span class="p">:</span> <span class="s1">'0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E'</span><span class="p">,</span>
+    <span class="na">isController</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+<span class="p">]</span>
+</code></pre>
 <p>List all companies on the platform</p>
 
-<p>Only already onboarded companies are on the platform. Use this code to list them all. Remember to getting the <code>ethereum</code> variable. See <a href="#accessing-the-user-39-s-wallet">Accessing the user&#39;s wallet</a></p>
+<p>BrregCapTable deals only with companies that have been onboarded. Use this code to list these.</p>
 <h2 id='company-factory-api'>Company Factory API</h2>
 <p>Used to onboard new company.</p>
-<h3 id='init-externalsignerprovider-signer-any-proxyaddress-string-2'>init(externalSignerProvider: Signer | any, proxyAddress?: string)</h3>
+<h3 id='init-externalsignerprovider-signer-any-proxyaddress-string-promise'>init(externalSignerProvider: Signer | any, proxyAddress?: string) : Promise<StockFactory></h3>
 <blockquote>
-<p>The Class always has to be initalized before using</p>
+<p>The Class always has to be initialized before using</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyFactoryClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">StockFactory</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">companyFactory</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">CompanyFactoryClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">);</span>
@@ -597,59 +616,59 @@ This code snippet is essential for using any of the following methods from the S
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>externalSignerProvider</td>
-<td>undefined</td>
+<td>Provider</td>
 <td>Should be set to the user&#39;s wallet i.e. <code>ethereum</code> from the section <a href="#accessing-the-user-39-s-wallet">Accessing the user&#39;s wallet</a> from above.</td>
 </tr>
 <tr>
 <td>proxyAddress</td>
-<td>optional</td>
+<td>String</td>
 <td>If you want to point the SDK at another blockchain than the <a href="#networks-and-endpoints">Stagning server</a></td>
 </tr>
 </tbody></table>
-<h3 id='createnew-name-string-uuid-string-options-partitions-string-symbol-string'>createNew(name: string, uuid: string, options: { partitions: string[], symbol: string })</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">companyFactory</span><span class="p">.</span><span class="nx">createNew</span><span class="p">(</span><span class="s2">"Blockchangers AS"</span><span class="p">,</span> <span class="s2">"915772137"</span><span class="p">);</span>
+<h3 id='createnew-name-string-uuid-string-options-partitions-string-symbol-string-promise'>createNew(name: string, uuid: string, options: { partitions: string[], symbol: string }) : Promise<Stock></h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">companyFactory</span><span class="p">.</span><span class="nx">createNew</span><span class="p">(</span><span class="s2">"Blockchangers AS"</span><span class="p">,</span> <span class="s2">"915772137"</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p>Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds. </p>
 </blockquote>
 
-<p>This actions will que the company for verification.</p>
+<p>This actions will queue the company for verification.</p>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>name</td>
-<td>undefined</td>
+<td>String</td>
 <td>Business name</td>
 </tr>
 <tr>
 <td>uuid</td>
-<td>undefined</td>
+<td>String</td>
 <td>Organization number, note that it&#39;s a string</td>
 </tr>
 <tr>
 <td>options</td>
-<td>optional</td>
+<td>Object</td>
 <td>Object with the following possible options</td>
 </tr>
 <tr>
 <td>partitions</td>
-<td>DEFAULT_PARTITION</td>
+<td>String[]</td>
 <td>List of share classes as strings. Example [&#39;a-share&#39;, &#39;b-share&#39;]</td>
 </tr>
 <tr>
 <td>symbol</td>
-<td>&quot;&quot;</td>
+<td>String</td>
 <td>Shorthand for the company, 4 characters length.</td>
 </tr>
 <tr>
@@ -658,47 +677,113 @@ This code snippet is essential for using any of the following methods from the S
 <td><a href="#company-api">Company API</a></td>
 </tr>
 </tbody></table>
-<h3 id='addstockque-address-string'>addStockQue(address: string)</h3>
-<p>Add the given company ethereum address the queue for verification by the Business Registry. The company will not show up for users and for other developers before the company&#39;s information is verified.
+
+<!-- Removing this as the developer should not need to do this. -->
+
+<!-- ### addStockQue(address: string) : Promise<boolean> 
+
+<<<<<<< HEAD
+Add the company to the queue for verification by the Business Registry. The company will not show up for users and for other developers before the company's information is verified.
+
 Parameter | Default | Description
 --------- | ------- | -----------
 address|undefined| Address to que
-RETURN|Promise<Boolean>| True if successfully qued.</p>
-<pre class="highlight javascript tab-javascript"><code><span class="c1">// Create company</span>
-<span class="kd">let</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">companyFactory</span><span class="p">.</span><span class="nx">createNew</span><span class="p">(</span><span class="s2">"Blockchangers AS"</span><span class="p">,</span> <span class="s2">"915772137"</span><span class="p">);</span>
+RETURN|Promise<Boolean>| True if successfully queued.
+=======
+Add the given company ethereum address the queue for verification by the Business Registry. The company will not show up for users and for other developers before the company's information is verified.
+Parameter | Type | Description
+--------- | ------- | -----------
+address|String (Ethereum address)| Address to que
+RETURN|Promise<Boolean>| True if successfully qued.
+>>>>>>> 14febe5388697e7528d7764381fb8b04121fc3b9
 
-<span class="c1">// Here you should fill the entity/company with data using addEntity</span>
-<span class="kd">let</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">companyFactory</span><span class="p">.</span><span class="nx">addStockQue</span><span class="p">(</span><span class="nx">companyAddress</span><span class="p">);</span>
+```javascript
+// Create company
+let Company = await companyFactory.createNew("Blockchangers AS", "915772137");
 
-</code></pre><h2 id='entity-registry-api'>Entity Registry API</h2><h3 id='init-externalsignerprovider-signer-any-proxyaddress-string-3'>init(externalSignerProvider: Signer | any, proxyAddress?: string)</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">EntityRegistryClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">EntityRegistry</span>
+// Here you should fill the entity/company with data using addEntity
+let Company = await companyFactory.addStockQue(companyAddress);
+
+``` -->
+<h2 id='entity-registry-api'>Entity Registry API</h2><h3 id='init-externalsignerprovider-signer-any-proxyaddress-string-promise-2'>init(externalSignerProvider: Signer | any, proxyAddress?: string) : Promise<EntityRegistry></h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">EntityRegistryClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">EntityRegistry</span>
 <span class="kr">const</span> <span class="nx">entityRegistry</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">EntityRegistryClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">);</span>
 </code></pre>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>externalSignerProvider</td>
-<td>undefined</td>
+<td>Provider</td>
 <td>Should be set to the user&#39;s wallet i.e. <code>ethereum</code> from the section <a href="#accessing-the-user-39-s-wallet">Accessing the user&#39;s wallet</a> from above.</td>
 </tr>
 <tr>
 <td>proxyAddress</td>
-<td>optional</td>
+<td>String (Ethereum address)</td>
 <td>If you want to point the SDK at another blockchain than the <a href="#networks-and-endpoints">Stagning server</a></td>
 </tr>
 </tbody></table>
-<h3 id='generateaddress'>generateAddress()</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">arbitraryAddress</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">generateAddress</span><span class="p">();</span>
+<h3 id='generateaddress-promise'>generateAddress() : Promise<string></h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">arbitraryAddress</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">generateAddress</span><span class="p">();</span>
 </code></pre>
-<p>Many companies will have stockholders who are not on the BrregCapTable platform. Hence the shares can not be sent to the user. Technically these shares still needs to be generated on the blockchain, and put in it&#39;s own enclave. This method generates an arbitrary address to achieve this. Generate one one address for every user who does not have one herself, i.e. is not a registerted user on BrregCapTable.</p>
-<h3 id='alltransactionsallcaptables-uuid-string'>allTransactionsAllCapTables(uuid: string)</h3><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">captable</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">allTransactionsAllCapTables</span><span class="p">(</span><span class="s2">"24078612345"</span><span class="p">);</span>
+<p>Many companies will have stockholders who are not on the BrregCapTable platform. Hence the shares can not be sent to the user. Technically these shares still need to be generated on the blockchain, and put on seperate users. This method generates an arbitrary address for you to put shares on, for users not on the platform. Generate one address for every user who does not have a prior address, i.e. those not registered as users on BrregCapTable.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>RETURN</td>
+<td>String (Ethereum address)</td>
+<td>A random ethereum address</td>
+</tr>
+</tbody></table>
+<h3 id='alltransactionsallcaptables-uuid-string-promise'>allTransactionsAllCapTables(uuid: string) : Promise<CapTableTransactions[]></h3><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">captable</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">allTransactionsAllCapTables</span><span class="p">(</span><span class="s2">"24078612345"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">captable</span><span class="p">);</span>
 </code></pre>
+<blockquote>
+<p>Example of return data:</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">[</span> <span class="p">{</span> <span class="na">capTable</span><span class="p">:</span>
+     <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s1">'Empty inc.'</span><span class="p">,</span>
+       <span class="na">totalSupply</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="na">denomination</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="na">denominationPerShare</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="na">director</span><span class="p">:</span> <span class="p">[</span><span class="nb">Object</span><span class="p">],</span>
+       <span class="na">address</span><span class="p">:</span> <span class="s1">'0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E'</span><span class="p">,</span>
+       <span class="na">isController</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+    <span class="na">transactions</span><span class="p">:</span> <span class="p">[]</span> <span class="p">},</span>
+<span class="p">]</span>
+</code></pre>
 <p>Returns all transactions done for the given person. This function can be used for most views, analytics and statistics that you want to present the user with. Get all the data with this function, then filter and customize the returned data, before presenting it to the user.</p>
-<h3 id='getentitybyuuid-uuid-string'>getEntityByUuid(uuid: string)</h3><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">entityData</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">getEntityByUuid</span><span class="p">(</span><span class="s2">"915772137"</span><span class="p">);</span>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>uuid</td>
+<td>String</td>
+<td>The uuid of which you want to get all transactions</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>interface CapTableTransactions </p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">interface</span> <span class="nx">CapTableTransactions</span> <span class="p">{</span>
+  <span class="nl">capTable</span><span class="p">:</span> <span class="nx">CapTableInfo</span>
+  <span class="nl">transactions</span><span class="p">:</span> <span class="nx">Transaction</span><span class="p">[]</span>
+<span class="p">}</span>
+</code></pre><h3 id='getentitybyuuid-uuid-string-promise'>getEntityByUuid(uuid: string) : Promise<EntityData></h3><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">entityData</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">getEntityByUuid</span><span class="p">(</span><span class="s2">"915772137"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">entityData</span><span class="p">);</span>
 </code></pre>
 <p>Get data about the given entity. </p>
@@ -706,21 +791,37 @@ RETURN|Promise<Boolean>| True if successfully qued.</p>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>uuid</td>
-<td>undefined</td>
+<td>String</td>
 <td>The personal identification number of a person, or a organization number of a company.</td>
 </tr>
 </tbody></table>
-<h3 id='getentitybyaddress-address-string'>getEntityByAddress(address: string)</h3><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">entityData</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">getEntityByAddress</span><span class="p">(</span><span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
+
+<blockquote>
+<p>type EntityData</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="nl">address</span><span class="p">:</span> <span class="nx">string</span>
+  <span class="nl">uuid</span><span class="p">:</span> <span class="nx">string</span>
+  <span class="nl">type</span><span class="p">:</span> <span class="nx">string</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="nx">string</span>
+  <span class="nl">country</span><span class="p">:</span> <span class="nx">string</span>
+  <span class="nl">city</span><span class="p">:</span> <span class="nx">string</span>
+  <span class="nl">postalcode</span><span class="p">:</span> <span class="nx">string</span>
+  <span class="nl">streetAddress</span><span class="p">:</span> <span class="nx">string</span>
+<span class="p">}</span>
+</code></pre><h3 id='getentitybyaddress-address-string'>getEntityByAddress(address: string)</h3><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">entityData</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">getEntityByAddress</span><span class="p">(</span><span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">entityData</span><span class="p">);</span>
-</code></pre><h3 id='addentity-data-entitydata-promise'>addEntity(data: EntityData) : Promise<ContractReceipt></h3><pre class="highlight javascript tab-javascript"><code>     <span class="kd">let</span> <span class="nx">companyFactory</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">StockFactory</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">);</span>
-     <span class="kd">let</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">companyFactory</span><span class="p">.</span><span class="nx">createNew</span><span class="p">(</span><span class="s2">"Blockchangers AS"</span><span class="p">,</span> <span class="s2">"915772137"</span><span class="p">)</span>
-     <span class="kd">let</span> <span class="nx">companyAddress</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Company</span><span class="p">.</span><span class="nx">getAddress</span><span class="p">()</span>
+</code></pre>
+<p>Gets the given entity. Use an ethereum address as lookup parameter.</p>
+<h3 id='addentity-data-entitydata-promise'>addEntity(data: EntityData) : Promise<ContractReceipt></h3><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">companyFactory</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">StockFactory</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">companyFactory</span><span class="p">.</span><span class="nx">createNew</span><span class="p">(</span><span class="s2">"Blockchangers AS"</span><span class="p">,</span> <span class="s2">"915772137"</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">companyAddress</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Company</span><span class="p">.</span><span class="nx">getAddress</span><span class="p">()</span>
 
 <span class="kr">const</span> <span class="nx">entityRegistry</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">EntityRegistry</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">)</span>
 <span class="kd">let</span> <span class="nx">tx</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">addEntity</span><span class="p">({</span>
@@ -744,7 +845,7 @@ RETURN|Promise<Boolean>| True if successfully qued.</p>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
@@ -756,7 +857,7 @@ RETURN|Promise<Boolean>| True if successfully qued.</p>
 <tr>
 <td>address</td>
 <td>undefined</td>
-<td>The blockchain address for the given company og person</td>
+<td>The blockchain address for the given company or  person</td>
 </tr>
 <tr>
 <td>uuid</td>
@@ -786,7 +887,7 @@ RETURN|Promise<Boolean>| True if successfully qued.</p>
 <tr>
 <td>postalcode</td>
 <td>undefined</td>
-<td>String. Postalcode of the entity.</td>
+<td>String. Postal code of the entity.</td>
 </tr>
 <tr>
 <td>streetAddress</td>
@@ -800,7 +901,7 @@ RETURN|Promise<Boolean>| True if successfully qued.</p>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
@@ -812,7 +913,7 @@ RETURN|Promise<Boolean>| True if successfully qued.</p>
 <tr>
 <td>address</td>
 <td>undefined</td>
-<td>The blockchain address for the given company og person</td>
+<td>The blockchain address for the given company or person</td>
 </tr>
 <tr>
 <td>uuid</td>
@@ -842,7 +943,7 @@ RETURN|Promise<Boolean>| True if successfully qued.</p>
 <tr>
 <td>postalcode</td>
 <td>undefined</td>
-<td>String. Postalcode of the entity.</td>
+<td>String. Postal code of the entity.</td>
 </tr>
 <tr>
 <td>streetAddress</td>
@@ -852,7 +953,7 @@ RETURN|Promise<Boolean>| True if successfully qued.</p>
 </tbody></table>
 <h2 id='company-api'>Company API</h2><h3 id='init-externalsignerprovider-signer-any-address-string-proxyaddress-string'>init(externalSignerProvider: Signer | any, address: string, proxyAddress?: string)</h3>
 <blockquote>
-<p>The Class always has to be initalized before using</p>
+<p>The Class always has to be initialized before using</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">Stock</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">CompanyClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">,</span> <span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
@@ -860,7 +961,7 @@ RETURN|Promise<Boolean>| True if successfully qued.</p>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
@@ -901,7 +1002,7 @@ RETURN|Promise<Boolean>| True if successfully qued.</p>
 <h3 id='director-promise'>director() : Promise<string></h3>
 <p>Returns the board director of the company.</p>
 <h3 id='getdefaultpartitions-asbytes-false-promise'>getDefaultPartitions(asBytes = false) : Promise<string[]></h3>
-<p>Returns an array of default partitions. By default they will be returned as Strings. </p>
+<p>Returns an array of default partitions. By default, they will be returned as Strings. </p>
 <h3 id='totalsupply-promise'>totalSupply() : Promise<number></h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">Stock</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">CompanyClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">,</span> <span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
 
@@ -912,10 +1013,10 @@ RETURN|Promise<Boolean>| True if successfully qued.</p>
 <h3 id='gettotalsupplybypartition-partition-string-promise'>getTotalSupplyByPartition(partition: string) : Promise<number></h3>
 <p>Returns the number of shares in the given share class.</p>
 <h3 id='info-promise'>info() : Promise<CapTableInfo></h3>
-<p>Returns a collectionof information about the company. 
+<p>Returns a collection of information about the company. 
 name, totalSupply, denomination, denominationPerShare, director, address, isController</p>
 <h3 id='iscontroller-address-string-promise'>isController(address: string) : Promise<boolean></h3>
-<p>Returns true if the given address is a controller of the company. An address can be a person or or a smart contract.</p>
+<p>Returns true if the given address is a controller of the company. An address can be a person or a smart contract.</p>
 
 <p>A controller is an address that can make certain changes to the company — by example transferring board director role. Controllers can in a transparent and with documentation requirement do certain transactions like transferring stocks. This could, by example, be used in the case where a person has died, and the shares need to be transferred to the heir. </p>
 <h3 id='setdenomination-newdenomination-number-promise'>setDenomination(newDenomination: number) :Promise<TransactionResponse></h3>
@@ -944,14 +1045,14 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>toUuid</td>
 <td>undefined</td>
-<td>The personal identification number of a person, or a organization number of a company.</td>
+<td>The personal identification number of a person, or an organization number of a company.</td>
 </tr>
 <tr>
 <td>numberOfSharesToTransfer</td>
@@ -966,7 +1067,7 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 <tr>
 <td>data</td>
 <td>optional</td>
-<td>This can be an arbitrary blob of data that Companies can utelize in different ways.</td>
+<td>This can be an arbitrary blob of data that Companies can utilize in different ways.</td>
 </tr>
 <tr>
 <td>partition</td>
@@ -975,11 +1076,11 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 </tr>
 </tbody></table>
 
-<p>Function for moving shares from one person or company, another. Note that you as a developer do not input who the shares comes from. When the user initiates the transfer from your service, the transaction is signed and sent from them. Hence the shares are sent from her. </p>
+<p>Function for moving shares from one person or company, another. Note that you as a developer do not input who the shares come from. When the user initiates the transfer from your service, the transaction is signed and sent from them. Hence the shares are sent from her. </p>
 
 <aside class="notice">Shares are transfered from the user initiating this function.</aside>
 <h3 id='operatortransfer-fromuuid-string-touuid-string-numberofsharestotransfer-number-options-partition-string-data-string-operatordata-string-promise'>operatorTransfer(fromUuid: string, toUuid: string, numberOfSharesToTransfer: number, options?: { partition?: string, data?: string, operatorData?: string }) :: Promise<TransactionResponse></h3>
-<p>If a controller wants to force a transaction the controller has the use this function to make the transactions. The controller can attach data about the forced transaction in operatorData. </p>
+<p>If a controller wants to force a transaction the controller may use this function to make the transactions. The controller can attach data about the forced transaction in operatorData. </p>
 
 <blockquote>
 <p>Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds</p>
@@ -988,14 +1089,14 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>toUuid</td>
 <td>undefined</td>
-<td>The personal identification number of a person, or a organization number of a company.</td>
+<td>The personal identification number of a person, or an organization number of a company.</td>
 </tr>
 <tr>
 <td>numberOfSharesToTransfer</td>
@@ -1010,7 +1111,7 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 <tr>
 <td>data</td>
 <td>optional</td>
-<td>This can be an arbitrary blob of data that companies can utelize in different ways.</td>
+<td>This can be an arbitrary blob of data that companies can utilize in different ways.</td>
 </tr>
 <tr>
 <td>partition</td>
@@ -1020,7 +1121,7 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 <tr>
 <td>operatorData</td>
 <td>optional</td>
-<td>This can be an arbitrary blob of data that companies can utelize in different ways.</td>
+<td>This can be an arbitrary blob of data that companies can utilize in different ways.</td>
 </tr>
 </tbody></table>
 <h3 id='issue-touuid-string-numberofsharestotransfer-number-options-data-string-partition-string-promise'>issue(toUuid: string, numberOfSharesToTransfer: number, options?: { data?: string, partition?: string })  : Promise<TransactionResponse></h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">Stock</span><span class="p">;</span>
@@ -1034,14 +1135,14 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>toUuid</td>
 <td>undefined</td>
-<td>The personal identification number of a person, or a organization number of a company.</td>
+<td>The personal identification number of a person, or an organization number of a company.</td>
 </tr>
 <tr>
 <td>numberOfSharesToTransfer</td>
@@ -1056,7 +1157,7 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 <tr>
 <td>data</td>
 <td>optional</td>
-<td>This can be an arbitrary blob of data that companies can utelize in different ways.</td>
+<td>This can be an arbitrary blob of data that companies can utilize in different ways.</td>
 </tr>
 <tr>
 <td>partition</td>
@@ -1070,7 +1171,7 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
@@ -1087,7 +1188,7 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 <tr>
 <td>data</td>
 <td>optional</td>
-<td>This can be an arbitrary blob of data that companies can utelize in different ways.</td>
+<td>This can be an arbitrary blob of data that companies can utilize in different ways.</td>
 </tr>
 <tr>
 <td>partition</td>
@@ -1101,14 +1202,14 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>fromUuid</td>
 <td>string</td>
-<td>From which UUID shall the opretaor remove shares.</td>
+<td>From which UUID shall the operator remove shares.</td>
 </tr>
 <tr>
 <td>numberOfSharesToRedeem</td>
@@ -1123,7 +1224,7 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 <tr>
 <td>data</td>
 <td>optional</td>
-<td>This can be an arbitrary blob of data that companies can utelize in different ways.</td>
+<td>This can be an arbitrary blob of data that companies can utilize in different ways.</td>
 </tr>
 <tr>
 <td>partition</td>
@@ -1133,7 +1234,7 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 <tr>
 <td>operatorData</td>
 <td>optional</td>
-<td>This can be an arbitrary blob of data that companies can utelize in different ways.</td>
+<td>This can be an arbitrary blob of data that companies can   in different ways.</td>
 </tr>
 </tbody></table>
 
