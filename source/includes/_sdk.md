@@ -229,20 +229,51 @@ Parameter | Type | Description
 --------- | ------- | -----------
 RETURN|String (Ethereum address)| A random ethereum address
 
-#### interface CapTableTransactions {
+#### interface CapTableTransactions 
+```javascript
+interface CapTableTransactions {
   capTable: CapTableInfo
   transactions: Transaction[]
 }
+```
 
 ### allTransactionsAllCapTables(uuid: string) : Promise<CapTableTransactions[]> 
 ```javascript
 let captable = await entityRegistry.allTransactionsAllCapTables("24078612345");
 console.log(captable);
 ```
-
+```javascript
+[ { capTable:
+     { name: 'Empty inc.',
+       totalSupply: 0,
+       denomination: 0,
+       denominationPerShare: 0,
+       director: [Object],
+       address: '0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E',
+       isController: false },
+    transactions: [] },
+]
+```
 Returns all transactions done for the given person. This function can be used for most views, analytics and statistics that you want to present the user with. Get all the data with this function, then filter and customize the returned data, before presenting it to the user.
+Parameter | Type | Description
+--------- | ------- | -----------
+uuid|String| The uuid of which you want to get all transactions
 
-### getEntityByUuid(uuid: string)
+#### type EntityData
+```javascript
+{
+  address: string
+  uuid: string
+  type: string
+  name: string
+  country: string
+  city: string
+  postalcode: string
+  streetAddress: string
+}
+```
+
+### getEntityByUuid(uuid: string) : Promise<EntityData>
 ```javascript
 let entityData = await entityRegistry.getEntityByUuid("915772137");
 console.log(entityData);
@@ -252,7 +283,7 @@ Get data about the given entity.
 
 Parameter | Type | Description
 --------- | ------- | -----------
-uuid|undefined|The personal identification number of a person, or a organization number of a company. 
+uuid|String|The personal identification number of a person, or a organization number of a company. 
 
 
 ### getEntityByAddress(address: string)
