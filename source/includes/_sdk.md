@@ -114,16 +114,36 @@ const RegistryOfCapTables = require("@brreg/sdk").RegistryOfCapTables
 const RegistryOfCapTablesContract = await RegistryOfCapTables.init(ethereum);
 ```
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
-externalSignerProvider|undefined|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
-proxyAddress|optional|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
+externalSignerProvider|Provider|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
+proxyAddress|String (Ethereum address)|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
 
 ### list()
 
 ```javascript
 const list = await RegistryOfCapTablesContract.list();
 console.log(list);
+```
+
+```javascript
+[ 
+    { name: 'Empty inc.',
+    totalSupply: 0,
+    denomination: 0,
+    denominationPerShare: 0,
+    director:
+     { uuid: '195199646563',
+       name: 'Ethel Rice',
+       country: 'Norway',
+       city: 'Oslo',
+       postalcode: '3014',
+       streetAddress: '843 Fewus Center',
+       type: 'person',
+       address: '0xe88C9fE335185b62a530d2B67A2438e55E5bf39A' },
+    address: '0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E',
+    isController: false },
+]
 ```
 
 List all companies on the platform
@@ -134,7 +154,7 @@ BrregCapTable deals only with companies that have been onboarded. Use this code 
 
 Used to onboard new company.
 
-### init(externalSignerProvider: Signer | any, proxyAddress?: string)
+### init(externalSignerProvider: Signer | any, proxyAddress?: string) : Promise<StockFactory> 
 
 > The Class always has to be initialized before using
 
@@ -143,12 +163,12 @@ const CompanyFactoryClass = require("@brreg/sdk").StockFactory;
 const companyFactory = await CompanyFactoryClass.init(ethereum);
 ```
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
-externalSignerProvider|undefined|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
-proxyAddress|optional|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
+externalSignerProvider|Provider|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
+proxyAddress|String|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
 
-### createNew(name: string, uuid: string, options: { partitions: string[], symbol: string })
+### createNew(name: string, uuid: string, options: { partitions: string[], symbol: string }) : Promise<Stock> 
 
 ```javascript
 const Company = await companyFactory.createNew("Blockchangers AS", "915772137");
@@ -158,24 +178,32 @@ const Company = await companyFactory.createNew("Blockchangers AS", "915772137");
 
 This actions will queue the company for verification.
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
-name|undefined|Business name
-uuid|undefined|Organization number, note that it's a string
-options|optional|Object with the following possible options
-partitions|DEFAULT_PARTITION|List of share classes as strings. Example ['a-share', 'b-share']
-symbol|""|Shorthand for the company, 4 characters length.
+name|String|Business name
+uuid|String|Organization number, note that it's a string
+options|Object|Object with the following possible options
+partitions|String[]|List of share classes as strings. Example ['a-share', 'b-share']
+symbol|String|Shorthand for the company, 4 characters length.
 RETURN|Promise<Company>|[Company API](#company-api)
 
+<!-- Removing this as the developer should not need to do this. -->
+<!-- ### addStockQue(address: string) : Promise<boolean> 
 
-### addStockQue(address: string)
-
+<<<<<<< HEAD
 Add the company to the queue for verification by the Business Registry. The company will not show up for users and for other developers before the company's information is verified.
 
 Parameter | Default | Description
 --------- | ------- | -----------
 address|undefined| Address to que
 RETURN|Promise<Boolean>| True if successfully queued.
+=======
+Add the given company ethereum address the queue for verification by the Business Registry. The company will not show up for users and for other developers before the company's information is verified.
+Parameter | Type | Description
+--------- | ------- | -----------
+address|String (Ethereum address)| Address to que
+RETURN|Promise<Boolean>| True if successfully qued.
+>>>>>>> 14febe5388697e7528d7764381fb8b04121fc3b9
 
 ```javascript
 // Create company
@@ -184,30 +212,41 @@ let Company = await companyFactory.createNew("Blockchangers AS", "915772137");
 // Here you should fill the entity/company with data using addEntity
 let Company = await companyFactory.addStockQue(companyAddress);
 
-```
+``` -->
 
 ## Entity Registry API
 
-### init(externalSignerProvider: Signer | any, proxyAddress?: string)
+### init(externalSignerProvider: Signer | any, proxyAddress?: string) : Promise<EntityRegistry>
 
 ```javascript
 const EntityRegistryClass = require("@brreg/sdk").EntityRegistry
 const entityRegistry = await EntityRegistryClass.init(ethereum);
 ```
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
-externalSignerProvider|undefined|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
-proxyAddress|optional|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
+externalSignerProvider|Provider|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
+proxyAddress|String (Ethereum address)|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
 
 
-### generateAddress()
+### generateAddress() : Promise<string> 
 ```javascript
 const arbitraryAddress = await entityRegistry.generateAddress();
 ```
+
 Many companies will have stockholders who are not on the BrregCapTable platform. Hence the shares can not be sent to the user. Technically these shares still need to be generated on the blockchain, and put on seperate users. This method generates an arbitrary address for you to put shares on, for users not on the platform. Generate one address for every user who does not have a prior address, i.e. those not registered as users on BrregCapTable.
 
-### allTransactionsAllCapTables(uuid: string)
+Parameter | Type | Description
+--------- | ------- | -----------
+RETURN|String (Ethereum address)| A random ethereum address
+
+#### interface CapTableTransactions {
+  capTable: CapTableInfo
+  transactions: Transaction[]
+}
+
+
+### allTransactionsAllCapTables(uuid: string) : Promise<CapTableTransactions[]> 
 ```javascript
 let captable = await entityRegistry.allTransactionsAllCapTables("24078612345");
 console.log(captable);
@@ -223,7 +262,7 @@ console.log(entityData);
 
 Get data about the given entity. 
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
 uuid|undefined|The personal identification number of a person, or an organization number of a company< all limited liability companies in Norway have a unique organization number issued upon registration 
 
@@ -261,7 +300,7 @@ Adds an entity to the entityRegistry.
 
 > Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
 EntityData|undefined|The EntityData object is described with the following parameters
 address|undefined|The blockchain address for the given company or  person
@@ -277,7 +316,7 @@ streetAddress|undefined|String. StreetAddress of the entity.
 
 Updates an entity in the entityRegistry.
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
 EntityData|undefined|The EntityData object is described with the following parameters
 address|undefined|The blockchain address for the given company or person
@@ -300,7 +339,7 @@ const CompanyClass = require("@brreg/sdk").Stock;
 const Company = await CompanyClass.init(ethereum, "0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E");
 ```
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
 externalSignerProvider|undefined|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
 address|undefined|The ethereum address of the company.
@@ -407,7 +446,7 @@ await tx.wait();
 > Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds
 
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
 toUuid|undefined|The personal identification number of a person, or an organization number of a company. 
 numberOfSharesToTransfer|undefined|Amount
@@ -426,7 +465,7 @@ If a controller wants to force a transaction the controller may use this functio
 > Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds
 
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
 toUuid|undefined|The personal identification number of a person, or an organization number of a company. 
 numberOfSharesToTransfer|undefined|Amount
@@ -447,7 +486,7 @@ await tx.wait();
 
 Issue new shares to the given entity.
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
 toUuid|undefined|The personal identification number of a person, or an organization number of a company. 
 numberOfSharesToTransfer|undefined|Amount
@@ -461,7 +500,7 @@ partition|optional|The class of the shares to issue.
 
 Remove shares from the sending address.
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
 numberOfSharesToRedeem|number| AMount of shares to remove.
 options|optional|A object detailed with the following parameters.
@@ -472,7 +511,7 @@ partition|optional|The class of the shares to redeem.
 
 Remove shares from the sending address.
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
 fromUuid|string| From which UUID shall the operator remove shares.
 numberOfSharesToRedeem|number| Amount of shares to remove.
