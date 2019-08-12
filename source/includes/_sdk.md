@@ -1,25 +1,25 @@
 # SDK
 
-You can connect to the platform with the SDK, or you can extend the platform itself by developing and deploying smart contracts. This section is details how to use the SDK.
+You can connect to the platform with the SDK, or you can extend the platform itself by developing and deploying smart contracts. This section outlineshow to use the SDK.
 
 ## Getting started
 
-> To install the SDK to your project just use NPM in your project.
+> To install the SDK to your project, just use NPM in your project.
 
 ```
 npm install @brreg-sdk
 ```
 
-To develop on BrregCapTable, you’re first going to want to get the SDK installed on your development machine. 
+To develop on BrregCapTable, you start out by installingthe SDK on your development machine. 
 
-You should also install MetaMask in Chrome as the middleware between your application the blockchain. [Download here](https://metamask.io/).
+You should also install MetaMask in Chrome as the middleware between your application and the blockchain. [Download here](https://metamask.io/).
 
 ### Example application
 It can be hard getting started. We recommend you <a href="https://gitlab.com/blockchangers/brreg/tree/master/packages/forvalter" target="_blank">take a look at the source code of our example application</a> to get a feel of the SDK. The application is written in Vue.js. A <a href="https://blockchangers.gitlab.io/brreg/" target="_blanK">live version of the example application is available on Github</a>.
 
 ## Basic Considerations
 
-As BrregCapTable is a service facilitated by leveraging blockchain technology, the flow of how end users interact with your service changes from the regular client-server way of interacting.
+As BrregCapTable is a service facilitated by blockchain technology, end-users will interact with your service in ways that differs from a regular client-server approach.
 
 Instead of credentials authenticating the user and giving the user the correct access, end users are expected to use a browser with blockchain wallet functionality. This functionality is available in
 
@@ -32,7 +32,7 @@ The first thing your app will want to do is verify whether the user is using Met
 
 ### Connecting to the BrregCapTable Network
 
-In the top right menu of MetaMask, you can select the network that you are currently connected to. Among several popular defaults, you'll find `Custom RPC`. Use it and set
+In the top-right menu of MetaMask, you can select the network that you are currently connected to. Among several popular defaults, you'll find `Custom RPC`. Use it and set
 
 * Network Name to `Toyen` and
 * New RPC URL to `http://ethjygmk4-dns-reg1.northeurope.cloudapp.azure.com:8540`
@@ -41,11 +41,11 @@ In the top right menu of MetaMask, you can select the network that you are curre
 
 Since your seed phrase is the power to control all your accounts, it is probably worth keeping at least one seed phrase for development, separate from any that you use for storing real value. One easy way to manage multiple seed phrases with MetaMask is with multiple browser profiles, each of which can have its own clean extension installations.
 
-<aside class="note">Note that users of you application will also have to manually connect Metamask to the Toyen network as long as BrregCapTable is in active development and in beta.</aside>
+<aside class="note">Note that users of your application will have to connect Metamask to the Toyen network too while BrregCapTable remain in development as a beta.</aside>
 
 ### User State
 
-Currently there are a few stateful things you want to consider when interacting with Metamask:
+There are a settings you should keep in mind when interacting with Metamask:
 
 ```javascript
 ethereum.networkVersion
@@ -61,7 +61,7 @@ ethereum.selectedAddress
 
 ### Logging In
 
-> When you're ready to request the user logs in, you can call this simple method.
+> When you're ready to request the user log in, you can call this simple function.
 
 ```javascript
 ethereum.enable();
@@ -97,17 +97,17 @@ In a regular client-server architecture, the user's browser works as a thin clie
 This code snippet is essential for using any of the following methods from the SDK.
 </aside>
 
-MetaMask injects a global API into websites visited by its users at `window.ethereum` (Also available at `window.web3.currentProvider` for legacy reasons). This API allows websites to request user login, load data from blockchains the user has a connection to, and suggest the user sign messages and transactions. You can use this API to detect the user of a web3 browser.
+MetaMask injects a global API into websites visited by its users at `window.ethereum` (Also available at `window.web3.currentProvider` for legacy reasons). This API allows websites to request user login, load data from blockchains the user has a connection to, and suggest the user sign messages and transactions. You can use this API to detect a user of a web3 browser.
 
-If you want to deep dive into the Metmask API and their best practieces, check our the [Metamask documentation](https://metamask.github.io/metamask-docs/API_Reference/Ethereum_Provider).
+If you want to deep dive into the Metmask API and their best practices, check the [Metamask documentation](https://metamask.github.io/metamask-docs/API_Reference/Ethereum_Provider).
 
 ## Registry Of Cap Tables API
 
-While most functions are spesific to a given company, the functions in this chapter are platform wide.
+While most functions are specific to a given company, the functions in this chapter are platform-wide (they relate to all of BrregCapTable).
 
 ### init(externalSignerProvider: Signer | any, proxyAddress?: string)
 
-> The Class always has to be initalized before using
+> The Class always has to be initialized before using
 
 ```javascript
 const RegistryOfCapTables = require("@brreg/sdk").RegistryOfCapTables
@@ -128,7 +128,7 @@ console.log(list);
 
 List all companies on the platform
 
-Only already onboarded companies are on the platform. Use this code to list them all. Remember to getting the `ethereum` variable. See [Accessing the user's wallet](#accessing-the-user-39-s-wallet)
+BrregCapTable deals only with companies that have been onboarded. Use this code to list them all.
 
 ## Company Factory API
 
@@ -136,7 +136,7 @@ Used to onboard new company.
 
 ### init(externalSignerProvider: Signer | any, proxyAddress?: string)
 
-> The Class always has to be initalized before using
+> The Class always has to be initialized before using
 
 ```javascript
 const CompanyFactoryClass = require("@brreg/sdk").StockFactory;
@@ -156,7 +156,7 @@ const Company = await companyFactory.createNew("Blockchangers AS", "915772137");
 
 > Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds. 
 
-This actions will que the company for verification.
+This actions will queue the company for verification.
 
 Parameter | Default | Description
 --------- | ------- | -----------
@@ -170,11 +170,12 @@ RETURN|Promise<Company>|[Company API](#company-api)
 
 ### addStockQue(address: string)
 
-Add the given company ethereum address the queue for verification by the Business Registry. The company will not show up for users and for other developers before the company's information is verified.
+Add the company to the queue for verification by the Business Registry. The company will not show up for users and for other developers before the company's information is verified.
+
 Parameter | Default | Description
 --------- | ------- | -----------
 address|undefined| Address to que
-RETURN|Promise<Boolean>| True if successfully qued.
+RETURN|Promise<Boolean>| True if successfully queued.
 
 ```javascript
 // Create company
@@ -204,7 +205,7 @@ proxyAddress|optional|If you want to point the SDK at another blockchain than th
 ```javascript
 const arbitraryAddress = await entityRegistry.generateAddress();
 ```
-Many companies will have stockholders who are not on the BrregCapTable platform. Hence the shares can not be sent to the user. Technically these shares still needs to be generated on the blockchain, and put in it's own enclave. This method generates an arbitrary address to achieve this. Generate one one address for every user who does not have one herself, i.e. is not a registerted user on BrregCapTable.
+Many companies will have stockholders who are not on the BrregCapTable platform. Hence the shares can not be sent to the user. Technically these shares still need to be generated on the blockchain, and put on seperate users. This method generates an arbitrary address for you to put shares on, for users not on the platform. Generate one address for every user who does not have a prior address, i.e. those not registered as users on BrregCapTable.
 
 ### allTransactionsAllCapTables(uuid: string)
 ```javascript
@@ -224,7 +225,7 @@ Get data about the given entity.
 
 Parameter | Default | Description
 --------- | ------- | -----------
-uuid|undefined|The personal identification number of a person, or a organization number of a company. 
+uuid|undefined|The personal identification number of a person, or an organization number of a company< all limited liability companies in Norway have a unique organization number issued upon registration 
 
 
 ### getEntityByAddress(address: string)
@@ -263,13 +264,13 @@ Adds an entity to the entityRegistry.
 Parameter | Default | Description
 --------- | ------- | -----------
 EntityData|undefined|The EntityData object is described with the following parameters
-address|undefined|The blockchain address for the given company og person
+address|undefined|The blockchain address for the given company or  person
 uuid|undefined|String. The organizational number of a company or the identification number of a person
 type|undefined|String. 'person' or 'organization.
 name|undefined|String. Name of the entity.
 country|undefined|String. Country of the entity.
 city|undefined|String. City of the entity.
-postalcode|undefined|String. Postalcode of the entity.
+postalcode|undefined|String. Postal code of the entity.
 streetAddress|undefined|String. StreetAddress of the entity.
 
 ### updateEntity(data: EntityData) : Promise<ContractReceipt>
@@ -279,20 +280,20 @@ Updates an entity in the entityRegistry.
 Parameter | Default | Description
 --------- | ------- | -----------
 EntityData|undefined|The EntityData object is described with the following parameters
-address|undefined|The blockchain address for the given company og person
+address|undefined|The blockchain address for the given company or person
 uuid|undefined|String. The organizational number of a company or the identification number of a person
 type|undefined|String. 'person' or 'organization.
 name|undefined|String. Name of the entity.
 country|undefined|String. Country of the entity.
 city|undefined|String. City of the entity.
-postalcode|undefined|String. Postalcode of the entity.
+postalcode|undefined|String. Postal code of the entity.
 streetAddress|undefined|String. StreetAddress of the entity.
 
 ## Company API
 
 ### init(externalSignerProvider: Signer | any, address: string, proxyAddress?: string)
 
-> The Class always has to be initalized before using
+> The Class always has to be initialized before using
 
 ```javascript
 const CompanyClass = require("@brreg/sdk").Stock;
@@ -335,7 +336,7 @@ Returns the board director of the company.
 
 ### getDefaultPartitions(asBytes = false) : Promise<string[]> 
 
-Returns an array of default partitions. By default they will be returned as Strings. 
+Returns an array of default partitions. By default, they will be returned as Strings. 
 
 
 ### totalSupply() : Promise<number> 
@@ -356,12 +357,12 @@ Returns the number of shares in the given share class.
 
 ### info() : Promise<CapTableInfo>
 
-Returns a collectionof information about the company. 
+Returns a collection of information about the company. 
 name, totalSupply, denomination, denominationPerShare, director, address, isController
 
 ### isController(address: string) : Promise<boolean>
 
-Returns true if the given address is a controller of the company. An address can be a person or or a smart contract.
+Returns true if the given address is a controller of the company. An address can be a person or a smart contract.
 
 A controller is an address that can make certain changes to the company — by example transferring board director role. Controllers can in a transparent and with documentation requirement do certain transactions like transferring stocks. This could, by example, be used in the case where a person has died, and the shares need to be transferred to the heir. 
 
@@ -408,31 +409,31 @@ await tx.wait();
 
 Parameter | Default | Description
 --------- | ------- | -----------
-toUuid|undefined|The personal identification number of a person, or a organization number of a company. 
+toUuid|undefined|The personal identification number of a person, or an organization number of a company. 
 numberOfSharesToTransfer|undefined|Amount
 options|optional|A object detailed with the following parameters.
-data|optional| This can be an arbitrary blob of data that Companies can utelize in different ways.
+data|optional| This can be an arbitrary blob of data that Companies can utilize in different ways.
 partition|optional|The class of the shares to issue.
 
-Function for moving shares from one person or company, another. Note that you as a developer do not input who the shares comes from. When the user initiates the transfer from your service, the transaction is signed and sent from them. Hence the shares are sent from her. 
+Function for moving shares from one person or company, another. Note that you as a developer do not input who the shares come from. When the user initiates the transfer from your service, the transaction is signed and sent from them. Hence the shares are sent from her. 
 
 <aside class="notice">Shares are transfered from the user initiating this function.</aside>
 
 ### operatorTransfer(fromUuid: string, toUuid: string, numberOfSharesToTransfer: number, options?: { partition?: string, data?: string, operatorData?: string }) :: Promise<TransactionResponse>
 
-If a controller wants to force a transaction the controller has the use this function to make the transactions. The controller can attach data about the forced transaction in operatorData. 
+If a controller wants to force a transaction the controller may use this function to make the transactions. The controller can attach data about the forced transaction in operatorData. 
 
 > Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds
 
 
 Parameter | Default | Description
 --------- | ------- | -----------
-toUuid|undefined|The personal identification number of a person, or a organization number of a company. 
+toUuid|undefined|The personal identification number of a person, or an organization number of a company. 
 numberOfSharesToTransfer|undefined|Amount
 options|optional|A object detailed with the following parameters.
-data|optional| This can be an arbitrary blob of data that companies can utelize in different ways.
+data|optional| This can be an arbitrary blob of data that companies can utilize in different ways.
 partition|optional|The class of the shares to issue.
-operatorData|optional|This can be an arbitrary blob of data that companies can utelize in different ways.
+operatorData|optional|This can be an arbitrary blob of data that companies can utilize in different ways.
 
 ### issue(toUuid: string, numberOfSharesToTransfer: number, options?: { data?: string, partition?: string })  : Promise<TransactionResponse>
 
@@ -448,10 +449,10 @@ Issue new shares to the given entity.
 
 Parameter | Default | Description
 --------- | ------- | -----------
-toUuid|undefined|The personal identification number of a person, or a organization number of a company. 
+toUuid|undefined|The personal identification number of a person, or an organization number of a company. 
 numberOfSharesToTransfer|undefined|Amount
 options|optional|A object detailed with the following parameters.
-data|optional| This can be an arbitrary blob of data that companies can utelize in different ways.
+data|optional| This can be an arbitrary blob of data that companies can utilize in different ways.
 partition|optional|The class of the shares to issue.
 
 
@@ -464,7 +465,7 @@ Parameter | Default | Description
 --------- | ------- | -----------
 numberOfSharesToRedeem|number| AMount of shares to remove.
 options|optional|A object detailed with the following parameters.
-data|optional| This can be an arbitrary blob of data that companies can utelize in different ways.
+data|optional| This can be an arbitrary blob of data that companies can utilize in different ways.
 partition|optional|The class of the shares to redeem.
 
 ### operatorRedeem(fromUuid: string, numberOfSharesToRedeem: number, options?: { partition?: string, data?: string, operatorData?: string }) : Promise<TransactionResponse>
@@ -473,9 +474,11 @@ Remove shares from the sending address.
 
 Parameter | Default | Description
 --------- | ------- | -----------
-fromUuid|string| From which UUID shall the opretaor remove shares.
+fromUuid|string| From which UUID shall the operator remove shares.
 numberOfSharesToRedeem|number| Amount of shares to remove.
 options|optional|A object detailed with the following parameters.
-data|optional| This can be an arbitrary blob of data that companies can utelize in different ways.
+data|optional| This can be an arbitrary blob of data that companies can utilize in different ways.
 partition|optional|The class of the shares to redeem.
-operatorData|optional|This can be an arbitrary blob of data that companies can utelize in different ways.
+operatorData|optional|This can be an arbitrary blob of data that companies can   in different ways.
+
+
