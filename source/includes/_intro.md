@@ -7,21 +7,21 @@ Norwegian limited liability companies must have a share capital of at least NOK 
 All limited liability companies shall have a cap table unless the company's shares are registered in the public securities register - a precondition for being listed. The cap table shall at all times contain an overview of the company’s shareholders, and it will normally determine who may exercise shareholder rights including the right to vote at the general meeting and the right to receive dividends. The cap table is in principle public - insight may not be denied.
 
 ### What is a cap table?
-Upon listing a shareholder in the shareholders' register the company shall notify the shareholder thereof. The shareholders’ register shall be updated in accordance with established rules in the Companies Act (§ 4-7) to reflect changes of ownership or pledging of shares .
-Shares can be sold or given away without payment unless otherwise stated by law, articles of association or agreement between the shareholders. In the case of a sale, the price is normally calculated based on market value. Transfer of ownership below market value  are referred to as “gift sale” and may trigger a tax liability.
+Upon listing a shareholder in the shareholders' register the company shall notify the shareholder thereof. The shareholders’ register shall be updated in accordance with established rules in the Companies Act (§ 4-7) to reflect changes of ownership or pledging of shares.
+Shares can be sold or given away without payment unless otherwise stated by law, articles of association or agreement between the shareholders. In the case of a sale, the price is normally calculated based on market value. Transfers of ownership below market value are referred to as “gift sale” and may trigger a tax liability.
 When shareholders sell or otherwise realize shares, gains will be taxable and losses deductible.
 The Companies Act contains rules on the consent of acquiring shares, and rules on pre-emption rights for the other shareholders. An agreement to transfer shares shall be reported to the board of the limited company by the person acquiring the shares. The agreement should as a minimum list the parties, the number of shares to be transferred, and at what price.
-Transfers in BrregCapTable will be reported automatically. The new shareholder must be notified by the company that she has been included in the shareholder's register and what is listed.
+Transfers in BrregCapTable will be reported automatically. The new shareholder must be notified by the company that she has been included in the shareholders' register and what is listed.
 
 <aside class = "success">Companies and shareholders that rely on BrregCapTable may need not keep a separate cap table nor report its details to the government as everything is automated.</aside>
 
 #### Shareholder agreements
-Shareholder agreements are normally entered into between shareholders of a company and regulate the relationship between them. shareholders are not obliged to enter into such an agreement, but it may be useful. a shareholder agreement obliges only the shareholders who have signed the agreement. There are no requirements as to how the agreement should look or what it should contain. Examples of conditions that can be regulated in a shareholder agreement are rules relating to ownership, demands for dividends, non-compete clauses, impartiality and work/employment requirements.
+Shareholder agreements are normally entered into between shareholders of a company and regulate the relationship between them. Shareholders are not obliged to enter into such an agreement, but it may be useful. A shareholder agreement obliges only the shareholders who have signed the agreement. There are no requirements as to how the agreement should look or what it should contain. Examples of conditions that can be regulated in a shareholder agreement are rules relating to ownership, demands for dividends, non-compete clauses, impartiality and work/employment requirements.
 
 #### Conflict between shareholders
-It is not uncommon for conflicts between shareholders to arise regarding the organization and running of a company. Since the causes of conflict may be difficult to spot in advance, may make sense to
+It is not uncommon for conflicts between shareholders to arise regarding the organization and running of a company. Since the causes of conflict may be difficult to spot in advance, it may make sense to
 
-* Avoid a setup where two owners holds 50% of the shares each and hence become incapable of making majority decisions in cases of conflict
+* Avoid a setup where two owners hold 50% of the shares each and hence become incapable of making majority decisions in cases of conflict
 * Enter into shareholder agreements that clarify how the relationship between shareholders in the event of disagreement.
 
 In cases where the shareholders no longer manage to cooperate with each other, the district court may, in response to a lawsuit from a shareholder or from the company, decide on the redemption or release of a shareholder's shares. Such lawsuits must be regarded as last resort, and there must be weighty reasons.
@@ -68,7 +68,7 @@ This is a list of terms you might encounter when developing on BrregCapTable.
 ### Block explorer
 
 * Service that allows a view into what is happening on the blockchain
-* Link in menu to the left
+* Link in the menu to the left
 
 ### Blockchain
 
@@ -82,7 +82,7 @@ This is a list of terms you might encounter when developing on BrregCapTable.
 
 ### Wallet
 
-*   The interface/client / wrapper / holder that allow users to manage their account(s) and interactions with the blockchain.
+*   The interface/client / wrapper / holder that allows users to manage their account(s) and interactions with the blockchain.
 *   Examples: MetaMask.io, your Ledger Hardware Wallet, a Multisig Wallet Contract.
 
 ### Account
@@ -113,13 +113,13 @@ This is a list of terms you might encounter when developing on BrregCapTable.
 *   A string of 64 hexadecimal characters.
 *   Every string of 64 hexadecimal characters is a private key.
 *   If you hand-type a private key differently today than yesterday, you will access a different wallet. Never hand type your private key.
-*   This is the string you need to send from your account. Without the privatw key you cannot access your account. Although, you don't need to save this raw, unencrypted private key in this format. You can save the fancy versions of it (e.g. the Keystore File / Mnemonic Phrase).
+*   This is the string you need to send from your account. Without the private key you cannot access your account. Although, you don't need to save this raw, unencrypted private key in this format. You can save the fancy versions of it (e.g. the Keystore File / Mnemonic Phrase).
 *   Example: `afdfd9c3d2095ef696594f6cedcae59e72dcd697e2a7521b1578140422a4f890`
 
 ### Mnemonic Phrase / Seed Phrase / Seed Words
 
 *   Another fancy version of your private key, that is actually used to derive multiple private keys.
-*   A (typically) phrase consisting of 12 or 24 words that allows you to access an infinite number of accounts.
+*   A (typically) phrase consisting of 12 or 24 words that allow you to access an infinite number of accounts.
 *   Used by Ledger, TREZOR, MetaMask, Jaxx, and others.
 *   Originates from [BIP 39 Spec](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki).
 *   The accounts you can access with this phrase are determined by the "path".
@@ -192,5 +192,6 @@ Relevant details
 
 ### Production
 The production version of the platform is not live yet. 
+
 
 

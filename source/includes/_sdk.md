@@ -1,6 +1,6 @@
 # SDK
 
-You can connect to the platform with the SDK, or you can extend the platform itself by developing and deploying smart contracts. This section outlineshow to use the SDK.
+You can connect to the platform with the SDK, or you can extend the platform itself by developing and deploying smart contracts. This section outlines how to use the SDK.
 
 ## Getting started
 
@@ -10,7 +10,7 @@ You can connect to the platform with the SDK, or you can extend the platform its
 npm install @brreg-sdk
 ```
 
-To develop on BrregCapTable, you start out by installingthe SDK on your development machine. 
+To develop on BrregCapTable, you start out by installing the SDK on your development machine. 
 
 You should also install MetaMask in Chrome as the middleware between your application and the blockchain. [Download here](https://metamask.io/).
 
@@ -117,7 +117,7 @@ const RegistryOfCapTablesContract = await RegistryOfCapTables.init(ethereum);
 Parameter | Type | Description
 --------- | ------- | -----------
 externalSignerProvider|Provider|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
-proxyAddress|String (Ethereum address)|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
+proxyAddress|String (Ethereum address)|If you want to point the SDK at another blockchain than the [Staging server](#networks-and-endpoints)
 
 ### list()
 
@@ -168,7 +168,7 @@ const companyFactory = await CompanyFactoryClass.init(ethereum);
 Parameter | Type | Description
 --------- | ------- | -----------
 externalSignerProvider|Provider|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
-proxyAddress|String|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
+proxyAddress|String|If you want to point the SDK at another blockchain than the [Staging server](#networks-and-endpoints)
 
 ### createNew(name: string, uuid: string, options: { partitions: string[], symbol: string }) : Promise<Stock> 
 
@@ -189,32 +189,6 @@ partitions|String[]|List of share classes as strings. Example ['a-share', 'b-sha
 symbol|String|Shorthand for the company, 4 characters length.
 RETURN|Promise<Company>|[Company API](#company-api)
 
-<!-- Removing this as the developer should not need to do this. -->
-<!-- ### addStockQue(address: string) : Promise<boolean> 
-
-<<<<<<< HEAD
-Add the company to the queue for verification by the Business Registry. The company will not show up for users and for other developers before the company's information is verified.
-
-Parameter | Default | Description
---------- | ------- | -----------
-address|undefined| Address to que
-RETURN|Promise<Boolean>| True if successfully queued.
-=======
-Add the given company ethereum address the queue for verification by the Business Registry. The company will not show up for users and for other developers before the company's information is verified.
-Parameter | Type | Description
---------- | ------- | -----------
-address|String (Ethereum address)| Address to que
-RETURN|Promise<Boolean>| True if successfully qued.
->>>>>>> 14febe5388697e7528d7764381fb8b04121fc3b9
-
-```javascript
-// Create company
-let Company = await companyFactory.createNew("Blockchangers AS", "915772137");
-
-// Here you should fill the entity/company with data using addEntity
-let Company = await companyFactory.addStockQue(companyAddress);
-
-``` -->
 
 ## Entity Registry API
 
@@ -350,7 +324,7 @@ name|undefined|String. Name of the entity.
 country|undefined|String. Country of the entity.
 city|undefined|String. City of the entity.
 postalcode|undefined|String. Postal code of the entity.
-streetAddress|undefined|String. StreetAddress of the entity.
+streetAddress|undefined|String. Street Address of the entity.
 
 ### updateEntity(data: EntityData) : Promise<ContractReceipt>
 
@@ -366,7 +340,7 @@ name|undefined|String. Name of the entity.
 country|undefined|String. Country of the entity.
 city|undefined|String. City of the entity.
 postalcode|undefined|String. Postal code of the entity.
-streetAddress|undefined|String. StreetAddress of the entity.
+streetAddress|undefined|String. Street Address of the entity.
 
 ## Company API
 
@@ -496,7 +470,7 @@ partition|optional|The class of the shares to issue.
 
 Function for moving shares from one person or company, another. Note that you as a developer do not input who the shares come from. When the user initiates the transfer from your service, the transaction is signed and sent from them. Hence the shares are sent from her. 
 
-<aside class="notice">Shares are transfered from the user initiating this function.</aside>
+<aside class="notice">Shares are transferred from the user initiating this function.</aside>
 
 ### operatorTransfer(fromUuid: string, toUuid: string, numberOfSharesToTransfer: number, options?: { partition?: string, data?: string, operatorData?: string }) :: Promise<TransactionResponse>
 
@@ -559,5 +533,6 @@ options|optional|A object detailed with the following parameters.
 data|optional| This can be an arbitrary blob of data that companies can utilize in different ways.
 partition|optional|The class of the shares to redeem.
 operatorData|optional|This can be an arbitrary blob of data that companies can   in different ways.
+
 
 
