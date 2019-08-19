@@ -14,17 +14,29 @@ To develop on BrregCapTable, you start out by installing the SDK on your develop
 
 You should also install MetaMask in Chrome as the middleware between your application and the blockchain. [Download here](https://metamask.io/).
 
-### Example application
-It can be hard getting started. We recommend you <a href="https://gitlab.com/blockchangers/brreg/tree/master/packages/forvalter" target="_blank">take a look at the source code of our example application</a> to get a feel of the SDK. The application is written in Vue.js. A <a href="https://blockchangers.gitlab.io/brreg/" target="_blanK">live version of the example application is available on Github</a>.
+### Example frotend application
+It can be hard getting started. We recommend you <a href="https://gitlab.com/blockchangers/brreg/tree/master/packages/forvalter" target="_blank">take a look at the source code of our example application</a> to get a feel of the SDK. The application is written in Vue.js with VueX. A <a href="https://blockchangers.gitlab.io/brreg/" target="_blanK">live version of the example application is available on Github</a>.
 
-## Basic Considerations
+### Example backend application
+If you are creating a backend service with NodeJs. Take a look at this demo application useing the SDK. <a href="https://gitlab.com/blockchangers/brreg-typescript-starter" target="_blank">brreg-typescript-starter</a>.
+
+In a backend applicatin you dont rely on the user providing a connection to Brreg network. To mock this we can do the following in Typescript.
+```typescript
+  import { ethers } from 'ethers'
+  const provider = new ethers.providers.JsonRpcProvider('http://ethjygmk4-dns-reg1.northeurope.cloudapp.azure.com:8540')
+  const ProviderWithWallet = ethers.Wallet.createRandom().connect(provider)
+```
+
+## How do users connect to BrregCapTable blockchain network? 
 
 As BrregCapTable is a service facilitated by blockchain technology, end-users will interact with your service in ways that differs from a regular client-server approach.
 
 Instead of credentials authenticating the user and giving the user the correct access, end users are expected to use a browser with blockchain wallet functionality. This functionality is available in
 
-* Google Chrome and Microsoft Edge when installing the [Metamask plugin](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn)
+* Google Chrome, Firefox, Brave and Microsoft Edge when installing the [Metamask plugin](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn)
 * The Opera web browser
+
+As a frontend developer, you must download this plugin and use it when developing frontend applications.
 
 ### Web3 Browser Detection
 
@@ -34,7 +46,7 @@ The first thing your app will want to do is verify whether the user is using Met
 
 In the top-right menu of MetaMask, you can select the network that you are currently connected to. Among several popular defaults, you'll find `Custom RPC`. Use it and set
 
-* Network Name to `Toyen` and
+* Network Name to `Toyen` (its not important what you call it, just for your own reference)
 * New RPC URL to `http://ethjygmk4-dns-reg1.northeurope.cloudapp.azure.com:8540`
 
 <img src="../images/toyenInMetamask.png" alt="" style="width:18em;" />
@@ -101,6 +113,29 @@ MetaMask injects a global API into websites visited by its users at `window.ethe
 
 If you want to deep dive into the Metmask API and their best practices, check the [Metamask documentation](https://metamask.github.io/metamask-docs/API_Reference/Ethereum_Provider).
 
+## How to use the SDK
+
+In BrregCapTable, there are mainly four classes to work with:
+* Company API - All functionality connected to a spesific company.
+* Company Factory API - Functionality to create a new company.
+* Entity Registry API - Functionality to store or get information about a person or a company.
+* Registry ofc Cap Tables API - Functionality working on all companies in this network.
+
+### Init
+In each class there is an `init` function. This function is the bridge between the users Ethereum network connection (through Metamask) and the smart contracts the frontend know how to work with. 
+
+So before useing a spesific API class, the developer should init the api class passing in the users Ethereum network connection (which you get from the Browser thorugh Metamask).
+```javascript
+let ethereum
+if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
+    ethereum = window.ethereum;
+}
+
+const RegistryOfCapTables = require("@brreg/sdk").RegistryOfCapTables
+const RegistryOfCapTablesContract = await RegistryOfCapTables.init(ethereum);
+// RegistryOfCapTablesContract is now an instance of this smart contract. and we can run its interfaces. By example await RegistryOfCapTablesContract.list() to list all the companies saved within this smart contract.
+```
+
 ## Registry Of Cap Tables API
 
 While most functions are specific to a given company, the functions in this chapter are platform-wide (they relate to all of BrregCapTable).
@@ -116,7 +151,7 @@ const RegistryOfCapTablesContract = await RegistryOfCapTables.init(ethereum);
 
 Parameter | Type | Description
 --------- | ------- | -----------
-externalSignerProvider|Provider|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
+externalSignerProvider|Ethereum provider|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
 proxyAddress|String (Ethereum address)|If you want to point the SDK at another blockchain than the [Staging server](#networks-and-endpoints)
 
 ### list() 
@@ -320,15 +355,15 @@ Adds an entity to the entityRegistry.
 
 Parameter | Type | Description
 --------- | ------- | -----------
-EntityData|undefined|The EntityData object is described with the following parameters
-address|undefined|The blockchain address for the given company or  person
-uuid|undefined|String. The organizational number of a company or the identification number of a person
-type|undefined|String. 'person' or 'organization.
-name|undefined|String. Name of the entity.
-country|undefined|String. Country of the entity.
-city|undefined|String. City of the entity.
-postalcode|undefined|String. Postal code of the entity.
-streetAddress|undefined|String. Street Address of the entity.
+EntityData|object|The EntityData object is described with the following parameters
+address|string|The blockchain address for the given company or  person
+uuid|string|String. The organizational number of a company or the identification number of a person
+type|string|String. 'person' or 'organization.
+name|string|String. Name of the entity.
+country|string|String. Country of the entity.
+city|string|String. City of the entity.
+postalcode|string|String. Postal code of the entity.
+streetAddress|string|String. Street Address of the entity.
 
 ### updateEntity(data: EntityData) : Promise<ContractReceipt>
 
@@ -336,15 +371,15 @@ Updates an entity in the entityRegistry.
 
 Parameter | Type | Description
 --------- | ------- | -----------
-EntityData|undefined|The EntityData object is described with the following parameters
-address|undefined|The blockchain address for the given company or person
-uuid|undefined|String. The organizational number of a company or the identification number of a person
-type|undefined|String. 'person' or 'organization.
-name|undefined|String. Name of the entity.
-country|undefined|String. Country of the entity.
-city|undefined|String. City of the entity.
-postalcode|undefined|String. Postal code of the entity.
-streetAddress|undefined|String. Street Address of the entity.
+EntityData|object|The EntityData object is described with the following parameters
+address|string|The blockchain address for the given company or person
+uuid|string|String. The organizational number of a company or the identification number of a person
+type|string|String. 'person' or 'organization.
+name|string|String. Name of the entity.
+country|string|String. Country of the entity.
+city|string|String. City of the entity.
+postalcode|string|String. Postal code of the entity.
+streetAddress|string|String. Street Address of the entity.
 
 ## Company API
 
@@ -359,10 +394,13 @@ const Company = await CompanyClass.init(ethereum, "0x2358cEE56BEf4Ac13d65e9F9667
 
 Parameter | Type | Description
 --------- | ------- | -----------
-externalSignerProvider|undefined|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
-address|undefined|The ethereum address of the company.
-proxyAddress|optional|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
+externalSignerProvider|Ethereum provider|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
+address|String|The ethereum address of the company. In the future, this will be able to accept UUID.
+proxyAddress|(optional) string|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
 RETURN|Promise<Company>|[Company API](#company-api)
+
+> In next version of Company API, this will be able to accept UUID instead of the Etehreum address to initiate the company class.
+
 ### address()
 
 Returns a new Company Class for this address.
@@ -466,11 +504,11 @@ await tx.wait();
 
 Parameter | Type | Description
 --------- | ------- | -----------
-toUuid|undefined|The personal identification number of a person, or an organization number of a company. 
-numberOfSharesToTransfer|undefined|Amount
-options|optional|A object detailed with the following parameters.
-data|optional| This can be an arbitrary blob of data that Companies can utilize in different ways.
-partition|optional|The class of the shares to issue.
+toUuid|string|The personal identification number of a person, or an organization number of a company. 
+numberOfSharesToTransfer|number|Amount
+options|(optional) object|A object detailed with the following parameters.
+data|string| This can be an arbitrary blob of data that Companies can utilize in different ways.
+partition|string|The class of the shares to issue.
 
 Function for moving shares from one person or company, another. Note that you as a developer do not input who the shares come from. When the user initiates the transfer from your service, the transaction is signed and sent from them. Hence the shares are sent from her. 
 
@@ -485,12 +523,12 @@ If a controller wants to force a transaction the controller may use this functio
 
 Parameter | Type | Description
 --------- | ------- | -----------
-toUuid|undefined|The personal identification number of a person, or an organization number of a company. 
-numberOfSharesToTransfer|undefined|Amount
-options|optional|A object detailed with the following parameters.
-data|optional| This can be an arbitrary blob of data that companies can utilize in different ways.
-partition|optional|The class of the shares to issue.
-operatorData|optional|This can be an arbitrary blob of data that companies can utilize in different ways.
+toUuid|string|The personal identification number of a person, or an organization number of a company. 
+numberOfSharesToTransfer|number|Amount
+options|(optional) object|A object detailed with the following parameters.
+data|string| This can be an arbitrary blob of data that companies can utilize in different ways.
+partition|string|The class of the shares to issue.
+operatorData|string|This can be an arbitrary blob of data that companies can utilize in different ways.
 
 ### issue(toUuid: string, numberOfSharesToTransfer: number, options?: { data?: string, partition?: string })  : Promise<TransactionResponse>
 
@@ -506,11 +544,11 @@ Issue new shares to the given entity.
 
 Parameter | Type | Description
 --------- | ------- | -----------
-toUuid|undefined|The personal identification number of a person, or an organization number of a company. 
-numberOfSharesToTransfer|undefined|Amount
-options|optional|A object detailed with the following parameters.
-data|optional| This can be an arbitrary blob of data that companies can utilize in different ways.
-partition|optional|The class of the shares to issue.
+toUuid|string|The personal identification number of a person, or an organization number of a company. 
+numberOfSharesToTransfer|number|Amount
+options|(optional) object|A object detailed with the following parameters.
+data|string| This can be an arbitrary blob of data that companies can utilize in different ways.
+partition|string|The class of the shares to issue.
 
 
 
@@ -521,9 +559,9 @@ Remove shares from the sending address.
 Parameter | Type | Description
 --------- | ------- | -----------
 numberOfSharesToRedeem|number| AMount of shares to remove.
-options|optional|A object detailed with the following parameters.
-data|optional| This can be an arbitrary blob of data that companies can utilize in different ways.
-partition|optional|The class of the shares to redeem.
+options|(optional) object|A object detailed with the following parameters.
+data|string| This can be an arbitrary blob of data that companies can utilize in different ways.
+partition|string|The class of the shares to redeem.
 
 ### operatorRedeem(fromUuid: string, numberOfSharesToRedeem: number, options?: { partition?: string, data?: string, operatorData?: string }) : Promise<TransactionResponse>
 
@@ -533,10 +571,10 @@ Parameter | Type | Description
 --------- | ------- | -----------
 fromUuid|string| From which UUID shall the operator remove shares.
 numberOfSharesToRedeem|number| Amount of shares to remove.
-options|optional|A object detailed with the following parameters.
-data|optional| This can be an arbitrary blob of data that companies can utilize in different ways.
-partition|optional|The class of the shares to redeem.
-operatorData|optional|This can be an arbitrary blob of data that companies can   in different ways.
+options|(optional) object|A object detailed with the following parameters.
+data|string| This can be an arbitrary blob of data that companies can utilize in different ways.
+partition|string|The class of the shares to redeem.
+operatorData|string|This can be an arbitrary blob of data that companies can   in different ways.
 
 
 
