@@ -119,15 +119,19 @@ Parameter | Type | Description
 externalSignerProvider|Provider|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
 proxyAddress|String (Ethereum address)|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
 
-### list()
+### list() 
+Parameter | Type | Description
+--------- | ------- | -----------
+RETURN|Promise< CapTableInfo[] >| 
 
 ```javascript
 const list = await RegistryOfCapTablesContract.list();
 console.log(list);
 ```
 
+
 ```javascript
-[ 
+return [ 
     { name: 'Empty inc.',
     totalSupply: 0,
     denomination: 0,
@@ -207,7 +211,7 @@ let Company = await companyFactory.addStockQue(companyAddress);
 
 ## Entity Registry API
 
-### init(externalSignerProvider: Signer | any, proxyAddress?: string) : Promise<EntityRegistry>
+### init(externalSignerProvider: Signer | any, proxyAddress?: string)
 
 ```javascript
 const EntityRegistryClass = require("@brreg/sdk").EntityRegistry
@@ -218,6 +222,7 @@ Parameter | Type | Description
 --------- | ------- | -----------
 externalSignerProvider|Provider|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
 proxyAddress|String (Ethereum address)|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
+RETURN|Promise<EntityRegistry>|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
 
 
 ### generateAddress() : Promise<string> 
