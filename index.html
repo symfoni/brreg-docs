@@ -255,10 +255,13 @@
                     <a href="#getting-started" class="toc-h2 toc-link" data-title="Getting started">Getting started</a>
                   </li>
                   <li>
-                    <a href="#basic-considerations" class="toc-h2 toc-link" data-title="Basic Considerations">Basic Considerations</a>
+                    <a href="#how-do-users-connect-to-brregcaptable-blockchain-network" class="toc-h2 toc-link" data-title="How do users connect to BrregCapTable blockchain network?">How do users connect to BrregCapTable blockchain network?</a>
                   </li>
                   <li>
                     <a href="#accessing-the-user-39-s-wallet" class="toc-h2 toc-link" data-title="Accessing the user's wallet">Accessing the user's wallet</a>
+                  </li>
+                  <li>
+                    <a href="#how-to-use-the-sdk" class="toc-h2 toc-link" data-title="How to use the SDK">How to use the SDK</a>
                   </li>
                   <li>
                     <a href="#registry-of-cap-tables-api" class="toc-h2 toc-link" data-title="Registry Of Cap Tables API">Registry Of Cap Tables API</a>
@@ -482,29 +485,40 @@ All changes in the shareholder register have to be approved by the chairman of t
 <blockquote>
 <p>To install the SDK to your project, just use NPM in your project.</p>
 </blockquote>
-<pre class="highlight plaintext"><code>npm install @brreg-sdk
+<pre class="highlight plaintext"><code>npm install @brreg/sdk
 </code></pre>
 <p>To develop on BrregCapTable, you start out by installing the SDK on your development machine. </p>
 
 <p>You should also install MetaMask in Chrome as the middleware between your application and the blockchain. <a href="https://metamask.io/">Download here</a>.</p>
-<h3 id='example-application'>Example application</h3>
-<p>It can be hard getting started. We recommend you <a href="https://gitlab.com/blockchangers/brreg/tree/master/packages/forvalter" target="_blank">take a look at the source code of our example application</a> to get a feel of the SDK. The application is written in Vue.js. A <a href="https://blockchangers.gitlab.io/brreg/" target="_blanK">live version of the example application is available on Github</a>.</p>
-<h2 id='basic-considerations'>Basic Considerations</h2>
+<h3 id='example-frotend-application'>Example frotend application</h3>
+<p>It can be hard getting started. We recommend you <a href="https://gitlab.com/blockchangers/brreg/tree/master/packages/forvalter" target="_blank">take a look at the source code of our example application</a> to get a feel of the SDK. The application is written in Vue.js with VueX. A <a href="https://blockchangers.gitlab.io/brreg/" target="_blanK">live version of the example application is available on Github</a>.</p>
+<h3 id='example-backend-application'>Example backend application</h3>
+<p>If you are creating a backend service with NodeJs. Take a look at this demo application useing the SDK. <a href="https://gitlab.com/blockchangers/brreg-typescript-starter" target="_blank">brreg-typescript-starter</a>.</p>
+
+<p>In a backend applicatin you dont rely on the user providing a connection to Brreg network. To mock this we can do the following in Typescript.
+<code>typescript
+  import { ethers } from &#39;ethers&#39;
+  const provider = new ethers.providers.JsonRpcProvider(&#39;http://ethjygmk4-dns-reg1.northeurope.cloudapp.azure.com:8540&#39;)
+  const ProviderWithWallet = ethers.Wallet.createRandom().connect(provider)
+</code></p>
+<h2 id='how-do-users-connect-to-brregcaptable-blockchain-network'>How do users connect to BrregCapTable blockchain network?</h2>
 <p>As BrregCapTable is a service facilitated by blockchain technology, end-users will interact with your service in ways that differs from a regular client-server approach.</p>
 
 <p>Instead of credentials authenticating the user and giving the user the correct access, end users are expected to use a browser with blockchain wallet functionality. This functionality is available in</p>
 
 <ul>
-<li>Google Chrome and Microsoft Edge when installing the <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn">Metamask plugin</a></li>
+<li>Google Chrome, Firefox, Brave and Microsoft Edge when installing the <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn">Metamask plugin</a></li>
 <li>The Opera web browser</li>
 </ul>
+
+<p>As a frontend developer, you must download this plugin and use it when developing frontend applications.</p>
 <h3 id='web3-browser-detection'>Web3 Browser Detection</h3>
 <p>The first thing your app will want to do is verify whether the user is using MetaMask or not, which is simple using a check like <code>if (typeof window.ethereum !== &#39;undefined&#39;) { /* deal with it */ }</code>.</p>
 <h3 id='connecting-to-the-brregcaptable-network'>Connecting to the BrregCapTable Network</h3>
 <p>In the top-right menu of MetaMask, you can select the network that you are currently connected to. Among several popular defaults, you&#39;ll find <code>Custom RPC</code>. Use it and set</p>
 
 <ul>
-<li>Network Name to <code>Toyen</code> and</li>
+<li>Network Name to <code>Toyen</code> (its not important what you call it, just for your own reference)</li>
 <li>New RPC URL to <code>http://ethjygmk4-dns-reg1.northeurope.cloudapp.azure.com:8540</code></li>
 </ul>
 
@@ -564,6 +578,26 @@ This code snippet is essential for using any of the following methods from the S
 <p>MetaMask injects a global API into websites visited by its users at <code>window.ethereum</code> (Also available at <code>window.web3.currentProvider</code> for legacy reasons). This API allows websites to request user login, load data from blockchains the user has a connection to, and suggest the user sign messages and transactions. You can use this API to detect a user of a web3 browser.</p>
 
 <p>If you want to deep dive into the Metmask API and their best practices, check the <a href="https://metamask.github.io/metamask-docs/API_Reference/Ethereum_Provider">Metamask documentation</a>.</p>
+<h2 id='how-to-use-the-sdk'>How to use the SDK</h2>
+<p>In BrregCapTable, there are mainly four classes to work with:
+* Company API - All functionality connected to a spesific company.
+* Company Factory API - Functionality to create a new company.
+* Entity Registry API - Functionality to store or get information about a person or a company.
+* Registry ofc Cap Tables API - Functionality working on all companies in this network.</p>
+<h3 id='init'>Init</h3>
+<p>In each class there is an <code>init</code> function. This function is the bridge between the users Ethereum network connection (through Metamask) and the smart contracts the frontend know how to work with. </p>
+
+<p>So before useing a spesific API class, the developer should init the api class passing in the users Ethereum network connection (which you get from the Browser thorugh Metamask).
+```javascript
+let ethereum
+if (typeof window.ethereum !== &#39;undefined&#39; || (typeof window.web3 !== &#39;undefined&#39;)) {
+    ethereum = window.ethereum;
+}</p>
+
+<p>const RegistryOfCapTables = require(&quot;@brreg/sdk&quot;).RegistryOfCapTables
+const RegistryOfCapTablesContract = await RegistryOfCapTables.init(ethereum);
+// RegistryOfCapTablesContract is now an instance of this smart contract. and we can run its interfaces. By example await RegistryOfCapTablesContract.list() to list all the companies saved within this smart contract.
+```</p>
 <h2 id='registry-of-cap-tables-api'>Registry Of Cap Tables API</h2>
 <p>While most functions are specific to a given company, the functions in this chapter are platform-wide (they relate to all of BrregCapTable).</p>
 <h3 id='init-externalsignerprovider-signer-any-proxyaddress-string'>init(externalSignerProvider: Signer | any, proxyAddress?: string)</h3>
@@ -582,7 +616,7 @@ This code snippet is essential for using any of the following methods from the S
 </thead><tbody>
 <tr>
 <td>externalSignerProvider</td>
-<td>Provider</td>
+<td>Ethereum provider</td>
 <td>Should be set to the user&#39;s wallet i.e. <code>ethereum</code> from the section <a href="#accessing-the-user-39-s-wallet">Accessing the user&#39;s wallet</a> from above.</td>
 </tr>
 <tr>
@@ -856,47 +890,47 @@ This code snippet is essential for using any of the following methods from the S
 </thead><tbody>
 <tr>
 <td>EntityData</td>
-<td>undefined</td>
+<td>object</td>
 <td>The EntityData object is described with the following parameters</td>
 </tr>
 <tr>
 <td>address</td>
-<td>undefined</td>
+<td>string</td>
 <td>The blockchain address for the given company or  person</td>
 </tr>
 <tr>
 <td>uuid</td>
-<td>undefined</td>
+<td>string</td>
 <td>String. The organizational number of a company or the identification number of a person</td>
 </tr>
 <tr>
 <td>type</td>
-<td>undefined</td>
+<td>string</td>
 <td>String. &#39;person&#39; or &#39;organization.</td>
 </tr>
 <tr>
 <td>name</td>
-<td>undefined</td>
+<td>string</td>
 <td>String. Name of the entity.</td>
 </tr>
 <tr>
 <td>country</td>
-<td>undefined</td>
+<td>string</td>
 <td>String. Country of the entity.</td>
 </tr>
 <tr>
 <td>city</td>
-<td>undefined</td>
+<td>string</td>
 <td>String. City of the entity.</td>
 </tr>
 <tr>
 <td>postalcode</td>
-<td>undefined</td>
+<td>string</td>
 <td>String. Postal code of the entity.</td>
 </tr>
 <tr>
 <td>streetAddress</td>
-<td>undefined</td>
+<td>string</td>
 <td>String. Street Address of the entity.</td>
 </tr>
 </tbody></table>
@@ -912,47 +946,47 @@ This code snippet is essential for using any of the following methods from the S
 </thead><tbody>
 <tr>
 <td>EntityData</td>
-<td>undefined</td>
+<td>object</td>
 <td>The EntityData object is described with the following parameters</td>
 </tr>
 <tr>
 <td>address</td>
-<td>undefined</td>
+<td>string</td>
 <td>The blockchain address for the given company or person</td>
 </tr>
 <tr>
 <td>uuid</td>
-<td>undefined</td>
+<td>string</td>
 <td>String. The organizational number of a company or the identification number of a person</td>
 </tr>
 <tr>
 <td>type</td>
-<td>undefined</td>
+<td>string</td>
 <td>String. &#39;person&#39; or &#39;organization.</td>
 </tr>
 <tr>
 <td>name</td>
-<td>undefined</td>
+<td>string</td>
 <td>String. Name of the entity.</td>
 </tr>
 <tr>
 <td>country</td>
-<td>undefined</td>
+<td>string</td>
 <td>String. Country of the entity.</td>
 </tr>
 <tr>
 <td>city</td>
-<td>undefined</td>
+<td>string</td>
 <td>String. City of the entity.</td>
 </tr>
 <tr>
 <td>postalcode</td>
-<td>undefined</td>
+<td>string</td>
 <td>String. Postal code of the entity.</td>
 </tr>
 <tr>
 <td>streetAddress</td>
-<td>undefined</td>
+<td>string</td>
 <td>String. Street Address of the entity.</td>
 </tr>
 </tbody></table>
@@ -972,17 +1006,17 @@ This code snippet is essential for using any of the following methods from the S
 </thead><tbody>
 <tr>
 <td>externalSignerProvider</td>
-<td>undefined</td>
+<td>Ethereum provider</td>
 <td>Should be set to the user&#39;s wallet i.e. <code>ethereum</code> from the section <a href="#accessing-the-user-39-s-wallet">Accessing the user&#39;s wallet</a> from above.</td>
 </tr>
 <tr>
 <td>address</td>
-<td>undefined</td>
-<td>The ethereum address of the company.</td>
+<td>String</td>
+<td>The ethereum address of the company. In the future, this will be able to accept UUID.</td>
 </tr>
 <tr>
 <td>proxyAddress</td>
-<td>optional</td>
+<td>(optional) string</td>
 <td>If you want to point the SDK at another blockchain than the <a href="#networks-and-endpoints">Stagning server</a></td>
 </tr>
 <tr>
@@ -991,6 +1025,10 @@ This code snippet is essential for using any of the following methods from the S
 <td><a href="#company-api">Company API</a></td>
 </tr>
 </tbody></table>
+
+<blockquote>
+<p>In next version of Company API, this will be able to accept UUID instead of the Etehreum address to initiate the company class.</p>
+</blockquote>
 <h3 id='address'>address()</h3>
 <p>Returns a new Company Class for this address.</p>
 <h3 id='balanceof-address-string-promise'>balanceOf(address: string) : Promise<number></h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">Stock</span><span class="p">;</span>
@@ -1056,27 +1094,27 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 </thead><tbody>
 <tr>
 <td>toUuid</td>
-<td>undefined</td>
+<td>string</td>
 <td>The personal identification number of a person, or an organization number of a company.</td>
 </tr>
 <tr>
 <td>numberOfSharesToTransfer</td>
-<td>undefined</td>
+<td>number</td>
 <td>Amount</td>
 </tr>
 <tr>
 <td>options</td>
-<td>optional</td>
+<td>(optional) object</td>
 <td>A object detailed with the following parameters.</td>
 </tr>
 <tr>
 <td>data</td>
-<td>optional</td>
+<td>string</td>
 <td>This can be an arbitrary blob of data that Companies can utilize in different ways.</td>
 </tr>
 <tr>
 <td>partition</td>
-<td>optional</td>
+<td>string</td>
 <td>The class of the shares to issue.</td>
 </tr>
 </tbody></table>
@@ -1100,32 +1138,32 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 </thead><tbody>
 <tr>
 <td>toUuid</td>
-<td>undefined</td>
+<td>string</td>
 <td>The personal identification number of a person, or an organization number of a company.</td>
 </tr>
 <tr>
 <td>numberOfSharesToTransfer</td>
-<td>undefined</td>
+<td>number</td>
 <td>Amount</td>
 </tr>
 <tr>
 <td>options</td>
-<td>optional</td>
+<td>(optional) object</td>
 <td>A object detailed with the following parameters.</td>
 </tr>
 <tr>
 <td>data</td>
-<td>optional</td>
+<td>string</td>
 <td>This can be an arbitrary blob of data that companies can utilize in different ways.</td>
 </tr>
 <tr>
 <td>partition</td>
-<td>optional</td>
+<td>string</td>
 <td>The class of the shares to issue.</td>
 </tr>
 <tr>
 <td>operatorData</td>
-<td>optional</td>
+<td>string</td>
 <td>This can be an arbitrary blob of data that companies can utilize in different ways.</td>
 </tr>
 </tbody></table>
@@ -1146,27 +1184,27 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 </thead><tbody>
 <tr>
 <td>toUuid</td>
-<td>undefined</td>
+<td>string</td>
 <td>The personal identification number of a person, or an organization number of a company.</td>
 </tr>
 <tr>
 <td>numberOfSharesToTransfer</td>
-<td>undefined</td>
+<td>number</td>
 <td>Amount</td>
 </tr>
 <tr>
 <td>options</td>
-<td>optional</td>
+<td>(optional) object</td>
 <td>A object detailed with the following parameters.</td>
 </tr>
 <tr>
 <td>data</td>
-<td>optional</td>
+<td>string</td>
 <td>This can be an arbitrary blob of data that companies can utilize in different ways.</td>
 </tr>
 <tr>
 <td>partition</td>
-<td>optional</td>
+<td>string</td>
 <td>The class of the shares to issue.</td>
 </tr>
 </tbody></table>
@@ -1187,17 +1225,17 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 </tr>
 <tr>
 <td>options</td>
-<td>optional</td>
+<td>(optional) object</td>
 <td>A object detailed with the following parameters.</td>
 </tr>
 <tr>
 <td>data</td>
-<td>optional</td>
+<td>string</td>
 <td>This can be an arbitrary blob of data that companies can utilize in different ways.</td>
 </tr>
 <tr>
 <td>partition</td>
-<td>optional</td>
+<td>string</td>
 <td>The class of the shares to redeem.</td>
 </tr>
 </tbody></table>
@@ -1223,22 +1261,22 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 </tr>
 <tr>
 <td>options</td>
-<td>optional</td>
+<td>(optional) object</td>
 <td>A object detailed with the following parameters.</td>
 </tr>
 <tr>
 <td>data</td>
-<td>optional</td>
+<td>string</td>
 <td>This can be an arbitrary blob of data that companies can utilize in different ways.</td>
 </tr>
 <tr>
 <td>partition</td>
-<td>optional</td>
+<td>string</td>
 <td>The class of the shares to redeem.</td>
 </tr>
 <tr>
 <td>operatorData</td>
-<td>optional</td>
+<td>string</td>
 <td>This can be an arbitrary blob of data that companies can   in different ways.</td>
 </tr>
 </tbody></table>
