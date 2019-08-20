@@ -3,8 +3,13 @@
 ## Introduction
 Welcome to the "Brønnøysund Business Cap Table" (beta) developer documentation, BrregCapTable in short. 
 
+There are some 321 000 limited liability companies in Norway - less than 1000 have their shareholding listed in a securities register. While every company is obliged to keep an updated cap table, the large majority of companies report shareholding only for tax purposes once a year.
+
+A lot of people believe in a local business or a start-up, but few have the energy and insights to actually make an investment. What energy might be released if more people were able to take part in financing ideas they believe in. By providing an infrastructure, we hope to establish a platform that make ownership transparent and lower the risks of engaging with small and mediums sized enterprises. Doing so is part of a broad effort to make capital more efficient, for example by making shares liquid, allowing their use as collateral and link loans, mortgages and payments direct to shares and share transactions. In the process, it is quite possible to imagine a greatly simplified public reporting where regulators may themselves access the required data - and a greatly simplified corporate governance involving share loyalty programs, the payment of dividends and voting. In short, the platform may serve to open and democratizing the unlisted markets for new groups of investors.
+
 Norwegian limited liability companies must have a share capital of at least NOK 30,000 assigned to one or more shares, each of identical nominal value. The total share capital, the number of shares and their nominal value are stated in the company's articles of association.
-All limited liability companies shall have a cap table unless the company's shares are registered in the public securities register - a precondition for being listed. The cap table shall at all times contain an overview of the company’s shareholders, and it will normally determine who may exercise shareholder rights including the right to vote at the general meeting and the right to receive dividends. The cap table is in principle public - insight may not be denied.
+
+All limited liability companies shall have a register of shareholders unless the company's shares are registered in a securities register. The cap table shall at all times contain an overview of the company’s shareholders, and it will normally determine who may exercise shareholder rights including the right to vote at the general meeting and the right to receive dividends. The cap table is in principle public - insight may not be denied.
 
 ### What is a cap table?
 Upon listing a shareholder in the shareholders' register the company shall notify the shareholder thereof. The shareholders’ register shall be updated in accordance with established rules in the Companies Act (§ 4-7) to reflect changes of ownership or pledging of shares.
@@ -36,6 +41,12 @@ A project that is looking to integrate with BrregCapTable has 5 different avenue
 * [REST](http://52.158.44.155:4000/api_docs)
 
 The SDK makes it easy to make read and makes changes to company cap tables. A smart contract integration allows you to extend the register itself. For new smart contract developers we recommend this <a href="https://karl.tech/learning-solidity-part-1-deploy-a-contract/" target="_blank">Learning Solidity tutorial series by Karl Floersch</a>. The common methods existing applications use to integrate with our protocol implementation are through our SDK. Explore the SDK guides to learn more!
+
+## Demo data
+
+We have extracted data from our registries for about 130 companies respectively. It is stored in two excel files.
+
+[Download here](https://drive.google.com/drive/folders/1c2c54U8-klVijtEUrP_yhdLHFnw0CkFB?usp=sharing)
 
 # Main Concepts
 
