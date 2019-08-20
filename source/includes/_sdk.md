@@ -7,7 +7,7 @@ You can connect to the platform with the SDK, or you can extend the platform its
 > To install the SDK to your project, just use NPM in your project.
 
 ```
-npm install @brreg-sdk
+npm install @brreg/sdk
 ```
 
 To develop on BrregCapTable, you start out by installing the SDK on your development machine. 
