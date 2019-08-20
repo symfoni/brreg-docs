@@ -228,6 +228,11 @@
           </li>
           <li>
             <a href="#integrate-your-application" class="toc-h1 toc-link" data-title="Integrate your application">Integrate your application</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#demo-data" class="toc-h2 toc-link" data-title="Demo data">Demo data</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#main-concepts" class="toc-h1 toc-link" data-title="Main Concepts">Main Concepts</a>
@@ -282,8 +287,13 @@
         <h1 id='brreg-cap-table-brregcaptable-developer-documentation'>Brreg Cap Table (BrregCapTable) Developer Documentation</h1><h2 id='introduction'>Introduction</h2>
 <p>Welcome to the &quot;Brønnøysund Business Cap Table&quot; (beta) developer documentation, BrregCapTable in short. </p>
 
-<p>Norwegian limited liability companies must have a share capital of at least NOK 30,000 assigned to one or more shares, each of identical nominal value. The total share capital, the number of shares and their nominal value are stated in the company&#39;s articles of association.
-All limited liability companies shall have a cap table unless the company&#39;s shares are registered in the public securities register - a precondition for being listed. The cap table shall at all times contain an overview of the company’s shareholders, and it will normally determine who may exercise shareholder rights including the right to vote at the general meeting and the right to receive dividends. The cap table is in principle public - insight may not be denied.</p>
+<p>There are some 321 000 limited liability companies in Norway - less than 1000 have their shareholding listed in a securities register. While every company is obliged to keep an updated cap table, the large majority of companies report shareholding only for tax purposes once a year.</p>
+
+<p>A lot of people believe in a local business or a start-up, but few have the energy and insights to actually make an investment. What energy might be released if more people were able to take part in financing ideas they believe in. By providing an infrastructure, we hope to establish a platform that make ownership transparent and lower the risks of engaging with small and mediums sized enterprises. Doing so is part of a broad effort to make capital more efficient, for example by making shares liquid, allowing their use as collateral and link loans, mortgages and payments direct to shares and share transactions. In the process, it is quite possible to imagine a greatly simplified public reporting where regulators may themselves access the required data - and a greatly simplified corporate governance involving share loyalty programs, the payment of dividends and voting. In short, the platform may serve to open and democratizing the unlisted markets for new groups of investors.</p>
+
+<p>Norwegian limited liability companies must have a share capital of at least NOK 30,000 assigned to one or more shares, each of identical nominal value. The total share capital, the number of shares and their nominal value are stated in the company&#39;s articles of association.</p>
+
+<p>All limited liability companies shall have a register of shareholders unless the company&#39;s shares are registered in a securities register. The cap table shall at all times contain an overview of the company’s shareholders, and it will normally determine who may exercise shareholder rights including the right to vote at the general meeting and the right to receive dividends. The cap table is in principle public - insight may not be denied.</p>
 <h3 id='what-is-a-cap-table'>What is a cap table?</h3>
 <p>Upon listing a shareholder in the shareholders&#39; register the company shall notify the shareholder thereof. The shareholders’ register shall be updated in accordance with established rules in the Companies Act (§ 4-7) to reflect changes of ownership or pledging of shares.
 Shares can be sold or given away without payment unless otherwise stated by law, articles of association or agreement between the shareholders. In the case of a sale, the price is normally calculated based on market value. Transfers of ownership below market value are referred to as “gift sale” and may trigger a tax liability.
@@ -315,6 +325,10 @@ Transfers in BrregCapTable will be reported automatically. The new shareholder m
 </ul>
 
 <p>The SDK makes it easy to make read and makes changes to company cap tables. A smart contract integration allows you to extend the register itself. For new smart contract developers we recommend this <a href="https://karl.tech/learning-solidity-part-1-deploy-a-contract/" target="_blank">Learning Solidity tutorial series by Karl Floersch</a>. The common methods existing applications use to integrate with our protocol implementation are through our SDK. Explore the SDK guides to learn more!</p>
+<h2 id='demo-data'>Demo data</h2>
+<p>We have extracted data from our registries for about 130 companies respectively. It is stored in two excel files.</p>
+
+<p><a href="https://drive.google.com/drive/folders/1c2c54U8-klVijtEUrP_yhdLHFnw0CkFB?usp=sharing">Download here</a></p>
 <h1 id='main-concepts'>Main Concepts</h1><h2 id='common-terms'>Common Terms</h2>
 <p>This is a list of terms you might encounter when developing on BrregCapTable.</p>
 <h3 id='cap-table'>Cap table</h3>
@@ -577,13 +591,27 @@ This code snippet is essential for using any of the following methods from the S
 <td>If you want to point the SDK at another blockchain than the <a href="#networks-and-endpoints">Staging server</a></td>
 </tr>
 </tbody></table>
-<h3 id='list'>list()</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">list</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">RegistryOfCapTablesContract</span><span class="p">.</span><span class="nx">list</span><span class="p">();</span>
+<h3 id='list'>list()</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>RETURN</td>
+<td>Promise&lt; CapTableInfo[] &gt;</td>
+<td></td>
+</tr>
+</tbody></table>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">list</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">RegistryOfCapTablesContract</span><span class="p">.</span><span class="nx">list</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">);</span>
 </code></pre>
 <blockquote>
 <p>Example of return data:</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="p">[</span> 
+<pre class="highlight javascript tab-javascript"><code><span class="k">return</span> <span class="p">[</span> 
     <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s1">'Empty inc.'</span><span class="p">,</span>
     <span class="na">totalSupply</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="na">denomination</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -677,7 +705,7 @@ This code snippet is essential for using any of the following methods from the S
 <td><a href="#company-api">Company API</a></td>
 </tr>
 </tbody></table>
-<h2 id='entity-registry-api'>Entity Registry API</h2><h3 id='init-externalsignerprovider-signer-any-proxyaddress-string-promise-2'>init(externalSignerProvider: Signer | any, proxyAddress?: string) : Promise<EntityRegistry></h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">EntityRegistryClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">EntityRegistry</span>
+<h2 id='entity-registry-api'>Entity Registry API</h2><h3 id='init-externalsignerprovider-signer-any-proxyaddress-string-2'>init(externalSignerProvider: Signer | any, proxyAddress?: string)</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">EntityRegistryClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">EntityRegistry</span>
 <span class="kr">const</span> <span class="nx">entityRegistry</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">EntityRegistryClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">);</span>
 </code></pre>
 <table><thead>
@@ -695,6 +723,11 @@ This code snippet is essential for using any of the following methods from the S
 <tr>
 <td>proxyAddress</td>
 <td>String (Ethereum address)</td>
+<td>If you want to point the SDK at another blockchain than the <a href="#networks-and-endpoints">Stagning server</a></td>
+</tr>
+<tr>
+<td>RETURN</td>
+<td>Promise<EntityRegistry></td>
 <td>If you want to point the SDK at another blockchain than the <a href="#networks-and-endpoints">Stagning server</a></td>
 </tr>
 </tbody></table>
