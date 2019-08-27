@@ -136,7 +136,7 @@ const RegistryOfCapTablesContract = await RegistryOfCapTables.init(ethereum);
 // RegistryOfCapTablesContract is now an instance of this smart contract. and we can run its interfaces. By example await RegistryOfCapTablesContract.list() to list all the companies saved within this smart contract.
 ```
 
-## Registry Of Cap Tables API
+## Registry Of Cap Tables
 
 While most functions are specific to a given company, the functions in this chapter are platform-wide (they relate to all of BrregCapTable).
 
@@ -149,15 +149,15 @@ const RegistryOfCapTables = require("@brreg/sdk").RegistryOfCapTables
 const RegistryOfCapTablesContract = await RegistryOfCapTables.init(ethereum);
 ```
 
-Parameter | Type | Description
---------- | ------- | -----------
-externalSignerProvider|Ethereum provider|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
-proxyAddress|String (Ethereum address)|If you want to point the SDK at another blockchain than the [Staging server](#networks-and-endpoints)
+| Parameter              | Type                      | Description                                                                                                                                    |
+| ---------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| externalSignerProvider | Ethereum provider         | Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above. |
+| proxyAddress           | String (Ethereum address) | If you want to point the SDK at another blockchain than the [Staging server](#networks-and-endpoints)                                          |
 
 ### list() 
-Parameter | Type | Description
---------- | ------- | -----------
-RETURN|Promise< CapTableInfo[] >| 
+| Parameter | Type                      | Description |
+| --------- | ------------------------- | ----------- |
+| RETURN    | Promise< CapTableInfo[] > |
 
 ```javascript
 const list = await RegistryOfCapTablesContract.list();
@@ -190,7 +190,7 @@ List all companies on the platform
 
 BrregCapTable deals only with companies that have been onboarded. Use this code to list these.
 
-## Company Factory API
+## Company Factory
 
 Used to onboard new company.
 
@@ -203,10 +203,10 @@ const CompanyFactoryClass = require("@brreg/sdk").StockFactory;
 const companyFactory = await CompanyFactoryClass.init(ethereum);
 ```
 
-Parameter | Type | Description
---------- | ------- | -----------
-externalSignerProvider|Provider|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
-proxyAddress|String|If you want to point the SDK at another blockchain than the [Staging server](#networks-and-endpoints)
+| Parameter              | Type     | Description                                                                                                                                    |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| externalSignerProvider | Provider | Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above. |
+| proxyAddress           | String   | If you want to point the SDK at another blockchain than the [Staging server](#networks-and-endpoints)                                          |
 
 ### createNew(name: string, uuid: string, options: { partitions: string[], symbol: string }) : Promise<Stock> 
 
@@ -218,17 +218,17 @@ const Company = await companyFactory.createNew("Blockchangers AS", "915772137");
 
 This actions will queue the company for verification.
 
-Parameter | Type | Description
---------- | ------- | -----------
-name|String|Business name
-uuid|String|Organization number, note that it's a string
-options|Object|Object with the following possible options
-partitions|String[]|List of share classes as strings. Example ['a-share', 'b-share']
-symbol|String|Shorthand for the company, 4 characters length.
-RETURN|Promise<Company>|[Company API](#company-api)
+| Parameter  | Type             | Description                                                      |
+| ---------- | ---------------- | ---------------------------------------------------------------- |
+| name       | String           | Business name                                                    |
+| uuid       | String           | Organization number, note that it's a string                     |
+| options    | Object           | Object with the following possible options                       |
+| partitions | String[]         | List of share classes as strings. Example ['a-share', 'b-share'] |
+| symbol     | String           | Shorthand for the company, 4 characters length.                  |
+| RETURN     | Promise<Company> | [Company API](#company-api)                                      |
 
 
-## Entity Registry API
+## Entity Registry
 
 ### init(externalSignerProvider: Signer | any, proxyAddress?: string)
 
@@ -237,11 +237,11 @@ const EntityRegistryClass = require("@brreg/sdk").EntityRegistry
 const entityRegistry = await EntityRegistryClass.init(ethereum);
 ```
 
-Parameter | Type | Description
---------- | ------- | -----------
-externalSignerProvider|Provider|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
-proxyAddress|String (Ethereum address)|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
-RETURN|Promise<EntityRegistry>|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
+| Parameter              | Type                      | Description                                                                                                                                    |
+| ---------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| externalSignerProvider | Provider                  | Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above. |
+| proxyAddress           | String (Ethereum address) | If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)                                         |
+| RETURN                 | Promise<EntityRegistry>   | If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)                                         |
 
 
 ### generateAddress() : Promise<string> 
@@ -251,9 +251,9 @@ const arbitraryAddress = await entityRegistry.generateAddress();
 
 Many companies will have stockholders who are not on the BrregCapTable platform. Hence the shares can not be sent to the user. Technically these shares still need to be generated on the blockchain, and put on seperate users. This method generates an arbitrary address for you to put shares on, for users not on the platform. Generate one address for every user who does not have a prior address, i.e. those not registered as users on BrregCapTable.
 
-Parameter | Type | Description
---------- | ------- | -----------
-RETURN|String (Ethereum address)| A random ethereum address
+| Parameter | Type                      | Description               |
+| --------- | ------------------------- | ------------------------- |
+| RETURN    | String (Ethereum address) | A random ethereum address |
 
 
 ### allTransactionsAllCapTables(uuid: string) : Promise<CapTableTransactions[]> 
@@ -279,9 +279,9 @@ console.log(captable);
 
 Returns all transactions done for the given person. This function can be used for most views, analytics and statistics that you want to present the user with. Get all the data with this function, then filter and customize the returned data, before presenting it to the user.
 
-Parameter | Type | Description
---------- | ------- | -----------
-uuid|String| The uuid of which you want to get all transactions
+| Parameter | Type   | Description                                        |
+| --------- | ------ | -------------------------------------------------- |
+| uuid      | String | The uuid of which you want to get all transactions |
 
 > interface CapTableTransactions 
 
@@ -300,9 +300,9 @@ console.log(entityData);
 
 Get data about the given entity. 
 
-Parameter | Type | Description
---------- | ------- | -----------
-uuid|String|The personal identification number of a person, or a organization number of a company. 
+| Parameter | Type   | Description                                                                            |
+| --------- | ------ | -------------------------------------------------------------------------------------- |
+| uuid      | String | The personal identification number of a person, or a organization number of a company. |
 
 > type EntityData
 
@@ -353,33 +353,33 @@ Adds an entity to the entityRegistry.
 
 > Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds
 
-Parameter | Type | Description
---------- | ------- | -----------
-EntityData|object|The EntityData object is described with the following parameters
-address|string|The blockchain address for the given company or  person
-uuid|string|String. The organizational number of a company or the identification number of a person
-type|string|String. 'person' or 'organization.
-name|string|String. Name of the entity.
-country|string|String. Country of the entity.
-city|string|String. City of the entity.
-postalcode|string|String. Postal code of the entity.
-streetAddress|string|String. Street Address of the entity.
+| Parameter     | Type   | Description                                                                             |
+| ------------- | ------ | --------------------------------------------------------------------------------------- |
+| EntityData    | object | The EntityData object is described with the following parameters                        |
+| address       | string | The blockchain address for the given company or  person                                 |
+| uuid          | string | String. The organizational number of a company or the identification number of a person |
+| type          | string | String. 'person' or 'organization.                                                      |
+| name          | string | String. Name of the entity.                                                             |
+| country       | string | String. Country of the entity.                                                          |
+| city          | string | String. City of the entity.                                                             |
+| postalcode    | string | String. Postal code of the entity.                                                      |
+| streetAddress | string | String. Street Address of the entity.                                                   |
 
 ### updateEntity(data: EntityData) : Promise<ContractReceipt>
 
 Updates an entity in the entityRegistry.
 
-Parameter | Type | Description
---------- | ------- | -----------
-EntityData|object|The EntityData object is described with the following parameters
-address|string|The blockchain address for the given company or person
-uuid|string|String. The organizational number of a company or the identification number of a person
-type|string|String. 'person' or 'organization.
-name|string|String. Name of the entity.
-country|string|String. Country of the entity.
-city|string|String. City of the entity.
-postalcode|string|String. Postal code of the entity.
-streetAddress|string|String. Street Address of the entity.
+| Parameter     | Type   | Description                                                                             |
+| ------------- | ------ | --------------------------------------------------------------------------------------- |
+| EntityData    | object | The EntityData object is described with the following parameters                        |
+| address       | string | The blockchain address for the given company or person                                  |
+| uuid          | string | String. The organizational number of a company or the identification number of a person |
+| type          | string | String. 'person' or 'organization.                                                      |
+| name          | string | String. Name of the entity.                                                             |
+| country       | string | String. Country of the entity.                                                          |
+| city          | string | String. City of the entity.                                                             |
+| postalcode    | string | String. Postal code of the entity.                                                      |
+| streetAddress | string | String. Street Address of the entity.                                                   |
 
 ## Company API
 
@@ -392,12 +392,12 @@ const CompanyClass = require("@brreg/sdk").Stock;
 const Company = await CompanyClass.init(ethereum, "0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E");
 ```
 
-Parameter | Type | Description
---------- | ------- | -----------
-externalSignerProvider|Ethereum provider|Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above.
-address|String|The ethereum address of the company. In the future, this will be able to accept UUID.
-proxyAddress|(optional) string|If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)
-RETURN|Promise<Company>|[Company API](#company-api)
+| Parameter              | Type              | Description                                                                                                                                    |
+| ---------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| externalSignerProvider | Ethereum provider | Should be set to the user's wallet i.e. `ethereum` from the section [Accessing the user's wallet](#accessing-the-user-39-s-wallet) from above. |
+| address                | String            | The ethereum address of the company. In the future, this will be able to accept UUID.                                                          |
+| proxyAddress           | (optional) string | If you want to point the SDK at another blockchain than the [Stagning server](#networks-and-endpoints)                                         |
+| RETURN                 | Promise<Company>  | [Company API](#company-api)                                                                                                                    |
 
 > In next version of Company API, this will be able to accept UUID instead of the Etehreum address to initiate the company class.
 
@@ -502,13 +502,13 @@ await tx.wait();
 > Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds
 
 
-Parameter | Type | Description
---------- | ------- | -----------
-toUuid|string|The personal identification number of a person, or an organization number of a company. 
-numberOfSharesToTransfer|number|Amount
-options|(optional) object|A object detailed with the following parameters.
-data|string| This can be an arbitrary blob of data that Companies can utilize in different ways.
-partition|string|The class of the shares to issue.
+| Parameter                | Type              | Description                                                                             |
+| ------------------------ | ----------------- | --------------------------------------------------------------------------------------- |
+| toUuid                   | string            | The personal identification number of a person, or an organization number of a company. |
+| numberOfSharesToTransfer | number            | Amount                                                                                  |
+| options                  | (optional) object | A object detailed with the following parameters.                                        |
+| data                     | string            | This can be an arbitrary blob of data that Companies can utilize in different ways.     |
+| partition                | string            | The class of the shares to issue.                                                       |
 
 Function for moving shares from one person or company, another. Note that you as a developer do not input who the shares come from. When the user initiates the transfer from your service, the transaction is signed and sent from them. Hence the shares are sent from her. 
 
@@ -521,14 +521,14 @@ If a controller wants to force a transaction the controller may use this functio
 > Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds
 
 
-Parameter | Type | Description
---------- | ------- | -----------
-toUuid|string|The personal identification number of a person, or an organization number of a company. 
-numberOfSharesToTransfer|number|Amount
-options|(optional) object|A object detailed with the following parameters.
-data|string| This can be an arbitrary blob of data that companies can utilize in different ways.
-partition|string|The class of the shares to issue.
-operatorData|string|This can be an arbitrary blob of data that companies can utilize in different ways.
+| | Parameter                               | Type                           | Description                                                                             |                                                                             |
+| | --------------------------------------- | --------------------------- | --------------------------------------------------------------------------------------- |---------------------------------------------------------------------------- |
+| | toUuid                                      |  string                        |  The personal identification number of a person, or an organization number of a company. ||
+| | numberOfSharesToTransfer  |  number                        |  Amount                                                                                  |                                                                                  |
+| | options                                    |  (optional) object  |  A object detailed with the following parameters.                                        |                                        |
+| | data                                          |  string                        | This can be an arbitrary blob of data that companies can utilize in different ways.     |     |
+| | partition                                |  string                        |  The class of the shares to issue.                                                       |                                                       |
+| operatorData             | string            | This can be an arbitrary blob of data that companies can utilize in different ways.     |
 
 ### issue(toUuid: string, numberOfSharesToTransfer: number, options?: { data?: string, partition?: string })  : Promise<TransactionResponse>
 
@@ -542,13 +542,13 @@ await tx.wait();
 
 Issue new shares to the given entity.
 
-Parameter | Type | Description
---------- | ------- | -----------
-toUuid|string|The personal identification number of a person, or an organization number of a company. 
-numberOfSharesToTransfer|number|Amount
-options|(optional) object|A object detailed with the following parameters.
-data|string| This can be an arbitrary blob of data that companies can utilize in different ways.
-partition|string|The class of the shares to issue.
+| Parameter                | Type              | Description                                                                             |
+| ------------------------ | ----------------- | --------------------------------------------------------------------------------------- |
+| toUuid                   | string            | The personal identification number of a person, or an organization number of a company. |
+| numberOfSharesToTransfer | number            | Amount                                                                                  |
+| options                  | (optional) object | A object detailed with the following parameters.                                        |
+| data                     | string            | This can be an arbitrary blob of data that companies can utilize in different ways.     |
+| partition                | string            | The class of the shares to issue.                                                       |
 
 
 
@@ -556,25 +556,25 @@ partition|string|The class of the shares to issue.
 
 Remove shares from the sending address.
 
-Parameter | Type | Description
---------- | ------- | -----------
-numberOfSharesToRedeem|number| AMount of shares to remove.
-options|(optional) object|A object detailed with the following parameters.
-data|string| This can be an arbitrary blob of data that companies can utilize in different ways.
-partition|string|The class of the shares to redeem.
+| Parameter              | Type              | Description                                                                         |
+| ---------------------- | ----------------- | ----------------------------------------------------------------------------------- |
+| numberOfSharesToRedeem | number            | AMount of shares to remove.                                                         |
+| options                | (optional) object | A object detailed with the following parameters.                                    |
+| data                   | string            | This can be an arbitrary blob of data that companies can utilize in different ways. |
+| partition              | string            | The class of the shares to redeem.                                                  |
 
 ### operatorRedeem(fromUuid: string, numberOfSharesToRedeem: number, options?: { partition?: string, data?: string, operatorData?: string }) : Promise<TransactionResponse>
 
 Remove shares from the sending address.
 
-Parameter | Type | Description
---------- | ------- | -----------
-fromUuid|string| From which UUID shall the operator remove shares.
-numberOfSharesToRedeem|number| Amount of shares to remove.
-options|(optional) object|A object detailed with the following parameters.
-data|string| This can be an arbitrary blob of data that companies can utilize in different ways.
-partition|string|The class of the shares to redeem.
-operatorData|string|This can be an arbitrary blob of data that companies can   in different ways.
+| Parameter              | Type              | Description                                                                         |
+| ---------------------- | ----------------- | ----------------------------------------------------------------------------------- |
+| fromUuid               | string            | From which UUID shall the operator remove shares.                                   |
+| numberOfSharesToRedeem | number            | Amount of shares to remove.                                                         |
+| options                | (optional) object | A object detailed with the following parameters.                                    |
+| data                   | string            | This can be an arbitrary blob of data that companies can utilize in different ways. |
+| partition              | string            | The class of the shares to redeem.                                                  |
+| operatorData           | string            | This can be an arbitrary blob of data that companies can   in different ways.       |
 
 
 
