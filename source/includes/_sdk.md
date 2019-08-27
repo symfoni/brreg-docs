@@ -381,6 +381,21 @@ Updates an entity in the entityRegistry.
 | postalcode    | string | String. Postal code of the entity.                                                      |
 | streetAddress | string | String. Street Address of the entity.                                                   |
 
+```javascript
+const entityRegistry = await EntityRegistry.init(ethereum)
+let tx = await entityRegistry.updateEntity({
+    address: companyAddress,
+    uuid: "915772137",
+    type: 'person' , // or 'organization
+    name: "Blockchangers AS" , 
+    country: "Norway",
+    city: "Oslo",
+    postalcode: "0179",
+    streetAddress: "Møllergata 6"
+});
+await tx.wait();
+```
+
 ## Company API
 
 ### init(externalSignerProvider: Signer | any, address: string, proxyAddress?: string)
@@ -497,6 +512,26 @@ const CompanyClass = require("@brreg/sdk").Stock;
 const company = await CompanyClass.init(ethereum, "0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E");
 company.transfer("24078612345", 100);
 await tx.wait();
+
+interface TransactionsRespons { 
+  nonce: 2,
+  gasPrice: BigNumber { _hex: '0x00' },
+  gasLimit: BigNumber { _hex: '0x02faf080' },
+  to: '0x12004352Ba03376bf6B2dd8B8Fa1767B9a5679Df',
+  value: BigNumber { _hex: '0x00' },
+  data:
+   '0x67c8491941000000000000000000000000000000000000000000000000000000000000000000000000000000000000002419d23dcbd5eb48c7e6f6f1b9e40c4a57aea71f00000000000000000000000000000000000000000000000000000000000003e8000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000201000000000000000000000000000000000000000000000000000000000000000',
+  chainId: 53387025,
+  v: 106774085, // This is a signature value, dont mind it now.
+  r: 
+   '0x7fb685f478ea5b5764df12956bf26a644c670238a206363ad435b1fb898fd66d',  // This is a signature value, dont mind it now.
+  s:
+   '0x4f17dfb0d01c72bed0abcd719f82701c3aa7562da7a0e3cb7db5c81dffc51e81',  // This is a signature value, dont mind it now.
+  from: '0xCa982614b8cc6983A3B5ACe725F1964C9Eec6f2e',
+  hash:
+   '0x3ac3293e6e16afa43ec9dad604c6d26a75ae642d34a52ce1f559fdb8e00f6720',
+  wait: [Function] 
+  }
 ```
 
 > Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds
@@ -536,7 +571,7 @@ If a controller wants to force a transaction the controller may use this functio
 const CompanyClass = require("@brreg/sdk").Stock;
 const Company = await CompanyClass.init(ethereum, "0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E");
 
-let tx = Company.issue("24078612345", 1000);
+let tx = await Company.issue("24078612345", 1000);
 await tx.wait();
 ```
 
