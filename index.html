@@ -1161,14 +1161,44 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 <p>Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds</p>
 </blockquote>
 
-<p>| | Parameter                               | Type                           | Description                                                                             |                                                                             |
-| | --------------------------------------- | --------------------------- | --------------------------------------------------------------------------------------- |---------------------------------------------------------------------------- |
-| | toUuid                                      |  string                        |  The personal identification number of a person, or an organization number of a company. ||
-| | numberOfSharesToTransfer  |  number                        |  Amount                                                                                  |                                                                                  |
-| | options                                    |  (optional) object  |  A object detailed with the following parameters.                                        |                                        |
-| | data                                          |  string                        | This can be an arbitrary blob of data that companies can utilize in different ways.     |     |
-| | partition                                |  string                        |  The class of the shares to issue.                                                       |                                                       |
-| operatorData             | string            | This can be an arbitrary blob of data that companies can utilize in different ways.     |</p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>toUuid</td>
+<td>string</td>
+<td>The personal identification number of a person, or an organization number of a company.</td>
+</tr>
+<tr>
+<td>numberOfSharesToTransfer</td>
+<td>number</td>
+<td>Amount</td>
+</tr>
+<tr>
+<td>options</td>
+<td>(optional) object</td>
+<td>A object detailed with the following parameters.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>string</td>
+<td>This can be an arbitrary blob of data that companies can utilize in different ways.</td>
+</tr>
+<tr>
+<td>partition</td>
+<td>string</td>
+<td>The class of the shares to issue.</td>
+</tr>
+<tr>
+<td>operatorData</td>
+<td>string</td>
+<td>This can be an arbitrary blob of data that companies can utilize in different ways.</td>
+</tr>
+</tbody></table>
 <h3 id='issue-touuid-string-numberofsharestotransfer-number-options-data-string-partition-string-promise'>issue(toUuid: string, numberOfSharesToTransfer: number, options?: { data?: string, partition?: string })  : Promise<TransactionResponse></h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">Stock</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">CompanyClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">,</span> <span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
 
