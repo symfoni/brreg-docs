@@ -990,7 +990,19 @@ const RegistryOfCapTablesContract = await RegistryOfCapTables.init(ethereum);
 <td>String. Street Address of the entity.</td>
 </tr>
 </tbody></table>
-<h2 id='company-api'>Company API</h2><h3 id='init-externalsignerprovider-signer-any-address-string-proxyaddress-string'>init(externalSignerProvider: Signer | any, address: string, proxyAddress?: string)</h3>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">entityRegistry</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">EntityRegistry</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">tx</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">entityRegistry</span><span class="p">.</span><span class="nx">updateEntity</span><span class="p">({</span>
+    <span class="na">address</span><span class="p">:</span> <span class="nx">companyAddress</span><span class="p">,</span>
+    <span class="na">uuid</span><span class="p">:</span> <span class="s2">"915772137"</span><span class="p">,</span>
+    <span class="na">type</span><span class="p">:</span> <span class="s1">'person'</span> <span class="p">,</span> <span class="c1">// or 'organization</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s2">"Blockchangers AS"</span> <span class="p">,</span> 
+    <span class="na">country</span><span class="p">:</span> <span class="s2">"Norway"</span><span class="p">,</span>
+    <span class="na">city</span><span class="p">:</span> <span class="s2">"Oslo"</span><span class="p">,</span>
+    <span class="na">postalcode</span><span class="p">:</span> <span class="s2">"0179"</span><span class="p">,</span>
+    <span class="na">streetAddress</span><span class="p">:</span> <span class="s2">"Møllergata 6"</span>
+<span class="p">});</span>
+<span class="nx">await</span> <span class="nx">tx</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+</code></pre><h2 id='company-api'>Company API</h2><h3 id='init-externalsignerprovider-signer-any-address-string-proxyaddress-string'>init(externalSignerProvider: Signer | any, address: string, proxyAddress?: string)</h3>
 <blockquote>
 <p>The Class always has to be initialized before using</p>
 </blockquote>
@@ -1080,6 +1092,26 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 <span class="kr">const</span> <span class="nx">company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">CompanyClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">,</span> <span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
 <span class="nx">company</span><span class="p">.</span><span class="nx">transfer</span><span class="p">(</span><span class="s2">"24078612345"</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
 <span class="nx">await</span> <span class="nx">tx</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
+
+<span class="kr">interface</span> <span class="nx">TransactionsRespons</span> <span class="p">{</span> 
+  <span class="nl">nonce</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="nx">gasPrice</span><span class="p">:</span> <span class="nx">BigNumber</span> <span class="p">{</span> <span class="nl">_hex</span><span class="p">:</span> <span class="s1">'0x00'</span> <span class="p">},</span>
+  <span class="nx">gasLimit</span><span class="p">:</span> <span class="nx">BigNumber</span> <span class="p">{</span> <span class="nl">_hex</span><span class="p">:</span> <span class="s1">'0x02faf080'</span> <span class="p">},</span>
+  <span class="nx">to</span><span class="p">:</span> <span class="s1">'0x12004352Ba03376bf6B2dd8B8Fa1767B9a5679Df'</span><span class="p">,</span>
+  <span class="nx">value</span><span class="p">:</span> <span class="nx">BigNumber</span> <span class="p">{</span> <span class="nl">_hex</span><span class="p">:</span> <span class="s1">'0x00'</span> <span class="p">},</span>
+  <span class="nx">data</span><span class="p">:</span>
+   <span class="s1">'0x67c8491941000000000000000000000000000000000000000000000000000000000000000000000000000000000000002419d23dcbd5eb48c7e6f6f1b9e40c4a57aea71f00000000000000000000000000000000000000000000000000000000000003e8000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000201000000000000000000000000000000000000000000000000000000000000000'</span><span class="p">,</span>
+  <span class="nx">chainId</span><span class="p">:</span> <span class="mi">53387025</span><span class="p">,</span>
+  <span class="nx">v</span><span class="p">:</span> <span class="mi">106774085</span><span class="p">,</span> <span class="c1">// This is a signature value, dont mind it now.</span>
+  <span class="nx">r</span><span class="p">:</span> 
+   <span class="s1">'0x7fb685f478ea5b5764df12956bf26a644c670238a206363ad435b1fb898fd66d'</span><span class="p">,</span>  <span class="c1">// This is a signature value, dont mind it now.</span>
+  <span class="nx">s</span><span class="p">:</span>
+   <span class="s1">'0x4f17dfb0d01c72bed0abcd719f82701c3aa7562da7a0e3cb7db5c81dffc51e81'</span><span class="p">,</span>  <span class="c1">// This is a signature value, dont mind it now.</span>
+  <span class="nx">from</span><span class="p">:</span> <span class="s1">'0xCa982614b8cc6983A3B5ACe725F1964C9Eec6f2e'</span><span class="p">,</span>
+  <span class="nx">hash</span><span class="p">:</span>
+   <span class="s1">'0x3ac3293e6e16afa43ec9dad604c6d26a75ae642d34a52ce1f559fdb8e00f6720'</span><span class="p">,</span>
+  <span class="nx">wait</span><span class="p">:</span> <span class="p">[</span><span class="nb">Function</span><span class="p">]</span> 
+  <span class="p">}</span>
 </code></pre>
 <blockquote>
 <p>Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds</p>
@@ -1140,7 +1172,7 @@ name, totalSupply, denomination, denominationPerShare, director, address, isCont
 <h3 id='issue-touuid-string-numberofsharestotransfer-number-options-data-string-partition-string-promise'>issue(toUuid: string, numberOfSharesToTransfer: number, options?: { data?: string, partition?: string })  : Promise<TransactionResponse></h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">CompanyClass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"@brreg/sdk"</span><span class="p">).</span><span class="nx">Stock</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">Company</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">CompanyClass</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ethereum</span><span class="p">,</span> <span class="s2">"0x2358cEE56BEf4Ac13d65e9F96677f6E40b0abC3E"</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">tx</span> <span class="o">=</span> <span class="nx">Company</span><span class="p">.</span><span class="nx">issue</span><span class="p">(</span><span class="s2">"24078612345"</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">tx</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Company</span><span class="p">.</span><span class="nx">issue</span><span class="p">(</span><span class="s2">"24078612345"</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
 <span class="nx">await</span> <span class="nx">tx</span><span class="p">.</span><span class="nx">wait</span><span class="p">();</span>
 </code></pre>
 <p>Issue new shares to the given entity.</p>
