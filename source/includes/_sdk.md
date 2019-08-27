@@ -555,15 +555,14 @@ If a controller wants to force a transaction the controller may use this functio
 
 > Note that you need to wait for the transaction to go through before continuing. This can take up to 5 seconds
 
-
-| | Parameter                               | Type                           | Description                                                                             |                                                                             |
-| | --------------------------------------- | --------------------------- | --------------------------------------------------------------------------------------- |---------------------------------------------------------------------------- |
-| | toUuid                                      |  string                        |  The personal identification number of a person, or an organization number of a company. ||
-| | numberOfSharesToTransfer  |  number                        |  Amount                                                                                  |                                                                                  |
-| | options                                    |  (optional) object  |  A object detailed with the following parameters.                                        |                                        |
-| | data                                          |  string                        | This can be an arbitrary blob of data that companies can utilize in different ways.     |     |
-| | partition                                |  string                        |  The class of the shares to issue.                                                       |                                                       |
-| operatorData             | string            | This can be an arbitrary blob of data that companies can utilize in different ways.     |
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| toUuid |  string |  The personal identification number of a person, or an organization number of a company. |
+| numberOfSharesToTransfer  |  number |  Amount |
+| options |  (optional) object  |  A object detailed with the following parameters.|
+| data |  string | This can be an arbitrary blob of data that companies can utilize in different ways.     |  
+| partition |  string |  The class of the shares to issue. |
+| operatorData | string | This can be an arbitrary blob of data that companies can utilize in different ways.     |
 
 ### issue(toUuid: string, numberOfSharesToTransfer: number, options?: { data?: string, partition?: string })  : Promise<TransactionResponse>
 
