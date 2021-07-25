@@ -1,8 +1,8 @@
 # Read the documentation online
 
-[Go here](https://blockchangers.github.io/brreg-docs/)
+[Go here](https://symfoni.github.io/brreg-docs/)
 
-This is the source code of the documentation. If you're looking to read it, [go to Github pages](https://blockchangers.github.io/brreg-docs/)
+This is the source code of the documentation. If you're looking to read it, [go to Github pages](https://symfoni.github.io/brreg-docs/)
 
 Contibute to documentation
 ------------------------------
